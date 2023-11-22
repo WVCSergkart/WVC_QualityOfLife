@@ -95,11 +95,11 @@
 	<neverMultiSelect>true</neverMultiSelect>
 	<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-	<designationCategory>WVC_UltraExpansion</designationCategory>
+	<designationCategory>Power</designationCategory>
 	<!-- <constructEffect>ConstructMetal</constructEffect> -->
 	<clearBuildingArea>false</clearBuildingArea>
 	<researchPrerequisites Inherit="False">
-	  <li>WVC_Ultra_Mechtech</li>
+	  <li>WVC_QoL_UniversalConduit</li>
 	</researchPrerequisites>
   </ThingDef>
 

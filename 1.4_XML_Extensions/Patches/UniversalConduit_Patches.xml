@@ -122,6 +122,10 @@
 				<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]</xpath>
 			</li>
 
+			<li Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/ResearchProjectDef[defName="WVC_QoL_UniversalConduit"]</xpath>
+			</li>
+
 		</caseFalse>
 	</Operation>
 

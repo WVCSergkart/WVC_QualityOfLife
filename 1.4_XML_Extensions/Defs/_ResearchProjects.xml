@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ======================================================================= -->
+
+  <ResearchProjectDef>
+	<defName>WVC_QoL_UniversalConduit</defName>
+	<label>universal conduit</label>
+	<description>Allows for universal wiring.</description>
+	<techLevel>Ultra</techLevel>
+	<researchViewX>6.00</researchViewX>
+	<researchViewY>0.00</researchViewY>
+	<prerequisites>
+	  <li>Electricity</li>
+	</prerequisites>
+	<tab>WVC_TechTab</tab>
+	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities>
+	  <li>MultiAnalyzer</li>
+	</requiredResearchFacilities>
+  </ResearchProjectDef>
+
+  <!-- ======================================================================= -->
+
+</Defs>
