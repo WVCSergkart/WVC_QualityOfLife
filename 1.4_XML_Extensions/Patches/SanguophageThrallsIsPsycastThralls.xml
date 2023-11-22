@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.biotech</li>
+			<li>vanillaexpanded.vpsycastse</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_SanguophageThrallsIsPsycastThralls</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/PawnKindDef[defName="SanguophageThrall"]</xpath>
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						<forcedTraits>
+						  <li>VPE_Thrall</li>
+						</forcedTraits>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

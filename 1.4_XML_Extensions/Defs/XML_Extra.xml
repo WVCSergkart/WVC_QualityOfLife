@@ -21,6 +21,80 @@
 
 			<!-- ================================================================= -->
 
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_AlwaysAllowMothball</key>
+				<label>Always allow mothball</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Patches all hediffs so that they always allow mothball. This may improve late game performance or break something.</tooltip>
+				<tKey>WVC_QoL_AlwaysAllowMothball_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_AlwaysAllowMothball_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_WaterDriesTo</key>
+				<label>All water dries to</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Patches water allowing you to dry even deep water.</tooltip>
+				<tKey>WVC_QoL_WaterDriesTo_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_WaterDriesTo_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_WaterIsBeauty</key>
+				<label>All water is beautiful</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Patches the water, making it beautiful at 1.</tooltip>
+				<tKey>WVC_QoL_WaterIsBeauty_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_WaterIsBeauty_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_FilthDisappearsInDays</key>
+				<label>Filth disappears on its own</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>It patches the entire filth, causing it to disappear within 2-5 days.</tooltip>
+				<tKey>WVC_QoL_FilthDisappearsInDays_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_FilthDisappearsInDays_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_NoMoreStrangers</key>
+				<label>No more strangers</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes the automatic spawning of the "Stranger in black" event.</tooltip>
+				<tKey>WVC_QoL_NoMoreStrangers_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_NoMoreStrangers_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_EmpireNotApermanentEnemyToEveryoneExcept</key>
+				<label>Empire not a permanent enemy to everyone</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Makes empires less hostile to everyone. It can help in cases where mods that add player factions do not have a separate patch for the empire.</tooltip>
+				<tKey>WVC_QoL_EmpireNotApermanentEnemyToEveryoneExcept_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_EmpireNotApermanentEnemyToEveryoneExcept_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_NotSoLongParty</key>
+				<label>Not So Long Party</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Reduces the duration of all rituals by 30%. Requires any DLC.</tooltip>
+				<tKey>WVC_QoL_NotSoLongParty_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_NotSoLongParty_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_StopEatMyTrees</key>
+				<label>Stop Eat My Trees</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Makes it so that no one else will ever eat special trees from DLCs.</tooltip>
+				<tKey>WVC_QoL_StopEatMyTrees_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_StopEatMyTrees_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_SanguophageThrallsIsPsycastThralls</key>
+				<label>Thralls Is Thralls</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Compatibility patch between biotech and VPE. Adds the "Thrall" trait from VPE to sanguophage thralls.</tooltip>
+				<tKey>WVC_QoL_SanguophageThrallsIsPsycastThralls_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_SanguophageThrallsIsPsycastThralls_Desc_WVC</tKeyTip>
+			</li>
+
 			<!-- ================================================================= -->
 
 			<li Class="XmlExtensions.Setting.Gap"/>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<li>ludeon.rimworld.royalty</li>
+			<li>ludeon.rimworld.biotech</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>or</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_StopEatMyTrees</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/ThingDef/race</xpath> 
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						  <willNeverEat>
+							<li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+							<li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
+						  </willNeverEat>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>
