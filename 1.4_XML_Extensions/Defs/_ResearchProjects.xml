@@ -10,8 +10,10 @@
 	<techLevel>Ultra</techLevel>
 	<researchViewX>6.00</researchViewX>
 	<researchViewY>0.00</researchViewY>
+	<baseCost>5000</baseCost>
 	<prerequisites>
 	  <li>Electricity</li>
+	  <li>MultiAnalyzer</li>
 	</prerequisites>
 	<tab>WVC_TechTab</tab>
 	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
