@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Hardwork_AllAnimalsTrainable_wvc</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+			<Operation Class="PatchOperationReplace">
+				<xpath>Defs/TrainableDef[defName="Rescue" or defName="Haul"]/requiredTrainability</xpath>
+				<value>
+					<requiredTrainability>None</requiredTrainability>
+				</value>
+			</Operation>
+			<Operation Class="PatchOperationReplace">
+				<xpath>Defs/TrainableDef[defName="Rescue" or defName="Haul"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+					  <li>Tameness</li>
+					</prerequisites>
+				</value>
+			</Operation>
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

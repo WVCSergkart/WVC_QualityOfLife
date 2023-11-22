@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<ModMetaData>
+	<name>WVC - Tweaks and Patches</name>
+	<author>Sergkart</author>
+	<url>https://steamcommunity.com/profiles/76561198019114858/myworkshopfiles/?appid=294100</url>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<packageId>wvc.sergkart.qolpatches</packageId>
+	<description>Adds QoL patches.</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>imranfish.xmlextensions</packageId>
+			<displayName>XML Extensions</displayName>
+			<downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+        <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>erdelf.HumanoidAlienRaces</li>
+		<li>imranfish.xmlextensions</li>
+		<!-- = -->
+		<li>wvc.sergkart.ultraexpansion</li>
+		<li>wvc.sergkart.races.biotech</li>
+	</loadAfter>
+	<loadBefore>
+		<li>krkr.rocketman</li>
+	</loadBefore>
+	<incompatibleWith>
+		<li>wvc.sergkart.core</li>
+	</incompatibleWith>
+</ModMetaData>

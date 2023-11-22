@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_SkillsPlusStats_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+		  <Operation Class="XmlExtensions.UseSettings">
+			<modId>honkai.girls.sergkart</modId>
+			<keys>
+				<li>WVC_SkillsPlusStats_MeleePlusSpeed_Bonus</li>
+				<!-- = -->
+				<li>WVC_SkillsPlusStats_MentalPlusIntellectual_Bonus</li>
+				<!-- = -->
+				<li>WVC_SkillsPlusStats_LearningPlusIntellectual_Bonus</li>
+				<!-- = -->
+				<!-- <li>WVC_SkillsPlusStats_MedicinePlusToxic_Bonus</li> -->
+				<!-- = -->
+				<li>WVC_SkillsPlusStats_ShootingPlusVerbRange_Bonus</li>
+				<li>WVC_SkillsPlusStats_ShootingPlusVerbCD_Bonus</li>
+			</keys>
+			<defaultValues>
+				<li>0.01</li>
+				<!-- = -->
+				<li>0.01</li>
+				<!-- = -->
+				<li>0.05</li>
+				<!-- = -->
+				<!-- <li>0.02</li> -->
+				<!-- = -->
+				<li>0.05</li>
+				<li>0.01</li>
+			</defaultValues>
+			<apply>
+
+			  <li Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>Defs/StatDef[defName="MoveSpeed"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<neverDisabled>true</neverDisabled>
+					<skillNeedFactors>
+					  <li Class="SkillNeed_BaseBonus">
+						<skill>Melee</skill>
+						<baseValue>1</baseValue>
+						<bonusPerLevel>{WVC_SkillsPlusStats_MeleePlusSpeed_Bonus}</bonusPerLevel>
+					  </li>
+					</skillNeedFactors>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>Defs/StatDef[defName="MentalBreakThreshold"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<neverDisabled>true</neverDisabled>
+					<capacityFactors>
+					  <li>
+						<capacity>Consciousness</capacity>
+						<weight>1</weight>
+						<max>1</max>
+					  </li>
+					</capacityFactors>
+					<skillNeedFactors>
+					  <li Class="SkillNeed_BaseBonus">
+						<skill>Intellectual</skill>
+						<baseValue>1</baseValue>
+						<bonusPerLevel>-{WVC_SkillsPlusStats_MentalPlusIntellectual_Bonus}</bonusPerLevel>
+					  </li>
+					</skillNeedFactors>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>Defs/StatDef[defName="GlobalLearningFactor"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<neverDisabled>true</neverDisabled>
+					<capacityFactors>
+					  <li>
+						<capacity>Consciousness</capacity>
+						<weight>1</weight>
+						<!-- <max>2</max> -->
+					  </li>
+					</capacityFactors>
+					<skillNeedFactors>
+					  <li Class="SkillNeed_BaseBonus">
+						<skill>Intellectual</skill>
+						<baseValue>1</baseValue>
+						<bonusPerLevel>{WVC_SkillsPlusStats_LearningPlusIntellectual_Bonus}</bonusPerLevel>
+					  </li>
+					</skillNeedFactors>
+				</value>
+			  </li>
+			  <!-- <li Class="XmlExtensions.PatchOperationSafeAdd"> -->
+				<!-- <xpath>Defs/StatDef[defName="ToxicSensitivity"]</xpath> -->
+				<!-- <safetyDepth>1</safetyDepth> -->
+				<!-- <value> -->
+					<!-- <neverDisabled>true</neverDisabled> -->
+					<!-- <skillNeedFactors> -->
+					  <!-- <li Class="SkillNeed_BaseBonus"> -->
+						<!-- <skill>Medicine</skill> -->
+						<!-- <baseValue>1</baseValue> -->
+						<!-- <bonusPerLevel>-{WVC_SkillsPlusStats_MedicinePlusToxic_Bonus}</bonusPerLevel> -->
+					  <!-- </li> -->
+					<!-- </skillNeedFactors> -->
+				<!-- </value> -->
+			  <!-- </li> -->
+			  <li Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>Defs/StatDef[defName="VEF_VerbRangeFactor"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<neverDisabled>true</neverDisabled>
+					<skillNeedFactors>
+					  <li Class="SkillNeed_BaseBonus">
+						<skill>Shooting</skill>
+						<baseValue>1</baseValue>
+						<bonusPerLevel>{WVC_SkillsPlusStats_ShootingPlusVerbRange_Bonus}</bonusPerLevel>
+					  </li>
+					</skillNeedFactors>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>Defs/StatDef[defName="VEF_VerbCooldownFactor"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<neverDisabled>true</neverDisabled>
+					<skillNeedFactors>
+					  <li Class="SkillNeed_BaseBonus">
+						<skill>Shooting</skill>
+						<baseValue>1</baseValue>
+						<bonusPerLevel>-{WVC_SkillsPlusStats_ShootingPlusVerbCD_Bonus}</bonusPerLevel>
+					  </li>
+					</skillNeedFactors>
+				</value>
+			  </li>
+
+			  <!--=====================================================================-->
+
+			</apply>
+		  </Operation>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_BetterLegendary_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			  <li Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+				<xpath>Defs/StatDef[defName="EquipDelay"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<parts> 
+					  <li Class="StatPart_Quality">
+						<factorAwful>2</factorAwful>
+						<factorPoor>1.5</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>0.75</factorGood>
+						<factorExcellent>0.5</factorExcellent>
+						<factorMasterwork>0</factorMasterwork>
+						<factorLegendary>0</factorLegendary>
+					  </li>
+					</parts>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+				<xpath>Defs/StatDef[defName="Mass"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<parts> 
+					  <li Class="StatPart_Quality">
+						<factorAwful>2</factorAwful>
+						<factorPoor>1.5</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>0.8</factorGood>
+						<factorExcellent>0.7</factorExcellent>
+						<factorMasterwork>0.5</factorMasterwork>
+						<factorLegendary>0.2</factorLegendary>
+					  </li>
+					</parts>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+				<xpath>Defs/StatDef[defName="Flammability"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<parts> 
+					  <li Class="StatPart_Quality">
+						<factorAwful>2</factorAwful>
+						<factorPoor>1.5</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>0.8</factorGood>
+						<factorExcellent>0.5</factorExcellent>
+						<factorMasterwork>0</factorMasterwork>
+						<factorLegendary>0</factorLegendary>
+					  </li>
+					</parts>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+				<xpath>Defs/StatDef[defName="DeteriorationRate"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<parts> 
+					  <li Class="StatPart_Quality">
+						<factorAwful>2</factorAwful>
+						<factorPoor>1.5</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>0.75</factorGood>
+						<factorExcellent>0.5</factorExcellent>
+						<factorMasterwork>0</factorMasterwork>
+						<factorLegendary>0</factorLegendary>
+					  </li>
+					</parts>
+				</value>
+			  </li>
+			  <li Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+				<xpath>Defs/StatDef[defName="Beauty"]</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<parts> 
+					  <li Class="StatPart_Quality">
+						<factorAwful>0</factorAwful>
+						<factorPoor>0.5</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>3</factorGood>
+						<factorExcellent>5</factorExcellent>
+						<factorMasterwork>10</factorMasterwork>
+						<factorLegendary>100</factorLegendary>
+					  </li>
+					</parts>
+				</value>
+			  </li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_FertilityForAllFloors_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+		  <li Class="PatchOperationReplace">
+			<xpath>/Defs/TerrainDef[affordances[li="Diggable" or li="Light" or fertility="Medium" or li="Heavy"]][fertility="0" or fertility="0.0" or fertility="0.00"]/fertility</xpath>
+			<value>
+				<fertility>0.06</fertility>
+			</value>
+		  </li>
+		  <li Class="XmlExtensions.PatchOperationSafeAdd">
+			<xpath>/Defs/TerrainDef[affordances[li="Diggable" or li="Light" or fertility="Medium" or li="Heavy"]]</xpath>
+			<value>
+				<fertility>0.07</fertility>
+			</value>
+		  </li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_ResearchWithoutRestrictions_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<li Class="XmlExtensions.PatchOperationAddOrReplace">
+				<xpath>/Defs/ResearchProjectDef</xpath>
+				<value>
+					<requiredResearchFacilities/>
+					<requiredResearchBuilding/>
+				</value>
+			</li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_FuckDeteriorateMessage_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<li Class="XmlExtensions.PatchOperationAddOrReplace">
+				<xpath>/Defs/ThingDef[apparel]</xpath>
+				<value>
+					<messageOnDeteriorateInStorage>false</messageOnDeteriorateInStorage>
+				</value>
+			</li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_NoSkilLDecayStorytellers_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/StorytellerDef/comps/li[compClass="VFEAncients.StorytellerComp_NoSkilLDecay"]</xpath>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+				<xpath>/Defs/StorytellerDef</xpath>
+				<safetyDepth>1</safetyDepth>
+				<value>
+					<comps>
+						<li MayRequire="vanillaexpanded.vfea">
+							<compClass>VFEAncients.StorytellerComp_NoSkilLDecay</compClass>
+						</li>
+					</comps>
+				</value>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_NotLessThanAHundred_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+		  <li Class="PatchOperationReplace">
+			<xpath>Defs/StatDef[defName="ComfyTemperatureMin"]/minValue</xpath>
+			<value>
+				<minValue>-100</minValue>
+			</value>
+		  </li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_FixedMarketValue_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+		  <li Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName="MarketValue"]</xpath>
+			<value>
+				<maxValue>10000</maxValue>
+			</value>
+		  </li>
+
+		</caseTrue>
+	</Operation>
+
+	<!--=====================================================================-->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Extra_QoLPatches_NotSoAnxious_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<li Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/TraitDef[defName="VTE_Anxious"]/degreeDatas/li/randomMentalState</xpath>
+			</li>
+			<li Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/TraitDef[defName="VTE_Anxious"]/degreeDatas/li/randomMentalStateMtbDaysMoodCurve</xpath>
+			</li>
+
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<!-- <li>ludeon.rimworld.royalty</li> -->
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<!--=====================================================================-->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Extra_QoLPatches_BetterFungalGravel_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+				  <li Class="PatchOperationAdd">
+					<xpath>Defs/TerrainDef[defName="FungalGravel"]/statBases</xpath>
+					<value>
+						<FilthMultiplier>0.0</FilthMultiplier>
+					</value>
+				  </li>
+				  <li Class="XmlExtensions.PatchOperationSafeRemove">
+					<xpath>/Defs/TerrainDef/placeWorkers[li="Placeworker_OnlyUnderThickRoof"]</xpath>
+				  </li>
+
+				</caseTrue>
+			</Operation>
+
+			<!--=====================================================================-->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Extra_QoLPatches_ScarificationWithoutPain_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/HediffDef[defName="Scarification"]</xpath>
+						<value>
+							<chanceToCauseNoPain>1</chanceToCauseNoPain>
+						</value>
+					</li>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>or</logic>
+		<caseTrue>
+
+			<!--=====================================================================-->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Extra_QoLPatches_AGBigTrees_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima"]/plant</xpath>
+						<value>
+							<visualSizeRange>1.1~2.5</visualSizeRange>
+						</value>
+					</li>
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima"]/plant</xpath>
+						<value>
+							<growDays>8</growDays>
+						</value>
+					</li>
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima"]/statBases</xpath>
+						<value>
+							<MaxHitPoints>1200</MaxHitPoints>
+						</value>
+					</li>
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/ThingDef[defName="Plant_MossGauranlen" or defName="Plant_GrassAnima"]/plant</xpath>
+						<value>
+							<lifespanDaysPerGrowDays>60</lifespanDaysPerGrowDays>
+						</value>
+					</li>
+					<li Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/ThingDef[defName="Plant_MossGauranlen" or defName="Plant_GrassAnima"]/statBases</xpath> 
+					  <value>
+							<Beauty>10</Beauty>
+							<BeautyOutdoors>10</BeautyOutdoors>
+					  </value>
+					</li>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

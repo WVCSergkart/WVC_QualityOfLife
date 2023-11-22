@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_Buildings_UniversalConduit_Enable</key>
+		<defaultValue>True</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VCHE</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="vanillaexpanded.vchemfuele"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFEP</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="vanillaexpanded.helixiengas"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+
+			<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+				<!-- <modId>honkai.girls.sergkart</modId> -->
+				<!-- <key>WVC_Buildings_UniversalConduit_SupportPatch_SOS</key> -->
+				<!-- <defaultValue>True</defaultValue> -->
+				<!-- <caseFalse> -->
+
+					<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+						<!-- <xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="kentington.saveourship2"]</xpath> -->
+					<!-- </li> -->
+
+				<!-- </caseFalse> -->
+			<!-- </Operation> -->
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_DBH</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="dubwise.dubsbadhygiene"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Paste</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="vanillaexpanded.vnutriente"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Androids</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="vanillaexpanded.android"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Vampires</key>
+				<defaultValue>True</defaultValue>
+				<caseFalse>
+
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]/comps/li[@MayRequire="vanillaexpanded.sanguophage"]</xpath>
+					</li>
+
+				</caseFalse>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_Buildings_UniversalConduit_IsUndergroudConduit</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>Defs/ThingDef[defName="WVC_UniversalConduit"]</xpath>
+						<value>
+							<graphicData>
+							  <texPath>WVC/QoL/InvisibleThing</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>(1,1)</drawSize>
+							</graphicData>
+							<useHitPoints>false</useHitPoints>
+						</value>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+
+			<li Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/ThingDef[defName="WVC_UniversalConduit"]</xpath>
+			</li>
+
+		</caseFalse>
+	</Operation>
+
+
+</Patch>

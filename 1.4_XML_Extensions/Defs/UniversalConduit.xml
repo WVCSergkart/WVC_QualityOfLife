@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+	<defName>WVC_UniversalConduit</defName>
+	<label>universal conduit</label>
+	<description>A bundle of cables. Can be placed under walls and other buildings.</description>
+	<thingClass>Building</thingClass>
+	<category>Building</category>
+	<graphicData>
+	  <texPath>WVC/QoL/UniversalConduit_Atlas</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <linkType>Transmitter</linkType>
+	  <linkFlags>
+		<li>PowerConduit</li>
+	  </linkFlags>
+	  <damageData>
+		<rect>(0,0.35,1,0.3)</rect>
+	  </damageData>
+	</graphicData>
+	<uiIconPath>WVC/QoL/Conduit_Icon</uiIconPath>
+	<uiIconScale>0.7</uiIconScale>
+	<fillPercent>0</fillPercent>
+	<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+	<building>
+	  <paintable>true</paintable>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <isInert>true</isInert>
+	  <isEdifice>false</isEdifice>
+	  <blueprintGraphicData>
+		<texPath>Things/Building/Linked/PowerConduit_Blueprint_Atlas</texPath>
+	  </blueprintGraphicData>
+	</building>
+	<drawerType>MapMeshOnly</drawerType>
+	<altitudeLayer>Conduits</altitudeLayer>
+	<passability>Standable</passability>
+	<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+	<statBases>
+	  <MaxHitPoints>80</MaxHitPoints>
+	  <WorkToBuild>35</WorkToBuild>
+	  <Flammability>0.0</Flammability>
+	  <Beauty>0</Beauty>
+	  <MarketValue>1</MarketValue>
+	</statBases>
+	<placingDraggableDimensions>1</placingDraggableDimensions>
+	<killedLeavings Inherit="False"/>
+	<!-- <costList> -->
+	  <!-- <WVC_UniversalFuel>1</WVC_UniversalFuel> -->
+	<!-- </costList> -->
+	<stuffCategories>
+	  <li>Metallic</li>
+	</stuffCategories>
+	<costStuffCount>5</costStuffCount>
+	<comps>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTransmitter</compClass>
+		<transmitsPower>true</transmitsPower>
+	  </li>
+	  <!-- <li MayRequire="kentington.saveourship2" Class="CompProperties_ShipHeat"> -->
+		<!-- <compClass>CompShipHeat</compClass> -->
+	  <!-- </li> -->
+	  <li MayRequire="vanillaexpanded.vchemfuele" Class="PipeSystem.CompProperties_ResourceTrader">
+		<pipeNet>VCHE_ChemfuelNet</pipeNet>
+	  </li>
+	  <li MayRequire="vanillaexpanded.vchemfuele" Class="PipeSystem.CompProperties_ResourceTrader">
+		<pipeNet>VCHE_DeepchemNet</pipeNet>
+	  </li>
+	  <!-- <li MayRequire="vanillaexpanded.vfepower" Class="GasNetwork.CompProperties_Gas"> -->
+		<!-- <compClass>GasNetwork.CompGas</compClass> -->
+	  <!-- </li> -->
+	  <li MayRequire="vanillaexpanded.helixiengas" Class="PipeSystem.CompProperties_ResourceTrader">
+		<pipeNet>VHGE_HelixienNet</pipeNet>
+	  </li>
+	  <li MayRequire="dubwise.dubsbadhygiene" Class="DubsBadHygiene.CompProperties_Pipe">
+		<mode>Sewage</mode>
+	  </li>
+	  <li MayRequire="dubwise.dubsbadhygiene" Class="DubsBadHygiene.CompProperties_Pipe">
+		<mode>Air</mode>
+	  </li>
+	  <li MayRequire="vanillaexpanded.vnutriente" Class="PipeSystem.CompProperties_Resource">
+		<pipeNet>VNPE_NutrientPasteNet</pipeNet>
+	  </li>
+	  <li MayRequire="vanillaracesexpanded.sanguophage" Class="PipeSystem.CompProperties_Resource">
+		<pipeNet>VRE_HemogenNet</pipeNet>
+	  </li>
+	  <li MayRequire="vanillaracesexpanded.android" Class="PipeSystem.CompProperties_Resource">
+		<pipeNet>VREA_NeutroamineNet</pipeNet>
+	  </li>
+	</comps>
+	<placeWorkers>
+	  <li>PlaceWorker_Conduit</li>
+	</placeWorkers>
+	<rotatable>false</rotatable>
+	<selectable>true</selectable>
+	<neverMultiSelect>true</neverMultiSelect>
+	<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	<designationCategory>WVC_UltraExpansion</designationCategory>
+	<!-- <constructEffect>ConstructMetal</constructEffect> -->
+	<clearBuildingArea>false</clearBuildingArea>
+	<researchPrerequisites Inherit="False">
+	  <li>WVC_Ultra_Mechtech</li>
+	</researchPrerequisites>
+  </ThingDef>
+
+</Defs>

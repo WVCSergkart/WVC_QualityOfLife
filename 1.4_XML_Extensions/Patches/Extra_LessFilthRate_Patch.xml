@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>ExtraSetting_LessFilthRate_ForAll_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+			<li Class="XmlExtensions.PatchOperationAddOrReplace">
+				<xpath>/Defs/ThingDef/statBases</xpath>
+				<value>
+					<FilthRate>0</FilthRate>
+				</value>
+			</li>
+		</caseTrue>
+	</Operation>
+
+</Patch>

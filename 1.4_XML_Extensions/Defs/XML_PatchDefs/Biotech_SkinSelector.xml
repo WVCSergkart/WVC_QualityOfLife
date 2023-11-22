@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.SlateDef Name="WVC_DummySkinsList_Valks_KL" Abstract="True">
+		<alternateGraphics>
+			<li>
+				<texPath>Skin</texPath>
+			</li>
+			<li>
+				<texPath>Skin1</texPath>
+			</li>
+			<li>
+				<texPath>Skin2</texPath>
+			</li>
+			<li>
+				<texPath>Skin3</texPath>
+			</li>
+			<li>
+				<texPath>Skin4</texPath>
+			</li>
+			<li>
+				<texPath>Skin5</texPath>
+			</li>
+			<li>
+				<texPath>Skin6</texPath>
+			</li>
+			<li>
+				<texPath>Skin7</texPath>
+			</li>
+			<li>
+				<texPath>Skin8</texPath>
+			</li>
+			<li>
+				<texPath>Skin9</texPath>
+			</li>
+			<li>
+				<texPath>Skin10</texPath>
+			</li>
+			<li>
+				<texPath>Skin11</texPath>
+			</li>
+			<li>
+				<texPath>Skin12</texPath>
+			</li>
+			<li>
+				<texPath>Skin13</texPath>
+			</li>
+			<li>
+				<texPath>Skin14</texPath>
+			</li>
+			<li>
+				<texPath>Skin15</texPath>
+			</li>
+			<li>
+				<texPath>Skin16</texPath>
+			</li>
+			<li>
+				<texPath>Skin17</texPath>
+			</li>
+			<li>
+				<texPath>Skin18</texPath>
+			</li>
+			<li>
+				<texPath>Skin19</texPath>
+			</li>
+			<li>
+				<texPath>Skin20</texPath>
+			</li>
+			<li>
+				<texPath>Skin21</texPath>
+			</li>
+			<li>
+				<texPath>Skin22</texPath>
+			</li>
+			<li>
+				<texPath>Skin23</texPath>
+			</li>
+			<li>
+				<texPath>Skin24</texPath>
+			</li>
+			<li>
+				<texPath>Skin25</texPath>
+			</li>
+			<li>
+				<texPath>Skin26</texPath>
+			</li>
+			<li>
+				<texPath>Skin27</texPath>
+			</li>
+			<li>
+				<texPath>Skin28</texPath>
+			</li>
+			<li>
+				<texPath>Skin29</texPath>
+			</li>
+			<li>
+				<texPath>Skin30</texPath>
+			</li>
+			<li>
+				<texPath>Skin31</texPath>
+			</li>
+			<li>
+				<texPath>Skin32</texPath>
+			</li>
+			<li>
+				<texPath>Skin33</texPath>
+			</li>
+			<li>
+				<texPath>Skin34</texPath>
+			</li>
+			<li>
+				<texPath>Skin35</texPath>
+			</li>
+			<li>
+				<texPath>Skin36</texPath>
+			</li>
+			<li>
+				<texPath>Skin37</texPath>
+			</li>
+			<li>
+				<texPath>Skin38</texPath>
+			</li>
+			<!-- <li> -->
+				<!-- <texPath>Skin39</texPath> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <texPath>Skin40</texPath> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <texPath>Skin41</texPath> -->
+			<!-- </li> -->
+		</alternateGraphics>
+	</XmlExtensions.SlateDef>
+
+	<XmlExtensions.SlateDef Name="WVC_DummySkinsList_ELFs_KL" Abstract="True">
+		<alternateGraphics>
+			<li>
+				<texPath>Skin</texPath>
+			</li>
+			<li>
+				<texPath>Skin1</texPath>
+			</li>
+			<li>
+				<texPath>Skin2</texPath>
+			</li>
+			<li>
+				<texPath>Skin3</texPath>
+			</li>
+			<li>
+				<texPath>Skin4</texPath>
+			</li>
+			<li>
+				<texPath>Skin5</texPath>
+			</li>
+		</alternateGraphics>
+	</XmlExtensions.SlateDef>
+
+	<XmlExtensions.PatchDef Name="WVC_BiotechSkinSelector_KL" Abstract="True">
+		<parameters>
+			<li>DummyListName</li>
+			<li>Settings_defName</li>
+			<li>PawnKind_DefName</li>
+			<li>PathRace</li>
+			<li>DLC_Name</li>
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>/Defs/XmlExtensions.SlateDef[@Name="{DummyListName}"]/alternateGraphics/li/texPath</xpath>
+				<prefixLength>4</prefixLength>
+				<storeIn>DEF</storeIn>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/texPath</value>
+						<storeIn>texPath_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+
+							<!--=====================================================================-->
+
+							<Operation Class="XmlExtensions.ApplyPatch">
+								<patchName>WVC_Biotech_SkinSelector_KL_ByCase</patchName>
+								<arguments>
+									<li>{DummyListName}</li>
+									<li>{Settings_defName}</li>
+									<li>{texPath_DEF}</li>
+									<li>{PathRace}</li>
+									<li>{DLC_Name}</li>
+								</arguments>
+							</Operation>
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyListName}</key>
+								<defaultValue>true</defaultValue>
+								<caseTrue>
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/PawnKindDef[defName="{PawnKind_DefName}"]</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<alternateGraphics>
+												<li>
+													<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}</texPath>
+												</li>
+											</alternateGraphics>
+										</value>
+									</Operation>
+
+								</caseTrue>
+							</Operation>
+
+					<!--=====================================================================-->
+
+						</apply>
+					</Operation>
+
+					<!--=====================================================================-->
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

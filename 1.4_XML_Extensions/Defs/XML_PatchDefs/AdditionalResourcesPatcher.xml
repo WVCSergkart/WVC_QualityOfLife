@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_AdditionalResources_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>Name</li>
+			<li>defName</li>
+			<li>Count</li>
+			<li>MayRequireId</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Auto_AdditionalResources_{defName}_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="PatchOperationAdd">
+						<xpath>/Defs/ThingDef[@WVC_Tag="EasyResourcesPatch" or @Name="IG_RacesBase" or defName="akame" or defName="siro" or defName="miko" or defName="kuro" or defName="kon" or defName="hana" or defName="aome" or defName="yuki" or defName="kohime" or defName="konf" or defName="sirof"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigPeriodically"]/customThingToDig</xpath>
+						<value>
+							<li MayRequire="{MayRequireId}">{defName}</li>
+						</value>
+					</Operation>
+					<Operation Class="PatchOperationAdd">
+						<xpath>/Defs/ThingDef[@WVC_Tag="EasyResourcesPatch" or @Name="IG_RacesBase" or defName="akame" or defName="siro" or defName="miko" or defName="kuro" or defName="kon" or defName="hana" or defName="aome" or defName="yuki" or defName="kohime" or defName="konf" or defName="sirof"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigPeriodically"]/customAmountToDig</xpath>
+						<value>
+							<li MayRequire="{MayRequireId}">{Count}</li>
+						</value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!--=====================================================================-->
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_RoyalDryads_AdditionalResoucres_WVC"]/settings/li[@Class="XmlExtensions.Setting.Group"]/settings</xpath>
+				<value>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>Auto_AdditionalResources_{defName}_WVC</key>
+						<label>|- {Name}</label>
+						<defaultValue>false</defaultValue>
+						<tKey>Auto_AdditionalResources_{defName}_Checker_WVC</tKey>
+					</li>
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_AdditionalResources_Spawner_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>Name</li>
+			<li>defName</li>
+			<li>Count</li>
+			<li>MayRequireId</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Auto_AdditionalResources_{defName}_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="PatchOperationAdd">
+					  <xpath>/Defs/ThingDef[@Name="DryadsThingWVC" or @Name="GeneralThing_BaseValkyrie_WVC"]/comps</xpath>
+					  <value>
+						<li MayRequire="{MayRequireId}" Class="CompProperties_Spawner">
+							<thingToSpawn>{defName}</thingToSpawn>
+							<spawnCount>{Count}</spawnCount>
+							<spawnIntervalRange><min>240000</min><max>3600000</max></spawnIntervalRange>
+							<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+							<showMessageIfOwned>false</showMessageIfOwned>
+						</li>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!--=====================================================================-->
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_RoyalDryads_AdditionalResoucres_WVC"]/settings/li[@Class="XmlExtensions.Setting.Group"]/settings</xpath>
+				<value>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>Auto_AdditionalResources_{defName}_WVC</key>
+						<label>|- {Name}</label>
+						<defaultValue>false</defaultValue>
+						<tKey>Auto_AdditionalResources_{defName}_Checker_WVC</tKey>
+					</li>
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

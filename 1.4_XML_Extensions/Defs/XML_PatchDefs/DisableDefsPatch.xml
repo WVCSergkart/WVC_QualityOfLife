@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_DisableDefs_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>MarkerName</li>
+			<li>DefsType</li>
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/{DefsType}[@Name="{MarkerName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DEF</storeIn>
+				<apply> 
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+							<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+								<xpath>/Defs/{DefsType}[defName="{defName_DEF}"]</xpath>
+							</Operation>
+							<!-- <Operation Class="XmlExtensions.Log"> -->
+								<!-- <xpath>{defName_DEF}/label</xpath> -->
+							<!-- </Operation> -->
+						</apply>
+					</Operation>
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

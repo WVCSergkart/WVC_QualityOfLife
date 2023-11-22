@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>Settings_ExtraWVC</defName>
+		<!-- <modId>honkai.girls.sergkart.general.extra</modId> -->
+		<!-- <label>KL - Extra</label> -->
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.GapLine" />
+			<!-- ======================================== -->
+			<!-- ======================================== -->
+			<!-- ======================================== -->
+			<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+				<!-- <color>(132,255,0)</color> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.Text">
+				<text>For some patches to work correctly, you need the mod to be as low as possible!\n\nPlease note that some options require DLCs.</text>
+				<tKey>HGS_Extra_MainInfo_WVC</tKey>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>ExtraSetting_ApparelWhiteListPatch_ValksOrAll_WVC</key>
+				<label>Apparel patch for all</label>
+				<tooltip>The mod has an autopatcher that allows any race to put on invisible (non-textured) clothes. By default, the autopatcher is disabled, after enabling a list of supported races will appear (you need to restart to see the list).\n\nKeep in mind that some races can experience bugs, most often when they do not have the usual legs or arms, because of which these races can wear an infinite number of pants and gloves.\n\n(Does not support CE)</tooltip>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_ExtraSetting_ApparelWhiteListPatch_ValksOrAll_Label_WVC</tKey>
+				<tKeyTip>HGS_ExtraSetting_ApparelWhiteListPatch_ValksOrAll_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.SetColor"/>
+			<li Class="XmlExtensions.Setting.Section" WVC_Tag="ApparelPatchMenu">
+				<settings>
+
+					<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+						<!-- <color>(132,255,0)</color> -->
+					<!-- </li> -->
+
+				</settings>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<!-- <li Class="XmlExtensions.Setting.SetColor"/> -->
+			<li Class="XmlExtensions.Setting.Section">
+				<settings>
+
+					<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+						<!-- <color>(132,255,0)</color> -->
+					<!-- </li> -->
+					<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+						<!-- <key>WVC_ExoticResources_MainPatch</key> -->
+						<!-- <label>Enable exotic resources</label> -->
+						<!-- <defaultValue>false</defaultValue> -->
+						<!-- <tooltip>The patch adds a number of metals that have different characteristics: color, damage, durability, weight, etc. These resources are not mined, but will often be found on enemies (armor, weapons). The only purpose of these resources is to diversify the world, while not greatly affecting the development of the player.\n\nMore metals will be added over time.</tooltip> -->
+						<!-- <tKey>HGS_ExoticResources_MainPatch_Label_WVC</tKey> -->
+						<!-- <tKeyTip>HGS_ExoticResources_MainPatch_Desc_WVC</tKeyTip> -->
+					<!-- </li> -->
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>WVC_ExoticResources_WeaponsRecipes</key>
+						<label>Weapons from metal</label>
+						<defaultValue>false</defaultValue>
+						<tooltip>A patch that changes recipes that require steel to recipes that require any metal.</tooltip>
+						<tKey>HGS_ExoticResources_WeaponsRecipes_Label_WVC</tKey>
+						<tKeyTip>HGS_ExoticResources_GlobalRecipes_Desc_WVC</tKeyTip>
+					</li>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>WVC_ExoticResources_ApparelsRecipes</key>
+						<label>Apparels from metal</label>
+						<defaultValue>false</defaultValue>
+						<tooltip>A patch that changes recipes that require steel to recipes that require any metal.</tooltip>
+						<tKey>HGS_ExoticResources_ApparelsRecipes_Label_WVC</tKey>
+						<tKeyTip>HGS_ExoticResources_GlobalRecipes_Desc_WVC</tKeyTip>
+					</li>
+				</settings>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Text">
+				<text>Universal conduit settings:</text>
+				<tKey>HGS_Buildings_UniversalConduit_Info_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_Enable</key>
+				<label>Enable</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_Enable_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_IsUndergroudConduit</key>
+				<label>Underground</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_Underground_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VCHE</key>
+				<label>Fuel (VE)</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_VCHE_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFEP</key>
+				<label>Gas (VE)</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_VFEP_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Paste</key>
+				<label>Nutrient Paste (VE)</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_VFEPASTE_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Androids</key>
+				<label>Neutroamine (VE)</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_VFEANDR_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_VFE_Vampires</key>
+				<label>Hemogen (VE)</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_VFEVAMPS_WVC</tKey>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>WVC_Buildings_UniversalConduit_SupportPatch_SOS</key> -->
+				<!-- <label>Heat (SoS)</label> -->
+				<!-- <defaultValue>True</defaultValue> -->
+				<!-- <tKey>HGS_Buildings_UniversalConduit_SoS_WVC</tKey> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_Buildings_UniversalConduit_SupportPatch_DBH</key>
+				<label>Dubs Bad Hygiene</label>
+				<defaultValue>True</defaultValue>
+				<tKey>HGS_Buildings_UniversalConduit_DBH_WVC</tKey>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>ExtraSetting_FreeAnimaTreeMeditation_WVC</key>
+				<label>Free natural meditation</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_ExtraSetting_FreeAnimaTreeMeditation_WVC</tKey>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>archonites_PsionicPowers_wvc</key> -->
+				<!-- <label>Better super powers</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>Changes psylink and biotic amp, adding additional bonuses to them (to consciousness/manipulation, respectively), also adds dependence on consciousness to some statuses (associated with psylink and amp).</tooltip> -->
+				<!-- <tKey>HGS_Extra_archonites_PsionicPowers_Checker_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_Extra_archonites_PsionicPowers_Checker_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AutoPatcher_Global_Researching_OnlyTechPrints_WVC</key>
+				<label>Technologies only through techprints</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Adds the requirement for techprints to all technologies. The more complex the technology, the more techprints it needs. Techprints can be bought from any faction or obtained from a quest.\n\nIt is desirable that the levels from the Neolithic to the Archotech be present in the technology tree.\n\nIt also removes the requirement for research tables and facilities, which allows you to research any technology immediately after receiving techprints.</tooltip>
+				<tKey>HGS_AutoPatcher_Global_Researching_OnlyTechPrints_Checker_WVC</tKey>
+				<tKeyTip>HGS_AutoPatcher_Global_Researching_OnlyTechPrints_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>TechRestrictionsRemover_WVC</key>
+				<label>Remove tech restrictions by race</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Extra_TechRestrictionsRemover_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_DisableTitleRequirements_WVC</key>
+				<label>Disable title requirements</label>
+				<tooltip>Removes requirements from royal titles like clothing, room, and throne.</tooltip>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Extra_DisableTitleRequirements_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_DisableTitleRequirements_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Valkyries_Disable_PackVisual_WVC</key>
+				<label>Disable visualisation for packs?</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>With the "Vanilla Apparel Expanded - Accessories" mod, all items like shields have a visualization, these items are displayed incorrectly on the Valkyrie. Almost all mods using custom pawn bodies have this problem. This switch will remove the display of some items such as shields, belts, turret boxes, etc.</tooltip>
+				<tKey>HGS_Humanoids_VisualFixes_PackValk_Checker_WVC</tKey>
+				<tKeyTip>HGS_Humanoids_VisualFixes_PackValk_Checker_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>ExtraSetting_BuildableRoyaltyMusicalInstruments_WVC</key>
+				<label>Musical instruments tweak</label>
+				<tooltip>Moves all musical instruments to the "Recreation" tab. Also allows you to build musical instruments from the "Royalty" DLC.</tooltip>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_ExtraSetting_BuildableRoyaltyMusicalInstruments_Label_WVC</tKey>
+				<tKeyTip>HGS_ExtraSetting_BuildableRoyaltyMusicalInstruments_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>ExtraSetting_VFEI_ArchoShieldFix_WVC</key>
+				<label>Archotech shield belt fix (VFEI)</label>
+				<tooltip>Adds energy recovery and fixes the tag.\n\nDoes not affect already existing items.</tooltip>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_ExtraSetting_VFEI_ArchoShieldFix_Label_WVC</tKey>
+				<tKeyTip>HGS_ExtraSetting_VFEI_ArchoShieldFix_Desc_WVC</tKeyTip>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>ExtraSetting_LessFilthRate_ForAll_WVC</key>
+				<label>Less filth rate</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Significantly reduces the amount of dirt created by everyone.</tooltip>
+				<tKey>HGS_ExtraSetting_LessFilthRate_ForAll_Label_WVC</tKey>
+				<tKeyTip>HGS_ExtraSetting_LessFilthRate_ForAll_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Biomes_Extra_NoMoreImpassableWater_WVC</key>
+				<label>Can caravans cross water?</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Adds the ability for caravans to travel on water.</tooltip>
+				<tKey>HGS_Biomes_Extra_NoMoreImpassableWater_Checker_WVC</tKey>
+				<tKeyTip>HGS_Biomes_Extra_NoMoreImpassableWater_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Hardwork_AllAnimalsTrainable_wvc</key>
+				<label>All animals can haul?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Hardwork_AllAnimalsTrainable_wvc</tKey>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>Dryads_NotificationDisable_wvc</key> -->
+				<!-- <label>Disable notification about resources?</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>Removes resource spawn notification from ALL resource spawners.</tooltip> -->
+				<!-- <tKey>HGS_Extra_Dryads_NotificationDisable_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_Extra_Dryads_NotificationDisable_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Valkyries_RemoveDodgeLimit_WVC</key>
+				<label>Disable dodge limit</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes the dodge limit, allowing it to be increased to 100.\n(Does not support CE)</tooltip>
+				<tKey>HGS_Humanoids_RemoveDodgeLimit_Checker_WVC</tKey>
+				<tKeyTip>HGS_Humanoids_RemoveDodgeLimit_Checker_Desc_WVC</tKeyTip>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>ExtraSetting_MorePsycasts_MassAbilitiesPatch_WVC</key> -->
+				<!-- <label>Healing abilities is mass abilities (More Psycasts)</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>Makes healing abilities more usable. No more hundreds of clicks on an injured hundred hamsters!</tooltip> -->
+				<!-- <tKey>HGS_ExtraSetting_MorePsycasts_MassAbilitiesPatch_Label_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_ExtraSetting_MorePsycasts_MassAbilitiesPatch_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AnimaTree_SpawnGrass_wvc</key>
+				<label>Can Anima tree spawn grass by yourself?</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Not for connection ritual.</tooltip>
+				<tKey>HGS_Dryads_Extra_AnimaTree_SpawnGrass_WVC</tKey>
+				<tKeyTip>HGS_Dryads_Extra_AnimaTree_SpawnGrass_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AnimaGauranlenTree_TweaksPatch_wvc</key>
+				<label>Anima and Gauranlen tweaks</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Will allow trees to grow under the roof as well as replant them.</tooltip>
+				<tKey>HGS_Dryads_Extra_AnimaTree_SpawnGrass_WVC</tKey>
+				<tKeyTip>HGS_Dryads_Extra_AnimaTree_SpawnGrass_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTree_Glowing_wvc</key>
+				<label>Gauranlen and Anima glowing?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_GauranlenTree_Glowing_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTree_SpacingPlant_wvc</key>
+				<label>Can Gauranlen trees be planted close to each other?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_GauranlenTree_SpacingPlant_WVC</tKey>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTree_SpawnSeeds_wvc</key>
+				<label>Will the Gauranlen tree spawn seeds once per year?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_GauranlenTree_SpawnSeeds_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTree_SpawnWood_wvc</key>
+				<label>Gauranlen tree spawn wood?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_GauranlenTree_SpawnWood_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTree_PruningSeperate_wvc</key>
+				<label>Pruning job separate from cutting plant?</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_GauranlenTree_PruningSeperate_WVC</tKey>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Dryads_AlphaAnimals_LockRemover_wvc</key>
+				<label>Alpha animals lock remover</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes the "Corruptor" meme requirement for Dryads from the Alpha Animals mod. Except corruptor and ocular dryads.</tooltip>
+				<tKey>HGS_Dryads_Extra_Dryads_AlphaAnimals_LockRemover_WVC</tKey>
+				<tKeyTip>HGS_Dryads_Extra_Dryads_AlphaAnimals_LockRemover_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_artificialForMeditationPurposes_ForAllBuilds_WVC</key>
+				<label>All buildings are "natural"</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>A simple patch that makes all buildings "natural" so that they no longer affect the Gauranlen and Anima trees.</tooltip>
+				<tKey>HGS_Extra_artificialForMeditationPurposes_ForAllBuilds_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_artificialForMeditationPurposes_ForAllBuilds_Desc_WVC</tKeyTip>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>DryadsExtra_AllDryadsSpawnResources_WVC</key> -->
+				<!-- <label>All dryads spawn resources</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tKey>HGS_Dryads_DryadsExtra_AllDryadsSpawnResources_WVC</tKey> -->
+			<!-- </li> -->
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>Dryads_SoS2_SpaceImmunity_WVC</key> -->
+				<!-- <label>Can dryads live in space? (SoS2)</label> -->
+				<!-- <tooltip>Dryads love to commit suicide in space, this will not solve the problem with their craving for travel, but it will save them from death.</tooltip> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tKey>HGS_Dryads_General_SoS_DryadsChecker_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_Dryads_General_SoS_DryadsChecker_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>DryadsExtra_VenerableDryads_WVC</key> -->
+				<!-- <label>Venerable dryads</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>When a dryad lives for a long time, she becomes venerable, which makes her less susceptible to damage and improves some parameters. Also every birthday dryads can get additional bonuses with a small chance.\n\nWorks on all dryads, connected with the tree.</tooltip> -->
+				<!-- <tKey>HGS_Dryads_General_VenerableDryadsChecker_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_Dryads_General_VenerableDryadsChecker_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>ExtraSetting_GR_DryadGirldHardworkPatch_WVC</key> -->
+				<!-- <label>Dryads hardwork patch (VGE)</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>The VGE mod allows some animals to work (clean, dig, recruit). My mod has a built-in compatibility patch that allows dryad girls to do the same.\n\nThis setting allows you to make this patch work for all dryads.</tooltip> -->
+				<!-- <tKey>HGS_ExtraSetting_GR_DryadGirldHardworkPatch_Label_WVC</tKey> -->
+				<!-- <tKeyTip>HGS_ExtraSetting_GR_DryadGirldHardworkPatch_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_NotSoAnxious_WVC</key>
+				<label>Not So Anxious (VTE)</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes random nervous breakdowns from the trait of the same name.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_NotSoAnxious_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_NotSoAnxious_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_FixedMarketValue_WVC</key>
+				<label>Fixed max market value</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Sets the maximum price for all items, preventing them from costing more than 10k silver.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_FixedMarketValue_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_FixedMarketValue_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_NotLessThanAHundred_WVC</key>
+				<label>Not Less Than A Hundred</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>The minimum temperature in Celsius is -100.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_NotLessThanAHundred_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_NotLessThanAHundred_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_BetterFungalGravel_WVC</key>
+				<label>Better Fungal Gravel</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Adds the ability to lay gravel not only underground.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_BetterFungalGravel_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_BetterFungalGravel_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_NoSkilLDecayStorytellers_WVC</key>
+				<label>No SkilL Decay Storytellers (VFEA)</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>All storytellers remove skill decay.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_NoSkilLDecayStorytellers_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_NoSkilLDecayStorytellers_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_FuckDeteriorateMessage_WVC</key>
+				<label>Remove apparel deteriorate message</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes the annoying message about the deterioration of another hat from the raider's ass (shit).</tooltip>
+				<tKey>HGS_Extra_QoLPatches_FuckDeteriorateMessage_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_FuckDeteriorateMessage_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_ResearchWithoutRestrictions_WVC</key>
+				<label>Research Without Restrictions</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Removes the requirement for facilities and research tables, allowing you to research technologies on anything.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_ResearchWithoutRestrictions_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_ResearchWithoutRestrictions_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_ScarificationWithoutPain_WVC</key>
+				<label>Scarification Without Pain</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Ideological scars no longer hurt.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_ScarificationWithoutPain_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_ScarificationWithoutPain_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_HaRSizesFix_WVC</key>
+				<label>HAR sizes fix</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Fixes a problem with very small or giant pawns (humans too), and also scales the atlas pawn to 4 times for everyone.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_HaRSizesFix_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_HaRSizesFix_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_AGBigTrees_WVC</key>
+				<label>Big trees</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>A number of patches making Anima and Gauranlen trees more tenacious, as well as visually larger. Also, freshly planted trees will be slightly smaller.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_AGBigTrees_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_AGBigTrees_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_FertilityForAllFloors_WVC</key>
+				<label>Fertility For All Floors</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Adds minimal fertility to almost all surfaces, allowing grass (or Gauranlen tree) to grow on concrete.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_FertilityForAllFloors_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_FertilityForAllFloors_Desc_WVC</tKeyTip>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>Extra_QoLPatches_BetterLegendary_WVC</key>
+				<label>Better Legendary</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Increases bonus from legendary quality and debuff from poor quality. Affects mass, flammability, equip delay, beauty, and deterioration rate.</tooltip>
+				<tKey>HGS_Extra_QoLPatches_BetterLegendary_Label_WVC</tKey>
+				<tKeyTip>HGS_Extra_QoLPatches_BetterLegendary_Desc_WVC</tKeyTip>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<!-- <li Class="XmlExtensions.Setting.SetColor"/> -->
+			<li Class="XmlExtensions.Setting.Section">
+				<settings>
+
+					<!-- ================================================================= -->
+					<li Class="XmlExtensions.Setting.SetColor">
+						<color>(132,255,0)</color>
+					</li>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>Extra_QoLPatches_SkillsPlusStats_WVC</key>
+						<label>Skills + Stats</label>
+						<defaultValue>false</defaultValue>
+						<tooltip>Adds a skill bonus to some stats, for example, the firing range grows along with the corresponding skill. Or with the growth of the melee skill, the speed of movement increases.\n\nThe bonus is awarded for each skill level. The greater the bonus, the stronger the effect of the skill.</tooltip>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_Label_WVC</tKey>
+						<tKeyTip>HGS_Extra_QoLPatches_SkillsPlusStats_Desc_WVC</tKeyTip>
+					</li>
+					<li Class="XmlExtensions.Setting.SetColor"/>
+					<!-- ================================================================= -->
+
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>WVC_SkillsPlusStats_MeleePlusSpeed_Bonus</key>
+						<label>Speed + Melee bonus: {WVC_SkillsPlusStats_MeleePlusSpeed_Bonus}</label>
+						<defaultValue>0.01</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>3</decimals>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_MeleePlusSpeed_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>WVC_SkillsPlusStats_MentalPlusIntellectual_Bonus</key>
+						<label>Mental break + Intellect bonus: {WVC_SkillsPlusStats_MentalPlusIntellectual_Bonus}</label>
+						<defaultValue>0.01</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>3</decimals>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_MentalPlusIntellectual_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>WVC_SkillsPlusStats_LearningPlusIntellectual_Bonus</key>
+						<label>Learning factor + Intellect bonus: {WVC_SkillsPlusStats_LearningPlusIntellectual_Bonus}</label>
+						<defaultValue>0.05</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>3</decimals>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_LearningPlusIntellectual_WVC</tKey>
+					</li>
+					<!-- <li Class="XmlExtensions.Setting.Slider"> -->
+						<!-- <key>WVC_SkillsPlusStats_MedicinePlusToxic_Bonus</key> -->
+						<!-- <label>Toxin immunity + Medicine bonus: {WVC_SkillsPlusStats_MedicinePlusToxic_Bonus}</label> -->
+						<!-- <defaultValue>0.02</defaultValue> -->
+						<!-- <min>0</min> -->
+						<!-- <max>1</max> -->
+						<!-- <decimals>3</decimals> -->
+						<!-- <tKey>HGS_Extra_QoLPatches_SkillsPlusStats_MedicinePlusToxic_WVC</tKey> -->
+					<!-- </li> -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>WVC_SkillsPlusStats_ShootingPlusVerbRange_Bonus</key>
+						<label>Range + Shooting bonus: {WVC_SkillsPlusStats_ShootingPlusVerbRange_Bonus}</label>
+						<defaultValue>0.05</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>3</decimals>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_ShootingPlusVerbRange_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>WVC_SkillsPlusStats_ShootingPlusVerbCD_Bonus</key>
+						<label>Range CD + Shooting bonus: {WVC_SkillsPlusStats_ShootingPlusVerbCD_Bonus}</label>
+						<defaultValue>0.01</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>3</decimals>
+						<tKey>HGS_Extra_QoLPatches_SkillsPlusStats_ShootingPlusVerbCD_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.ResetSettings">
+						<label>Reset</label>
+						<confirm>false</confirm>
+						<keys>
+							<li>WVC_SkillsPlusStats_ShootingPlusVerbCD_Bonus</li>
+							<li>WVC_SkillsPlusStats_ShootingPlusVerbRange_Bonus</li>
+							<!-- <li>WVC_SkillsPlusStats_MedicinePlusToxic_Bonus</li> -->
+							<li>WVC_SkillsPlusStats_LearningPlusIntellectual_Bonus</li>
+							<li>WVC_SkillsPlusStats_MentalPlusIntellectual_Bonus</li>
+							<li>WVC_SkillsPlusStats_MeleePlusSpeed_Bonus</li>
+						</keys>
+					</li>
+				</settings>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+				<!-- <color>(255,255,0)</color> -->
+			<!-- </li> -->
+			<!-- <li Class="XmlExtensions.Setting.Gap"/> -->
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>Extra_TestScenario_AllWeapon_WVC</key> -->
+				<!-- <label>Enable test scenario (KL)</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tKey>HGS_Extra_TestScenario_AllWeapon_WVC</tKey> -->
+			<!-- </li> -->
+
+			<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+				<!-- <color>(255,255,255)</color> -->
+			<!-- </li> -->
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

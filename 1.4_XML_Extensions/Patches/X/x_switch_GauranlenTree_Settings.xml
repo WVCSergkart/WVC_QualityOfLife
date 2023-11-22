@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<!-- <li>ludeon.rimworld.royalty</li> -->
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTreeCustom_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.UseSettings">
+						<modId>honkai.girls.sergkart</modId>
+						<keys>
+							<li>GauranlenTreeCustom_MaxDryads0_WVC</li>
+							<li>GauranlenTreeCustom_MaxDryads05_WVC</li>
+							<li>GauranlenTreeCustom_MaxDryads25_WVC</li>
+							<li>GauranlenTreeCustom_MaxDryads50_WVC</li>
+							<li>GauranlenTreeCustom_MaxDryads75_WVC</li>
+							<li>GauranlenTreeCustom_MaxDryads90_WVC</li>
+							<!-- 2 -->
+							<li>GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC</li>
+							<li>GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC</li>
+							<li>GauranlenTreeCustom_spawnDays_WVC</li>
+							<li>GauranlenTreeCustom_maxDryadsWild_WVC</li>
+							<li>GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC</li>
+							<li>GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC</li>
+							<!-- 3 -->
+							<li>GauranlenTreeCustom_LossPerLevel001_WVC</li>
+							<li>GauranlenTreeCustom_LossPerLevel33_WVC</li>
+							<li>GauranlenTreeCustom_LossPerLevel66_WVC</li>
+							<li>GauranlenTreeCustom_LossPerLevel90_WVC</li>
+							<!-- 4 -->
+							<li>GauranlenTreeCustom_DailyPerBuilding0_WVC</li>
+							<li>GauranlenTreeCustom_DailyPerBuilding1_WVC</li>
+							<!-- 5 -->
+							<li>GauranlenTreeCustom_GainPerPlantSkill0_WVC</li>
+							<li>GauranlenTreeCustom_GainPerPlantSkill8_WVC</li>
+							<li>GauranlenTreeCustom_GainPerPlantSkill20_WVC</li>
+							<li>GauranlenTreeCustom_Cocon_daysToComplete_WVC</li>
+							<li>GauranlenTreeCustom_Cocon_drawContents_WVC</li>
+							<!-- 6 -->
+							<!-- <li>DryadMotherCustom_MaxDryads0_WVC</li> -->
+						</keys>
+						<defaultValues>
+							<li>0</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<!-- 2 -->
+							<li>0.1</li>
+							<li>0.01</li>
+							<li>8</li>
+							<li>2</li>
+							<li>0.25</li>
+							<li>0.50</li>
+							<!-- 3 -->
+							<li>0.02</li>
+							<li>0.04</li>
+							<li>0.06</li>
+							<li>0.08</li>
+							<!-- 4 -->
+							<li>0.07</li>
+							<li>0.01</li>
+							<!-- 5 -->
+							<li>0.8</li>
+							<li>1</li>
+							<li>1.2</li>
+							<li>5</li>
+							<li>true</li>
+							<!-- 6 -->
+							<!-- <li>12</li> -->
+						</defaultValues>
+						<apply>
+
+							<Operation Class="XmlExtensions.ApplyPatch">
+								<patchName>Autopatcher_GauranlenSettingsTree_Patch_WVC</patchName>
+								<arguments>
+									<li>ThingDef</li>
+									<!-- 0 -->
+									<li>[defName="Plant_TreeGauranlen"]</li>
+									<!-- 1 -->
+									<li>{GauranlenTreeCustom_MaxDryads0_WVC}</li>
+									<li>{GauranlenTreeCustom_MaxDryads05_WVC}</li>
+									<li>{GauranlenTreeCustom_MaxDryads25_WVC}</li>
+									<li>{GauranlenTreeCustom_MaxDryads50_WVC}</li>
+									<li>{GauranlenTreeCustom_MaxDryads75_WVC}</li>
+									<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+									<!-- 2 -->
+									<li>{GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC}</li>
+									<li>{GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC}</li>
+									<li>{GauranlenTreeCustom_spawnDays_WVC}</li>
+									<li>{GauranlenTreeCustom_maxDryadsWild_WVC}</li>
+									<li>{GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC}</li>
+									<li>{GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC}</li>
+									<!-- 3 -->
+									<li>{GauranlenTreeCustom_LossPerLevel001_WVC}</li>
+									<li>{GauranlenTreeCustom_LossPerLevel33_WVC}</li>
+									<li>{GauranlenTreeCustom_LossPerLevel66_WVC}</li>
+									<li>{GauranlenTreeCustom_LossPerLevel90_WVC}</li>
+									<!-- 4 -->
+									<li>{GauranlenTreeCustom_DailyPerBuilding0_WVC}</li>
+									<li>{GauranlenTreeCustom_DailyPerBuilding1_WVC}</li>
+									<!-- 5 -->
+									<li>{GauranlenTreeCustom_GainPerPlantSkill0_WVC}</li>
+									<li>{GauranlenTreeCustom_GainPerPlantSkill8_WVC}</li>
+									<li>{GauranlenTreeCustom_GainPerPlantSkill20_WVC}</li>
+									<!-- 5 -->
+									<li>0.4~0.65</li>
+								</arguments>
+							</Operation>
+							<Operation Class="XmlExtensions.ApplyPatch">
+								<patchName>Autopatcher_GauranlenSettingsCocoon_Patch_WVC</patchName>
+								<arguments>
+									<li>{GauranlenTreeCustom_Cocon_daysToComplete_WVC}</li>
+									<li>{GauranlenTreeCustom_Cocon_drawContents_WVC}</li>
+								</arguments>
+							</Operation>
+
+							<!-- ================================================================= -->
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>GauranlenTreeCustom_Gurler_WVC</key>
+								<defaultValue>false</defaultValue>
+								<caseTrue>
+
+									<Operation Class="XmlExtensions.ApplyPatch">
+										<patchName>Autopatcher_GauranlenSettingsTree_Patch_WVC</patchName>
+										<arguments>
+											<li>ThingDef</li>
+											<!-- 0 -->
+											<li>[@Name="Gauranlen_Assembler_WVC"]</li>
+											<!-- 1 -->
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<li>{GauranlenTreeCustom_MaxDryads90_WVC}</li>
+											<!-- 2 -->
+											<li>0</li>
+											<li>1</li>
+											<li>{GauranlenTreeCustom_spawnDays_WVC}</li>
+											<li>0</li>
+											<li>1</li>
+											<li>1</li>
+											<!-- 3 -->
+											<li>0</li>
+											<li>0</li>
+											<li>0</li>
+											<li>0</li>
+											<!-- 4 -->
+											<li>0</li>
+											<li>0</li>
+											<!-- 5 -->
+											<li>{GauranlenTreeCustom_GainPerPlantSkill0_WVC}</li>
+											<li>{GauranlenTreeCustom_GainPerPlantSkill8_WVC}</li>
+											<li>{GauranlenTreeCustom_GainPerPlantSkill20_WVC}</li>
+											<!-- 5 -->
+											<li>0</li>
+										</arguments>
+									</Operation>
+
+								</caseTrue>
+							</Operation>
+
+							<!-- ================================================================= -->
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>AnimaTree_DryadsConnection_wvc</key>
+								<defaultValue>false</defaultValue>
+								<caseTrue>
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+										  <comps>
+											<li Class="CompProperties_TreeConnection">
+												<pawnKind>Dryad_Basic</pawnKind>
+												<spawnDays>{GauranlenTreeCustom_spawnDays_WVC}</spawnDays>
+												<initialConnectionStrengthRange>{GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC}~{GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC}</initialConnectionStrengthRange>
+												<connectionStrengthLossPerDryadDeath>{GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC}</connectionStrengthLossPerDryadDeath>
+												<connectionStrengthGainPerHourPruningBase>{GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC}</connectionStrengthGainPerHourPruningBase>
+												<spawningPodOffset>(-0.15, 0, -0.55)</spawningPodOffset>
+												<spawningPodSizeRange>0.4~0.65</spawningPodSizeRange>
+												<maxDryadsWild>{GauranlenTreeCustom_maxDryadsWild_WVC}</maxDryadsWild>
+												<maxDryadsPerConnectionStrengthCurve>
+												  <points>
+													<li>(0, {GauranlenTreeCustom_MaxDryads0_WVC})</li>
+													<li>(0.05, {GauranlenTreeCustom_MaxDryads05_WVC})</li>
+													<li>(0.25, {GauranlenTreeCustom_MaxDryads25_WVC})</li>
+													<li>(0.50, {GauranlenTreeCustom_MaxDryads50_WVC})</li>
+													<li>(0.75, {GauranlenTreeCustom_MaxDryads75_WVC})</li>
+													<li>(0.90, {GauranlenTreeCustom_MaxDryads90_WVC})</li>
+												  </points>
+												</maxDryadsPerConnectionStrengthCurve>
+												<connectionLossPerLevelCurve>
+												  <points>
+													<li>(0, 0)</li>
+													<li>(0.001, {GauranlenTreeCustom_LossPerLevel001_WVC})</li>
+													<li>(0.33, {GauranlenTreeCustom_LossPerLevel33_WVC})</li>
+													<li>(0.66, {GauranlenTreeCustom_LossPerLevel66_WVC})</li>
+													<li>(0.90, {GauranlenTreeCustom_LossPerLevel90_WVC})</li>
+												  </points>
+												</connectionLossPerLevelCurve>
+												<connectionLossDailyPerBuildingDistanceCurve>
+												  <points>
+													<li>(0, {GauranlenTreeCustom_DailyPerBuilding0_WVC})</li>
+													<li>(7.9, {GauranlenTreeCustom_DailyPerBuilding1_WVC})</li>
+												  </points>
+												</connectionLossDailyPerBuildingDistanceCurve>
+												<connectionStrengthGainPerPlantSkill>
+												  <points>
+													<li>(0, {GauranlenTreeCustom_GainPerPlantSkill0_WVC})</li>
+													<li>(8, {GauranlenTreeCustom_GainPerPlantSkill8_WVC})</li>
+													<li>(20, {GauranlenTreeCustom_GainPerPlantSkill20_WVC})</li>
+												  </points>
+												</connectionStrengthGainPerPlantSkill>
+											</li>
+										  </comps>
+										</value>
+									</Operation>
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<ritualFocus>
+											  <spectateDistance>4</spectateDistance>
+											  <allowedSpectateSides>All</allowedSpectateSides>
+											</ritualFocus>
+											<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+											<placeWorkers>
+											  <li>PlaceWorker_ConnectionStrengthOffsetBuildingsNear</li>
+											</placeWorkers>
+										</value>
+									</Operation>
+									<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+										<xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]</xpath>
+										<value>
+											<tickerType>Normal</tickerType>
+										</value>
+									</Operation>
+									<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+										<xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]/plant</xpath>
+										<value>
+											<treeCategory>Super</treeCategory>
+											<growMinGlow>0</growMinGlow>
+											<showGrowthInInspectPane>false</showGrowthInInspectPane>
+											<minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+										</value>
+									</Operation>
+								</caseTrue>
+								<caseFalse>
+								</caseFalse>
+							</Operation>
+
+						</apply>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>
