@@ -23,6 +23,34 @@
 
 			<li Class="XmlExtensions.Setting.Gap"/>
 			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_MoreWorkCanBeDoneByMechs</key>
+				<label>More work can be done by mechs</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Unlocks the ability for mechanoids to strip, paint, replant, tend animals, etc.</tooltip>
+				<tKey>WVC_QoL_MoreWorkCanBeDoneByMechs_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_MoreWorkCanBeDoneByMechs_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_SanguphageMeetingTorch</key>
+				<label>Buidable sanguphage meeting torch</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>The sanguphage meeting torch can be built if you have the "Bloodfeeding" meme. Requires "Ideology" and "Biotech".</tooltip>
+				<tKey>WVC_QoL_SanguphageMeetingTorch_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_SanguphageMeetingTorch_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_EyelessImplants</key>
+				<label>Eyeless implants</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Eye implants will no longer have textures.</tooltip>
+				<tKey>WVC_QoL_EyelessImplants_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_EyelessImplants_Desc_WVC</tKeyTip>
+			</li>
+
+			<!-- ================================================================= -->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
 				<key>WVC_QoL_AlwaysAllowMothball</key>
 				<label>Always allow mothball</label>
 				<defaultValue>false</defaultValue>
