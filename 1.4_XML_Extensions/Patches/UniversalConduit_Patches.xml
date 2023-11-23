@@ -4,7 +4,7 @@
 	<Operation Class="XmlExtensions.OptionalPatch">
 		<modId>honkai.girls.sergkart</modId>
 		<key>WVC_Buildings_UniversalConduit_Enable</key>
-		<defaultValue>True</defaultValue>
+		<defaultValue>false</defaultValue>
 		<caseTrue>
 
 			<Operation Class="XmlExtensions.OptionalPatch">
