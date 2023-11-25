@@ -11,25 +11,25 @@
 				<xpath>/Defs/ThingDef[defName="RGK_lamp" or defName="RGK_LampM" or defName="GL_lamp_White" or defName="GL_LampM_White" or defName="RGK_Street_Lamp_L" or defName="RGK_Street_Lamp_Seven" or defName="GL_Street_Lamp_L_White" or defName="GL_Street_Lamp_Seven_White" or defName="GL_Wall_Lamp" or defName="GL_Wall_Lamp_White" or defName="Brazier" or defName="DarklightBrazier" or defName="Darktorch" or defName="DarktorchFungus" or defName="VFEM_Candle" or defName="VFEM_WallTorchLamp" or defName="TorchLamp" or defName="VFEV_Hearth" or defName="VFEV_DarkHearth" or defName="VFEM_WallTorchDarkLamp" or defName="VFEM_DarkCandle" or defName="SanguphageMeetingTorch"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
 			</Operation>
 
-			<Operation Class="PatchOperationRemove">
-				<xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
-				<success>Always</success>
-			</Operation>
-			<Operation Class="PatchOperationRemove">
-				<xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/comps/li[@Class="CompProperties_HeatPusher"]</xpath>
-				<success>Always</success>
-			</Operation>
-			<Operation Class="PatchOperationRemove">
-				<xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/placeWorkers/li[contains(text(),'PlaceWorker_Heater')]</xpath>
-				<success>Always</success>
-			</Operation>
-			<Operation Class="PatchOperationReplace">
-				<xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/tickerType</xpath>
-				<success>Always</success>
-				<value>
-				  <tickerType>Never</tickerType>
-				</value>
-			</Operation>
+			<!-- <Operation Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/comps/li[@Class="CompProperties_Refuelable"]</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </Operation> -->
+			<!-- <Operation Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/comps/li[@Class="CompProperties_HeatPusher"]</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </Operation> -->
+			<!-- <Operation Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/placeWorkers/li[contains(text(),'PlaceWorker_Heater')]</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </Operation> -->
+			<!-- <Operation Class="PatchOperationReplace"> -->
+				<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'lamp')]]/tickerType</xpath> -->
+				<!-- <success>Always</success> -->
+				<!-- <value> -->
+				  <!-- <tickerType>Never</tickerType> -->
+				<!-- </value> -->
+			<!-- </Operation> -->
 
 			<Operation Class="PatchOperationRemove">
 				<xpath>/Defs/ThingDef[defName[contains(text(),'Torch')]]/comps/li[@Class="CompProperties_Refuelable"]</xpath>

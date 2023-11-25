@@ -56,9 +56,9 @@
 			</li>
 			<li Class="XmlExtensions.Setting.Checkbox">
 				<key>WVC_QoL_LagFreeTorches</key>
-				<label>Lag free torches and lamps</label>
+				<label>Lag free torches</label>
 				<defaultValue>false</defaultValue>
-				<tooltip>Patches almost all possible torches and lamps by removing their ticker.\n\nPlease note that although this patch improves performance, torches and lamps can no longer be refuelled and they will no longer heat rooms.\n\nUse at your own risk.</tooltip>
+				<tooltip>Patches almost all possible torches by removing their ticker.\n\nPlease note that although this patch improves performance, torches can no longer be refuelled and they will no longer heat rooms.\n\nUse at your own risk.</tooltip>
 				<tKey>WVC_QoL_LagFreeTorches_Label_WVC</tKey>
 				<tKeyTip>WVC_QoL_LagFreeTorches_Desc_WVC</tKeyTip>
 			</li>
