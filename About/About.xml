@@ -44,5 +44,7 @@
 	</loadBefore>
 	<incompatibleWith>
 		<li>wvc.sergkart.core</li>
+		<li>honkai.girls.sergkart</li>
+		<li>wvc.sergkart.races</li>
 	</incompatibleWith>
 </ModMetaData>
