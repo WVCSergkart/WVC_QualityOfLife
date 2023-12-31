@@ -23,6 +23,16 @@
 
 			<li Class="XmlExtensions.Setting.Gap"/>
 			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_thingCategoriesTweaks</key>
+				<label>Thing Category Filter</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Adds several additional categories for filtering. Such as metals, wood, components, belt shields, etc.</tooltip>
+				<tKey>WVC_QoL_thingCategoriesTweaks_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_thingCategoriesTweaks_Desc_WVC</tKeyTip>
+			</li>
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
 				<key>WVC_QoL_MoreWorkCanBeDoneByMechs</key>
 				<label>More work can be done by mechs</label>
 				<defaultValue>false</defaultValue>

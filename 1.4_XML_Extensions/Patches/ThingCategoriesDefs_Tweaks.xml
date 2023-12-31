@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_thingCategoriesTweaks</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<!-- Stuff Appartls Clothes Tags Filter Fix -->
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[apparel][tradeTags[li="HiTechArmor"]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories Inherit="False">
+				  <li>WVC_Tweaks_PowerArmorApparel</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[apparel][equippedStatOffsets[MechBandwidth]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_MechanitorApparel</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[apparel][comps[li[@Class="CompProperties_Shield"]]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_ShieldsApparel</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[stuffProps[categories[li="Woody"]]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_WoodResources_Raw</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[stuffProps[categories[li="Metallic"]]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_MetalResources_Raw</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[apparel][@Name="PsychicApparelBase" or @Name="VPE_MedievalPsychicApparelBase"]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_EltexApparel</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[defName[contains(text(),'Component')]][thingCategories[li[contains(text(),'Manufactured')]]]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_ManufacturedComponents</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

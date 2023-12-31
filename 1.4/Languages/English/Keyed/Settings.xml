@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<WVC_TweaksSettings>Tweaks and Patches</WVC_TweaksSettings>
+
+	<WVC_TweaksSettings_Tab_General>General C#</WVC_TweaksSettings_Tab_General>
+	<!-- <WVC_TweaksSettings_Tab_Trees_Gauranlen>Gauranlen Tree</WVC_TweaksSettings_Tab_Trees_Gauranlen> -->
+
+	<WVC_TweaksSettings_Label_Misc>Misc</WVC_TweaksSettings_Label_Misc>
+
+	<WVC_Label_TweaksSettings_enableThingCategoryFilter>Thing Category Filter</WVC_Label_TweaksSettings_enableThingCategoryFilter>
+	<WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>Adds several additional categories for filtering. Such as metals, wood, components, belt shields, etc.
+
+Does not overwrite existing categories.
+
+Requires restart.</WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>
+
+	<!-- <WVC_UltraSettings_Label_Generator>DEV: Re-Generate Implants</WVC_UltraSettings_Label_Generator> -->
+
+</LanguageData>
