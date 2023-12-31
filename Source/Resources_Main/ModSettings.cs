@@ -11,7 +11,7 @@ namespace WVC_Tweaks
 	public class WVC_TweakSettings : ModSettings
 	{
 		// Misc
-		// public bool enableThingCategoryFilter = false;
+		public bool enableBuildingsStuffPatch = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -20,7 +20,7 @@ namespace WVC_Tweaks
 		public override void ExposeData()
 		{
 			// Misc
-			// Scribe_Values.Look(ref enableThingCategoryFilter, "enableThingCategoryFilter", defaultValue: false);
+			Scribe_Values.Look(ref enableBuildingsStuffPatch, "enableBuildingsStuffPatch", defaultValue: false);
 		}
 	}
 
@@ -81,8 +81,8 @@ namespace WVC_Tweaks
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// ===============
-			// listingStandard.Label("WVC_TweaksSettings_Label_Misc".Translate() + ":", -1);
-			// listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableThingCategoryFilter".Translate() , ref settings.enableThingCategoryFilter, "WVC_Tooltip_TweaksSettings_enableThingCategoryFilter".Translate());
+			listingStandard.Label("WVC_TweaksSettings_Label_Misc".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableBuildingsStuffPatch".Translate() , ref settings.enableBuildingsStuffPatch, "WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch".Translate());
 			// ===============
 			//listingStandard.Gap();
 			// ===============

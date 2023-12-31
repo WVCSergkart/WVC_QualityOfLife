@@ -8,13 +8,18 @@
 
 	<WVC_TweaksSettings_Label_Misc>Misc</WVC_TweaksSettings_Label_Misc>
 
-	<WVC_Label_TweaksSettings_enableThingCategoryFilter>Thing Category Filter</WVC_Label_TweaksSettings_enableThingCategoryFilter>
-	<WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>Adds several additional categories for filtering. Such as metals, wood, components, belt shields, etc.
+	<!-- <WVC_Label_TweaksSettings_enableThingCategoryFilter>Thing Category Filter</WVC_Label_TweaksSettings_enableThingCategoryFilter> -->
+	<!-- <WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>Adds several additional categories for filtering. Such as metals, wood, components, belt shields, etc. -->
 
-Does not overwrite existing categories.
+<!-- Does not overwrite existing categories. -->
 
-Requires restart.</WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>
+<!-- Requires restart.</WVC_Tooltip_TweaksSettings_enableThingCategoryFilter> -->
 
-	<!-- <WVC_UltraSettings_Label_Generator>DEV: Re-Generate Implants</WVC_UltraSettings_Label_Generator> -->
+	<WVC_Label_TweaksSettings_enableBuildingsStuffPatch>Buildings Stuff Patch</WVC_Label_TweaksSettings_enableBuildingsStuffPatch>
+	<WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>Patches all stuffable buildings, adding materials that logically could be used. It also replaces some mandatory requirements for materials.
+
+For example, if this setting is enabled, then the butcher table can be built from any material, without the mandatory requirement for wood.
+
+Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>
 
 </LanguageData>
