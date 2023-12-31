@@ -46,6 +46,13 @@
 	<iconPath>Things/Item/Resource/ComponentIndustrial/ComponentIndustrial</iconPath>
   </ThingCategoryDef>
 
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_ManufacturedSubcores</defName>
+	<label>*subcores</label>
+	<parent>Manufactured</parent>
+	<iconPath>Things/Item/Resource/ComponentSpacer/ComponentSpacer</iconPath>
+  </ThingCategoryDef>
+
   <!-- <ThingCategoryDef> -->
 	<!-- <defName>WVC_ResourceDryadSpawner</defName> -->
 	<!-- <label>dryad spawn resources</label> -->

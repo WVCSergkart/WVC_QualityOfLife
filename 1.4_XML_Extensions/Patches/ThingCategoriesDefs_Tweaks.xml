@@ -5,9 +5,11 @@
 		<modId>honkai.girls.sergkart</modId>
 		<key>WVC_QoL_thingCategoriesTweaks</key>
 		<defaultValue>false</defaultValue>
+		<success>Always</success>
 		<caseTrue>
 
 			<!-- Stuff Appartls Clothes Tags Filter Fix -->
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[apparel][tradeTags[li="HiTechArmor"]]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -17,6 +19,7 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[apparel][equippedStatOffsets[MechBandwidth]]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -26,6 +29,7 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[apparel][comps[li[@Class="CompProperties_Shield"]]]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -35,6 +39,7 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[stuffProps[categories[li="Woody"]]]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -44,6 +49,7 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[stuffProps[categories[li="Metallic"]]]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -53,6 +59,7 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 			  <xpath>/Defs/ThingDef[apparel][@Name="PsychicApparelBase" or @Name="VPE_MedievalPsychicApparelBase"]</xpath>
 			  <safetyDepth>1</safetyDepth>
@@ -62,12 +69,32 @@
 				</thingCategories>
 			  </value>
 			</Operation>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-			  <xpath>/Defs/ThingDef[defName[contains(text(),'Component')]][thingCategories[li[contains(text(),'Manufactured')]]]</xpath>
+			  <xpath>/Defs/ThingDef[defName[contains(text(),'Component')]][thingCategories[li="Manufactured"]]</xpath>
 			  <safetyDepth>1</safetyDepth>
 			  <value>
 				<thingCategories>
 				  <li>WVC_Tweaks_ManufacturedComponents</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[@Name="WVC_Ultra_ResourceComponents_Base"]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_ManufacturedComponents</li>
+				</thingCategories>
+			  </value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/ThingDef[@Name="SubcoreBase"]</xpath>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<thingCategories>
+				  <li>WVC_Tweaks_ManufacturedSubcores</li>
 				</thingCategories>
 			  </value>
 			</Operation>
