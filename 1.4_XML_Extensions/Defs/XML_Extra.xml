@@ -22,6 +22,14 @@
 			<!-- ================================================================= -->
 
 			<li Class="XmlExtensions.Setting.Gap"/>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>WVC_QoL_ThingNotInHomeAreaMarketValue</key> -->
+				<!-- <label>That's not mine!</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tooltip>Items not located in the home area cost 0.</tooltip> -->
+				<!-- <tKey>WVC_QoL_ThingNotInHomeAreaMarketValue_Label_WVC</tKey> -->
+				<!-- <tKeyTip>WVC_QoL_ThingNotInHomeAreaMarketValue_Desc_WVC</tKeyTip> -->
+			<!-- </li> -->
 			<li Class="XmlExtensions.Setting.Checkbox">
 				<key>WVC_QoL_thingCategoriesTweaks</key>
 				<label>Thing Category Filter</label>
@@ -37,6 +45,22 @@
 				<tooltip>If animals are in the fog, out of sight of the player, they will automatically die after a while.\n\nThe main goal of this patch is to improve performance. Since animals can spawn in a mountain, and then start digging their way out of there, causing lag spikes.\n\nMay be very unbalanced. Since it affects all animals, without exception.</tooltip>
 				<tKey>WVC_QoL_KillFoggedAnimals_Label_WVC</tKey>
 				<tKeyTip>WVC_QoL_KillFoggedAnimals_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_KillFoggedMechs</key>
+				<label>Kill Fogged Mechs</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Same as "Kill Fogged Animals", but for mechs.</tooltip>
+				<tKey>WVC_QoL_KillFoggedMechs_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_KillFoggedMechs_Desc_WVC</tKeyTip>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>WVC_QoL_KillFoggedPawns</key>
+				<label>Kill Fogged Pawns</label>
+				<defaultValue>false</defaultValue>
+				<tooltip>Same as "Kill Fogged Animals", but for all pawns.</tooltip>
+				<tKey>WVC_QoL_KillFoggedPawns_Label_WVC</tKey>
+				<tKeyTip>WVC_QoL_KillFoggedPawns_Desc_WVC</tKeyTip>
 			</li>
 
 			<li Class="XmlExtensions.Setting.Gap"/>

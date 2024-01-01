@@ -8,6 +8,8 @@ namespace WVC_Tweaks
     public class CompProperties_KillPawnIfFogged : CompProperties
 	{
 
+		public int refreshTicks = 12000;
+
 		public CompProperties_KillPawnIfFogged()
 		{
 			compClass = typeof(CompKillPawnIfFogged);
@@ -17,11 +19,13 @@ namespace WVC_Tweaks
 	public class CompKillPawnIfFogged : ThingComp
 	{
 
+		private CompProperties_KillPawnIfFogged Props => (CompProperties_KillPawnIfFogged)props;
+
 		public override void CompTick()
 		{
 			base.CompTick();
 			Pawn pawn = parent as Pawn;
-			if (!pawn.IsHashIntervalTick(6000))
+			if (!pawn.IsHashIntervalTick(Props.refreshTicks))
 			{
 				return;
 			}

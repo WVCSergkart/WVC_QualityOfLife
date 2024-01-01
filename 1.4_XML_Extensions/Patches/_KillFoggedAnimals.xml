@@ -7,8 +7,68 @@
 		<defaultValue>false</defaultValue>
 		<caseTrue>
 
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_KillFoggedPawns</key>
+				<defaultValue>false</defaultValue>
+				<caseFalse>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath> 
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						<comps>
+							<li Class="WVC_Tweaks.CompProperties_KillPawnIfFogged"/>
+						</comps>
+					  </value>
+					</Operation>
+
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_KillFoggedMechs</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_KillFoggedPawns</key>
+				<defaultValue>false</defaultValue>
+				<caseFalse>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/ThingDef[@Name="BaseMechanoid"]</xpath> 
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						<comps>
+							<li Class="WVC_Tweaks.CompProperties_KillPawnIfFogged"/>
+						</comps>
+					  </value>
+					</Operation>
+
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_KillFoggedPawns</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-			  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath> 
+			  <xpath>/Defs/ThingDef[@Name="BasePawn"]</xpath> 
 			  <safetyDepth>1</safetyDepth>
 			  <value>
 				<comps>

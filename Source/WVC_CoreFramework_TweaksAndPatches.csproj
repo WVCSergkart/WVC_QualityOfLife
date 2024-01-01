@@ -70,6 +70,7 @@
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\PostInitializationMain.cs" />
     <Compile Include="Resources_Main\TweaksDefOf.cs" />
+    <Compile Include="Resources_StatPart\StatPart_NotInHomeArea.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
