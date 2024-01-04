@@ -12,6 +12,14 @@ namespace WVC_Tweaks
 	{
 		// Misc
 		public bool enableBuildingsStuffPatch = false;
+		public bool enableAutoFeatures = false;
+		// Auto
+		public bool enableAutoClosingLetters = false;
+		public bool enableAutoCleaning = false;
+		public bool enableAutoResearch = false;
+		public int frequencyAutoClosingLetters = 40000;
+		public int frequencyAutoCleaning = 160000;
+		public int frequencyAutoResearch = 60000;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -21,6 +29,14 @@ namespace WVC_Tweaks
 		{
 			// Misc
 			Scribe_Values.Look(ref enableBuildingsStuffPatch, "enableBuildingsStuffPatch", defaultValue: false);
+			Scribe_Values.Look(ref enableAutoFeatures, "enableAutoFeatures", defaultValue: false);
+			// Auto
+			Scribe_Values.Look(ref enableAutoClosingLetters, "enableAutoClosingLetters", defaultValue: false);
+			Scribe_Values.Look(ref enableAutoCleaning, "enableAutoCleaning", defaultValue: false);
+			Scribe_Values.Look(ref enableAutoResearch, "enableAutoResearch", defaultValue: false);
+			Scribe_Values.Look(ref frequencyAutoClosingLetters, "frequencyAutoClosingLetters", defaultValue: 40000);
+			Scribe_Values.Look(ref frequencyAutoCleaning, "frequencyAutoCleaning", defaultValue: 160000);
+			Scribe_Values.Look(ref frequencyAutoResearch, "frequencyAutoResearch", defaultValue: 60000);
 		}
 	}
 
@@ -83,7 +99,38 @@ namespace WVC_Tweaks
 			// ===============
 			listingStandard.Label("WVC_TweaksSettings_Label_Misc".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableBuildingsStuffPatch".Translate() , ref settings.enableBuildingsStuffPatch, "WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch".Translate());
+			listingStandard.GapLine();
 			// ===============
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoFeatures".Translate() , ref settings.enableAutoFeatures, "WVC_Tooltip_TweaksSettings_enableAutoFeatures".Translate());
+			// ===============
+			// listingStandard.Gap();
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoClosingLetters".Translate() , ref settings.enableAutoClosingLetters, "WVC_Tooltip_TweaksSettings_enableAutoClosingLetters".Translate());
+			if (settings.enableAutoClosingLetters)
+			{
+				float val = settings.frequencyAutoClosingLetters;
+				listingStandard.SliderLabeledWithRef("WVC_Label_TweaksSettings_frequencyAutoClosingLetters".Translate(settings.frequencyAutoClosingLetters.ToStringTicksToDays()), ref val, 12000f, 360000f);
+				settings.frequencyAutoClosingLetters = (int)val;
+			}
+			// ===============
+			// listingStandard.Gap();
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoCleaning".Translate() , ref settings.enableAutoCleaning, "WVC_Tooltip_TweaksSettings_enableAutoCleaning".Translate());
+			if (settings.enableAutoCleaning)
+			{
+				float val = settings.frequencyAutoCleaning;
+				listingStandard.SliderLabeledWithRef("WVC_Label_TweaksSettings_frequencyAutoCleaning".Translate(settings.frequencyAutoCleaning.ToStringTicksToDays()), ref val, 20000f, 360000f);
+				settings.frequencyAutoCleaning = (int)val;
+			}
+			// ===============
+			// listingStandard.Gap();
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoResearch".Translate() , ref settings.enableAutoResearch, "WVC_Tooltip_TweaksSettings_enableAutoResearch".Translate());
+			if (settings.enableAutoResearch)
+			{
+				float val = settings.frequencyAutoResearch;
+				listingStandard.SliderLabeledWithRef("WVC_Label_TweaksSettings_frequencyAutoResearch".Translate(settings.frequencyAutoResearch.ToStringTicksToDays()), ref val, 1500f, 360000f);
+				settings.frequencyAutoResearch = (int)val;
+			}
+			// ===============
+			listingStandard.GapLine();
 			//listingStandard.Gap();
 			// ===============
 			listingStandard.End();
@@ -115,4 +162,30 @@ namespace WVC_Tweaks
 			return true;
 		}
 	}
+
+	internal static class SettingsHelper
+	{
+
+		public static void SliderLabeledWithRef(this Listing_Standard ls, string label, ref float val, float min = 0f, float max = 1f, string tooltip = null)
+		{
+			Rect rect = ls.GetRect(Text.LineHeight);
+			Rect rect2 = rect.LeftPart(0.5f).Rounded();
+			Rect rect3 = rect.RightPart(0.62f).Rounded().LeftPart(0.97f).Rounded();
+			// Rect rect4 = rect.RightPart(0.1f).Rounded();
+			TextAnchor anchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleLeft;
+			Widgets.Label(rect2, label);
+			float _ = (val = Widgets.HorizontalSlider_NewTemp(rect3, val, min, max, middleAlignment: true));
+			Text.Anchor = TextAnchor.MiddleRight;
+			// Widgets.Label(rect4, string.Format(format, val));
+			if (!tooltip.NullOrEmpty())
+			{
+				TooltipHandler.TipRegion(rect, tooltip);
+			}
+			Text.Anchor = anchor;
+			ls.Gap(ls.verticalSpacing);
+		}
+
+	}
+
 }

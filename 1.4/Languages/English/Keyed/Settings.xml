@@ -22,4 +22,27 @@ For example, if this setting is enabled, then the butcher table can be built fro
 
 Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>
 
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoFeatures>Enable auto features</WVC_Label_TweaksSettings_enableAutoFeatures>
+	<WVC_Tooltip_TweaksSettings_enableAutoFeatures>Main switch for auto features.</WVC_Tooltip_TweaksSettings_enableAutoFeatures>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoClosingLetters>Auto letter close</WVC_Label_TweaksSettings_enableAutoClosingLetters>
+	<WVC_Tooltip_TweaksSettings_enableAutoClosingLetters>If enabled, it will automatically close pop-up letters.</WVC_Tooltip_TweaksSettings_enableAutoClosingLetters>
+	<WVC_Label_TweaksSettings_frequencyAutoClosingLetters>Closing frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoClosingLetters>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoCleaning>Auto cleaning</WVC_Label_TweaksSettings_enableAutoCleaning>
+	<WVC_Tooltip_TweaksSettings_enableAutoCleaning>If enabled, it will delete old letters and quests from the archives at certain intervals. It will also automatically close pop-up letters.</WVC_Tooltip_TweaksSettings_enableAutoCleaning>
+	<WVC_Label_TweaksSettings_frequencyAutoCleaning>Cleaning frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoCleaning>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoResearch>Auto research</WVC_Label_TweaksSettings_enableAutoResearch>
+	<WVC_Tooltip_TweaksSettings_enableAutoResearch>If enabled, it will automatically select the cheapest and lowest-level technology available with some frequency.</WVC_Tooltip_TweaksSettings_enableAutoResearch>
+	<WVC_Label_TweaksSettings_frequencyAutoResearch>New research frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoResearch>
+
 </LanguageData>
