@@ -33,7 +33,7 @@ namespace WVC_Tweaks
 		public override void MapComponentTick()
 		{
 			base.MapComponentTick();
-			if (!WVC_Tweaks.settings.enableAutoClosingLetters)
+			if (!WVC_Tweaks.settings.enableAutoFeatures)
 			{
 				return;
 			}
