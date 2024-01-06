@@ -22,6 +22,11 @@ For example, if this setting is enabled, then the butcher table can be built fro
 
 Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>
 
+	<WVC_Label_TweaksSettings_enableJunkEmptyPrecepts>Remove junk precepts</WVC_Label_TweaksSettings_enableJunkEmptyPrecepts>
+	<WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts>Removes junk (empty) precepts from ideo genearation. Should improve performance slightly in some situations. And most importantly, there is less visual garbage in the ideology ui. Ignores all vanilla precepts.
+
+Requires restart. After launch, a list of all patched precepts will appear in the log.</WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts>
+
 	<!-- ===================================== -->
 
 	<WVC_Label_TweaksSettings_enableAutoFeatures>Enable auto features</WVC_Label_TweaksSettings_enableAutoFeatures>

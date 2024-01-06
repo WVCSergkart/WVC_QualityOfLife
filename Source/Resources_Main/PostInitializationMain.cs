@@ -11,6 +11,35 @@ namespace WVC_Tweaks
 	{
 		static PostInitializationMain()
 		{
+			// Precepts
+			if (WVC_Tweaks.settings.enableJunkEmptyPrecepts)
+			{
+				List<PreceptDef> pathcedPrecepts = new();
+				foreach (PreceptDef preceptDef in DefDatabase<PreceptDef>.AllDefsListForReading)
+				{
+					if (preceptDef.comps.NullOrEmpty())
+					{
+						if (preceptDef.modContentPack.IsOfficialMod)
+						{
+							continue;
+						}
+						if (preceptDef.defaultSelectionWeight > 0f)
+						{
+							preceptDef.defaultSelectionWeight = 0f;
+							// Log.Error(preceptDef.defName + " junked.");
+							pathcedPrecepts.Add(preceptDef);
+						}
+					}
+				}
+				if (!pathcedPrecepts.NullOrEmpty())
+				{
+					Log.Warning("WVC - Tweaks JunkPreceptPatch | All pathced precepts:" + "\n" + pathcedPrecepts.Select((PreceptDef x) => x.defName).ToLineList(" - "));
+				}
+				else
+				{
+					Log.Warning("WVC - Tweaks JunkPreceptPatch | precepts list is null");
+				}
+			}
 			// Things
 			if (!WVC_Tweaks.settings.enableBuildingsStuffPatch)
 			{
