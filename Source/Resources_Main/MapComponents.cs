@@ -10,17 +10,17 @@ using Verse.Sound;
 namespace WVC_Tweaks
 {
 
-	// public class MapComponentTweaks : MapComponent
-	// {
+	public class MapComponentTweaks : MapComponent
+	{
 
 		// private int nextResearch = 0;
 		// private int nextCleaning = 0;
 		// private int nextLetterClose = 0;
 
-		// public MapComponentTweaks(Map map)
-			// : base(map)
-		// {
-		// }
+		public MapComponentTweaks(Map map)
+			: base(map)
+		{
+		}
 
 		// public override void ExposeData()
 		// {
@@ -30,11 +30,11 @@ namespace WVC_Tweaks
 			// Scribe_Values.Look(ref nextLetterClose, "nextLetterClose", 0);
 		// }
 
-		// public override void MapComponentTick()
-		// {
+		public override void MapComponentTick()
+		{
 			// base.MapComponentTick();
-		// }
+		}
 
-	// }
+	}
 
 }

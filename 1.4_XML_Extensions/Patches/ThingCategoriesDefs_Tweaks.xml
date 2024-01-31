@@ -80,7 +80,7 @@
 			  </value>
 			</Operation>
 			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-			  <xpath>/Defs/ThingDef[@Name="WVC_Ultra_ResourceComponents_Base"]</xpath>
+			  <xpath>/Defs/ThingDef[@Name="WVC_Ultra_ResourceComponents_Base" or @Name="WVC_XenotypeAndGenes_ResourceComponents_Base"]</xpath>
 			  <safetyDepth>1</safetyDepth>
 			  <value>
 				<thingCategories>
