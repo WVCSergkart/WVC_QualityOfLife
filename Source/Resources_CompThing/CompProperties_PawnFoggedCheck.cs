@@ -29,12 +29,16 @@ namespace WVC_Tweaks
 			{
 				return;
 			}
-			KillIfFogged();
+			KillIfFogged(pawn);
 		}
 
-		public void KillIfFogged()
+		public void KillIfFogged(Pawn pawn)
 		{
-			Pawn pawn = parent as Pawn;
+			if (pawn?.Map == null)
+			{
+				return;
+			}
+			// Pawn pawn = parent as Pawn;
 			if (pawn.Map.fogGrid.IsFogged(pawn.Position) && (pawn.Faction == null || pawn.Faction != Faction.OfPlayer))
 			{
 				if (Prefs.DevMode)
