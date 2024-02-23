@@ -40,23 +40,30 @@ namespace WVC_Tweaks
 			{
 				return;
 			}
-			if (WVC_Tweaks.settings.enableAutoClosingLetters && Find.TickManager.TicksGame >= nextLetterClose)
+			if (Find.TickManager.TicksGame >= nextLetterClose)
 			{
-				CleanLetterStack();
+				if (WVC_Tweaks.settings.enableAutoClosingLetters)
+				{
+					CleanLetterStack();
+				}
 				nextLetterClose = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoClosingLetters;
 			}
-			if (WVC_Tweaks.settings.enableAutoCleaning && Find.TickManager.TicksGame >= nextCleaning)
+			if (Find.TickManager.TicksGame >= nextCleaning)
 			{
-				CleanLetterStack();
-				CleanArchive();
-				CleanQuestHistory();
-				// Find.TaleManager.TaleManagerTick();
-				// Find.HistoryEventsManager.HistoryEventsManagerTick();
+				if (WVC_Tweaks.settings.enableAutoCleaning)
+				{
+					CleanLetterStack();
+					CleanArchive();
+					CleanQuestHistory();
+				}
 				nextCleaning = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoCleaning;
 			}
-			if (WVC_Tweaks.settings.enableAutoResearch && Find.TickManager.TicksGame >= nextResearch)
+			if (Find.TickManager.TicksGame >= nextResearch)
 			{
-				StartResearch();
+				if (WVC_Tweaks.settings.enableAutoResearch)
+				{
+					StartResearch();
+				}
 				nextResearch = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoResearch;
 			}
 		}
