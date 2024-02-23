@@ -42,74 +42,85 @@ namespace WVC_Tweaks
 			}
 			if (WVC_Tweaks.settings.enableAutoClosingLetters && Find.TickManager.TicksGame >= nextLetterClose)
 			{
-				LetterStack letterStack = Find.LetterStack;
-				List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick).ToList();
-				if (dismissibleLetters.Count > 0)
-				{
-					for (int i = dismissibleLetters.Count - 1; i >= 0; i--)
-					{
-						Letter cur = dismissibleLetters[i];
-						letterStack.RemoveLetter(cur);
-					}
-				}
+				CleanLetterStack();
 				nextLetterClose = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoClosingLetters;
 			}
 			if (WVC_Tweaks.settings.enableAutoCleaning && Find.TickManager.TicksGame >= nextCleaning)
 			{
-				LetterStack letterStack = Find.LetterStack;
-				List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick).ToList();
-				if (dismissibleLetters.Count > 0)
-				{
-					for (int i = dismissibleLetters.Count - 1; i >= 0; i--)
-					{
-						Letter cur = dismissibleLetters[i];
-						letterStack.RemoveLetter(cur);
-					}
-				}
-				List<IArchivable> archives = Find.Archive.ArchivablesListForReading;
-				if (archives.Count > 0)
-				{
-					for (int i = archives.Count - 1; i >= 0; i--)
-					{
-						Find.Archive.Remove(archives[i]);
-					}
-				}
-				List<Quest> quests = Find.QuestManager.QuestsListForReading;
-				if (quests.Count > 0)
-				{
-					for (int i = quests.Count - 1; i >= 0; i--)
-					{
-						if (quests[i].Historical)
-						{
-							Find.QuestManager.Remove(quests[i]);
-						}
-					}
-				}
-				Find.TaleManager.TaleManagerTick();
-				Find.HistoryEventsManager.HistoryEventsManagerTick();
+				CleanLetterStack();
+				CleanArchive();
+				CleanQuestHistory();
+				// Find.TaleManager.TaleManagerTick();
+				// Find.HistoryEventsManager.HistoryEventsManagerTick();
 				nextCleaning = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoCleaning;
 			}
 			if (WVC_Tweaks.settings.enableAutoResearch && Find.TickManager.TicksGame >= nextResearch)
 			{
-				if (Find.ResearchManager.currentProj == null)
+				StartResearch();
+				nextResearch = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoResearch;
+			}
+		}
+
+		public static void StartResearch()
+		{
+			if (Find.ResearchManager.currentProj == null)
+			{
+				List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
+				foreach (TechLevel techLevel in from TechLevel tl in Enum.GetValues(typeof(TechLevel))
+												orderby tl
+												select tl)
 				{
-					List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
-					foreach (TechLevel techLevel in from TechLevel tl in Enum.GetValues(typeof(TechLevel))
-						orderby tl
-						select tl)
+					ResearchProjectDef researchProjectDef = (from r in allDefsListForReading
+															 where !r.IsFinished && r.techLevel == techLevel
+															 orderby r.baseCost
+															 select r).FirstOrDefault();
+					if (researchProjectDef != null)
 					{
-						ResearchProjectDef researchProjectDef = (from r in allDefsListForReading
-							where !r.IsFinished && r.techLevel == techLevel
-							orderby r.baseCost
-							select r).FirstOrDefault();
-						if (researchProjectDef != null)
-						{
-							Find.ResearchManager.currentProj = researchProjectDef;
-							break;
-						}
+						Find.ResearchManager.currentProj = researchProjectDef;
+						break;
 					}
 				}
-				nextResearch = Find.TickManager.TicksGame + WVC_Tweaks.settings.frequencyAutoResearch;
+			}
+		}
+
+		public static void CleanQuestHistory()
+		{
+			List<Quest> quests = Find.QuestManager.QuestsListForReading;
+			if (quests.Count > 0)
+			{
+				for (int i = quests.Count - 1; i >= 0; i--)
+				{
+					if (quests[i].Historical)
+					{
+						Find.QuestManager.Remove(quests[i]);
+					}
+				}
+			}
+		}
+
+		public static void CleanArchive()
+		{
+			List<IArchivable> archives = Find.Archive.ArchivablesListForReading;
+			if (archives.Count > 0)
+			{
+				for (int i = archives.Count - 1; i >= 0; i--)
+				{
+					Find.Archive.Remove(archives[i]);
+				}
+			}
+		}
+
+		public static void CleanLetterStack()
+		{
+			LetterStack letterStack = Find.LetterStack;
+			List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick && x.arrivalTick + 60000 < Find.TickManager.TicksGame).ToList();
+			if (dismissibleLetters.Count > 0)
+			{
+				for (int i = dismissibleLetters.Count - 1; i >= 0; i--)
+				{
+					Letter cur = dismissibleLetters[i];
+					letterStack.RemoveLetter(cur);
+				}
 			}
 		}
 
