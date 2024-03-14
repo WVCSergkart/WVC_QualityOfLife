@@ -6,27 +6,28 @@
 	<url>https://steamcommunity.com/profiles/76561198019114858/myworkshopfiles/?appid=294100</url>
 	<supportedVersions>
 		<li>1.4</li>
+		<li>1.5</li>
 	</supportedVersions>
 	<packageId>wvc.sergkart.qolpatches</packageId>
 	<description>Adds QoL patches.</description>
 	<modDependencies>
-		<li>
-			<packageId>brrainz.harmony</packageId>
-			<displayName>Harmony</displayName>
-			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
-		</li>
-		<li>
-			<packageId>imranfish.xmlextensions</packageId>
-			<displayName>XML Extensions</displayName>
-			<downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
-		</li>
-		<li>
-			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
-			<displayName>Vanilla Expanded Framework</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
-		</li>
+		<!-- <li> -->
+			<!-- <packageId>brrainz.harmony</packageId> -->
+			<!-- <displayName>Harmony</displayName> -->
+			<!-- <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl> -->
+			<!-- <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl> -->
+		<!-- </li> -->
+		<!-- <li> -->
+			<!-- <packageId>imranfish.xmlextensions</packageId> -->
+			<!-- <displayName>XML Extensions</displayName> -->
+			<!-- <downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl> -->
+			<!-- <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl> -->
+		<!-- </li> -->
+		<!-- <li> -->
+			<!-- <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId> -->
+			<!-- <displayName>Vanilla Expanded Framework</displayName> -->
+			<!-- <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl> -->
+		<!-- </li> -->
 	</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>

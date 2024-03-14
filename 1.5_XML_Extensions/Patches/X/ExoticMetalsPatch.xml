@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- ===================================================================== -->
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_ExoticResources_WeaponsRecipes</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.ApplyPatch">
+				<patchName>WVC_PatchDef_AllSteelRecipes_Into_MetalRecipes</patchName>
+				<arguments>
+					<li>BaseWeapon</li>
+				</arguments>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_ExoticResources_ApparelsRecipes</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.ApplyPatch">
+				<patchName>WVC_PatchDef_AllSteelRecipes_Into_MetalRecipes</patchName>
+				<arguments>
+					<li>ApparelNoQualityBase</li>
+				</arguments>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartGenerator_PatchByCase" Abstract="True">
+		<parameters>
+			<li>Tag_DEF</li>
+			<li>defName_DEF</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.PatchByCase">
+				<value>{Tag_DEF}</value>
+				<cases>
+
+					<li>
+						<value>Eye</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>6</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li MayRequire="sarg.alphaanimals">AA_BoatEye</li>
+									<!-- <li>WVC_SightSensor</li> -->
+									<!-- <li>SightSensor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Ear</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>8</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>3</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<!-- <li>WVC_HearingSensor</li> -->
+									<!-- <li>HearingSensor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Jaw</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>5</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>AnimalJaw</li>
+									<li>Beak</li>
+									<!-- <li>WVC_FormerJaw</li> -->
+									<!-- <li MayRequire="sarg.alphaanimals">AA_CrocodileJaw</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Nose</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>11</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>3</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<!-- <li>WVC_SmellSensor</li> -->
+									<!-- <li>SmellSensor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Tongue</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>13</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>4</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Stomach</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>5</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<!-- <li>WVC_OrganicReprocessor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Spine</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>5</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Heart</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>8</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li MayRequire="nemonian.my">MoyoHeart</li>
+									<li>InsectHeart</li>
+									<!-- <li>WVC_FormerHearth</li> -->
+									<!-- <li>Reactor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Kidney</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>4</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Liver</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>3</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<!-- <li>FluidReprocessor</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Lung</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>6</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Shoulder</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li MayRequire="vanillaexpanded.vaecaves">VAE_InsectArm</li>
+									<!-- <li>MechanicalShoulder</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Leg</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>InsectLeg</li>
+									<li MayRequire="sarg.alphaanimals">AA_SmallInsectLeg</li>
+									<!-- <li>MechanicalLeg</li> -->
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>Tail</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>3</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li MayRequire="nemonian.my">Moyo_Tail</li>
+									<li MayRequire="vamv.maruracemod">MR_BigTail</li>
+									<li MayRequire="sarg.alphaanimals">AA_InsectTail</li>
+									<li MayRequire="vanillaexpanded.vaecaves">VAE_ScorpionTail</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<!-- ===============================Races=============================== -->
+					<li>
+						<value>WVC_AdvancedFormerPilon</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>3</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>+</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>WVC_Automaton_Triangle</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>WVC_FormerCore</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>3</value>
+								<operation>+</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>+</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>Reactor</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>MechanicalShoulder</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>MechanicalLeg</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>WVC_FormerVeil</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>WVC_Automaton_Spike</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>WVC_OrganicReprocessor</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>5</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>1</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>FluidReprocessor</li>
+									<li>WVC_FormerHearth</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+					<li>
+						<value>WVC_SightSensor</value>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/Plasteel</xpath>
+								<value>6</value>
+								<operation>-</operation>
+							</Operation>
+							<Operation Class="XmlExtensions.PatchOperationMath">
+								<xpath>Defs/ThingDef[defName="{defName_DEF}"]/costList/ComponentSpacer</xpath>
+								<value>2</value>
+								<operation>-</operation>
+							</Operation>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+								<value>
+									<li>WVC_HearingSensor</li>
+									<li>WVC_SmellSensor</li>
+									<li>SightSensor</li>
+									<li>SmellSensor</li>
+									<li>HearingSensor</li>
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+
+				</cases>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

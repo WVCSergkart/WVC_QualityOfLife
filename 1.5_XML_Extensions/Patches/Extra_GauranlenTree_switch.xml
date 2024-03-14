@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<!-- <li>ludeon.rimworld.royalty</li> -->
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>AnimaGauranlenTree_TweaksPatch_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima" or defName="Plant_TreePolux"]/minifiedDef</xpath>
+					</Operation>
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_MossGauranlen" or defName="Plant_TreeAnima" or defName="Plant_GrassAnima" or defName="Plant_PodGauranlen" or defName="Plant_TreePolux"]/plant</xpath>
+					  <value>
+						  <interferesWithRoof>false</interferesWithRoof>
+						  <growMinGlow>0</growMinGlow>
+						  <pollution>Any</pollution>
+					  </value>
+					</Operation>
+				</caseTrue>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>AnimaTree_SpawnGrass_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+						<xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]</xpath>
+						<safetyDepth>1</safetyDepth>
+						<value>
+						  <comps>
+							  <li Class="CompProperties_SpawnSubplant">
+								<compClass>CompSpawnSubplantDuration</compClass>
+								<subplant>Plant_GrassAnima</subplant>
+								<maxRadius>7.9</maxRadius>
+								<subplantSpawnDays>1</subplantSpawnDays>
+								<minGrowthForSpawn>0.6</minGrowthForSpawn>
+								<initialGrowthRange>0.2~0.8</initialGrowthRange>
+								<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+								<plantsToNotOverwrite>
+								  <li MayRequire="ludeon.rimworld.ideology">Plant_PodGauranlen</li>
+								  <li MayRequire="ludeon.rimworld.ideology">Plant_MossGauranlen</li>
+								  <li MayRequire="ludeon.rimworld.ideology">Plant_TreeGauranlen</li>
+								</plantsToNotOverwrite>
+							  </li>
+						  </comps>
+						</value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTree_PruningSeperate_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="PatchOperationAdd">
+					  <xpath>/Defs</xpath>
+					  <value>
+						  <WorkTypeDef>
+							<defName>WVC_Pruning</defName>
+							<labelShort>prune</labelShort>
+							<pawnLabel>prune</pawnLabel>
+							<gerundLabel>pruning</gerundLabel>
+							<description>Prune Gauranlen trees.</description>
+							<verb>prune</verb>
+							<naturalPriority>701</naturalPriority>
+							<requireCapableColonist>true</requireCapableColonist>
+							<relevantSkills>
+							  <li>Plants</li>
+							</relevantSkills>
+							<workTags>
+							  <li>ManualSkilled</li>
+							  <li>PlantWork</li>
+							  <li>Commoner</li>
+							  <li>AllWork</li>
+							</workTags>
+						  </WorkTypeDef>
+					  </value>
+					</Operation>
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/WorkGiverDef[defName="PruneGauranlenTree"]/workType</xpath>
+					  <value>
+						<workType>WVC_Pruning</workType>
+					  </value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTree_Glowing_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="PatchOperationFindMod">
+						<mods>
+							<li>Vanilla Ideology Expanded - Anima Theme</li>
+						</mods>
+						<match Class="PatchOperationSequence">
+							<operations>
+								<li Class="XmlExtensions.PatchOperationSafeAdd">
+								  <xpath>/Defs/ThingDef[defName="Plant_MossGauranlen"]</xpath>
+								  <safetyDepth>1</safetyDepth>
+								  <value>
+									  <comps>
+										  <li Class="CompProperties_Glower">
+											<glowRadius>1</glowRadius>
+											<glowColor>(100,255,200,0)</glowColor>
+										  </li>
+									  </comps>
+								  </value>
+								</li>
+							</operations>
+						</match>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="XmlExtensions.PatchOperationSafeAdd">
+								  <xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen"]</xpath>
+								  <safetyDepth>1</safetyDepth>
+								  <value>
+									  <comps>
+										  <li Class="CompProperties_Glower">
+											<glowRadius>3</glowRadius>
+											<glowColor>(255,150,100,0)</glowColor>
+											<!-- <glowColor>(255,106,0,0)</glowColor> -->
+										  </li>
+									  </comps>
+								  </value>
+								</li>
+								<li Class="XmlExtensions.PatchOperationSafeAdd">
+								  <xpath>/Defs/ThingDef[defName="Plant_MossGauranlen"]</xpath>
+								  <safetyDepth>1</safetyDepth>
+								  <value>
+									  <comps>
+										  <li Class="CompProperties_Glower">
+											<glowRadius>1</glowRadius>
+											<glowColor>(255,150,100,0)</glowColor>
+											<!-- <glowColor>(255,106,0,0)</glowColor> -->
+										  </li>
+									  </comps>
+								  </value>
+								</li>
+							</operations>
+						</nomatch>
+					</Operation>
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]/comps/li[@Class="CompProperties_Glower"]</xpath>
+					  <value>
+						  <li Class="CompProperties_Glower">
+							<glowRadius>3</glowRadius>
+							<glowColor>(100,255,200,0)</glowColor>
+						  </li>
+					  </value>
+					</Operation>
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/ThingDef[defName="Plant_GrassAnima"]</xpath>
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						  <comps>
+							  <li Class="CompProperties_Glower">
+								<glowRadius>1</glowRadius>
+								<glowColor>(100,255,200,0)</glowColor>
+							  </li>
+						  </comps>
+					  </value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTree_SpawnWood_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="PatchOperationAdd">
+					  <xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen"]/comps</xpath>
+					  <value>
+						  <li Class="CompProperties_Spawner">
+							<thingToSpawn>WoodLog</thingToSpawn>
+							<spawnCount>15</spawnCount>
+							<spawnIntervalRange>120000</spawnIntervalRange>
+							<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+							<showMessageIfOwned>true</showMessageIfOwned>
+						  </li>
+					  </value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTree_SpawnSeeds_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="PatchOperationAdd">
+					  <xpath>/Defs/ThingDef[defName="Plant_TreeGauranlen"]/comps</xpath>
+					  <value>
+						  <li Class="CompProperties_Spawner">
+							<thingToSpawn>GauranlenSeed</thingToSpawn>
+							<spawnCount>1</spawnCount>
+							<spawnIntervalRange>3600000</spawnIntervalRange>
+							<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+							<showMessageIfOwned>true</showMessageIfOwned>
+						  </li>
+					  </value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+			<!-- ===================================================================== -->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Dryads_AlphaAnimals_LockRemover_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/GauranlenTreeModeDef[defName="AA_Spitter" or defName="AA_Unstable" or defName="AA_Tumorous"]/requiredMemes</xpath>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

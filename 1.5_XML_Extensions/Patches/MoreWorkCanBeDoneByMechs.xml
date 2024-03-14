@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.biotech</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_MoreWorkCanBeDoneByMechs</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/WorkGiverDef[defName="HaulMechsToCharger" or defName="DoBillsSubcoreEncoder" or defName="DoctorTendToAnimals" or defName="DoctorFeedAnimals" or defName="RepairMech" or defName="ExtractTree" or defName="Replant" or defName="PaintBuilding" or defName="PaintFloor" or defName="RemovePaintFloor" or defName="RemovePaintBuilding" or defName="Strip"]</xpath> 
+					  <value>
+						<canBeDoneByMechs>true</canBeDoneByMechs>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

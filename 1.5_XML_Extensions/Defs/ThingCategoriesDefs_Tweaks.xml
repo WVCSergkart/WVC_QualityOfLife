@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_MechanitorApparel</defName>
+	<label>*mechanitor</label>
+	<parent>Apparel</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_ShieldsApparel</defName>
+	<label>*shield belts</label>
+	<parent>Apparel</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_PowerArmorApparel</defName>
+	<label>*power armor</label>
+	<parent>Apparel</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_EltexApparel</defName>
+	<label>*eltex</label>
+	<parent>Apparel</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_WoodResources_Raw</defName>
+	<label>*wood</label>
+	<parent>ResourcesRaw</parent>
+	<iconPath>Things/Item/Resource/WoodLog/WoodLog_c</iconPath>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_MetalResources_Raw</defName>
+	<label>*metal</label>
+	<parent>ResourcesRaw</parent>
+	<iconPath>Things/Item/Resource/Plasteel/Plasteel_c</iconPath>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_ManufacturedComponents</defName>
+	<label>*components</label>
+	<parent>Manufactured</parent>
+	<iconPath>Things/Item/Resource/ComponentIndustrial/ComponentIndustrial</iconPath>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+	<defName>WVC_Tweaks_ManufacturedSubcores</defName>
+	<label>*subcores</label>
+	<parent>Manufactured</parent>
+	<iconPath>Things/Item/Resource/ComponentSpacer/ComponentSpacer</iconPath>
+  </ThingCategoryDef>
+
+  <!-- <ThingCategoryDef> -->
+	<!-- <defName>WVC_ResourceDryadSpawner</defName> -->
+	<!-- <label>dryad spawn resources</label> -->
+	<!-- <parent>Root</parent> -->
+  <!-- </ThingCategoryDef> -->
+
+</Defs>

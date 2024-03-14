@@ -178,7 +178,7 @@ namespace WVC_Tweaks
 			TextAnchor anchor = Text.Anchor;
 			Text.Anchor = TextAnchor.MiddleLeft;
 			Widgets.Label(rect2, label);
-			float _ = (val = Widgets.HorizontalSlider_NewTemp(rect3, val, min, max, middleAlignment: true));
+			float _ = (val = Widgets.HorizontalSlider(rect3, val, min, max, middleAlignment: true));
 			Text.Anchor = TextAnchor.MiddleRight;
 			// Widgets.Label(rect4, string.Format(format, val));
 			if (!tooltip.NullOrEmpty())

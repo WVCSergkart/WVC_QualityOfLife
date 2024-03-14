@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="ThoughtsOpinion_Autopatcher_WVC" Abstract="True">
+		<parameters>
+			<!-- <li>RaceDefName</li> -->
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>/Defs/ThoughtDef/stages/li/baseOpinionOffset</xpath>
+				<storeIn>OpinionThoughtDef</storeIn>
+				<apply>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{OpinionThoughtDef}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{OpinionThoughtDef}/defName</value>
+								<storeIn>OpinionThoughtDefName</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/AlienRace.ThingDef_AlienRace[@WVC_AutoPatchTag="OpinionPatcherTarget"]</xpath>
+										<safetyDepth>3</safetyDepth>
+										<value>
+											<alienRace>
+												<thoughtSettings>
+													<canStillReceiveThoughts>
+														<li>{OpinionThoughtDefName}</li>
+													</canStillReceiveThoughts>
+												</thoughtSettings>
+											</alienRace>
+										</value>
+									</Operation>
+
+								</apply>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

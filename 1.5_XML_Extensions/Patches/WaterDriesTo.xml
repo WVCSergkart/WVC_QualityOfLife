@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_WaterDriesTo</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+			  <xpath>/Defs/TerrainDef[@Name="WaterBase"]</xpath>
+			  <value>
+				<driesTo>Gravel</driesTo>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

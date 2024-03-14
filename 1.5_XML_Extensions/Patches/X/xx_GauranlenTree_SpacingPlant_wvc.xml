@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>or</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>GauranlenTree_SpacingPlant_wvc</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+						  <xpath>Defs/ThingDef[defName="Plant_TreeGauranlen" or defName="Plant_TreeAnima"]/plant</xpath>
+						  <value>
+							<minSpacingBetweenSamePlant>1.9</minSpacingBetweenSamePlant>
+						  </value>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+</Patch>

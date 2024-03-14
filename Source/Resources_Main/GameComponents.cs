@@ -70,7 +70,7 @@ namespace WVC_Tweaks
 
 		public static void StartResearch()
 		{
-			if (Find.ResearchManager.currentProj == null)
+			if (Find.ResearchManager.GetProject() == null)
 			{
 				List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
 				foreach (TechLevel techLevel in from TechLevel tl in Enum.GetValues(typeof(TechLevel))
@@ -83,7 +83,7 @@ namespace WVC_Tweaks
 															 select r).FirstOrDefault();
 					if (researchProjectDef != null)
 					{
-						Find.ResearchManager.currentProj = researchProjectDef;
+						Find.ResearchManager.SetCurrentProject(researchProjectDef);
 						break;
 					}
 				}

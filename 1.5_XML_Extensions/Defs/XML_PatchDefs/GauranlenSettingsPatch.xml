@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_GauranlenSettingsTree_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>DefType</li>
+			<li>ThingDefName</li>
+			<!-- 2 -->
+			<li>GauranlenTreeCustom_MaxDryads0_WVC</li>
+			<li>GauranlenTreeCustom_MaxDryads05_WVC</li>
+			<li>GauranlenTreeCustom_MaxDryads25_WVC</li>
+			<li>GauranlenTreeCustom_MaxDryads50_WVC</li>
+			<li>GauranlenTreeCustom_MaxDryads75_WVC</li>
+			<li>GauranlenTreeCustom_MaxDryads90_WVC</li>
+			<!-- 2 -->
+			<li>GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC</li>
+			<li>GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC</li>
+			<li>GauranlenTreeCustom_spawnDays_WVC</li>
+			<li>GauranlenTreeCustom_maxDryadsWild_WVC</li>
+			<li>GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC</li>
+			<li>GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC</li>
+			<!-- 3 -->
+			<li>GauranlenTreeCustom_LossPerLevel001_WVC</li>
+			<li>GauranlenTreeCustom_LossPerLevel33_WVC</li>
+			<li>GauranlenTreeCustom_LossPerLevel66_WVC</li>
+			<li>GauranlenTreeCustom_LossPerLevel90_WVC</li>
+			<!-- 4 -->
+			<li>GauranlenTreeCustom_DailyPerBuilding0_WVC</li>
+			<li>GauranlenTreeCustom_DailyPerBuilding1_WVC</li>
+			<!-- 5 -->
+			<li>GauranlenTreeCustom_GainPerPlantSkill0_WVC</li>
+			<li>GauranlenTreeCustom_GainPerPlantSkill8_WVC</li>
+			<li>GauranlenTreeCustom_GainPerPlantSkill20_WVC</li>
+			<!-- 6 -->
+			<!-- 0.4~0.65 -->
+			<li>GauranlenTreeCustom_spawningPodSizeRange_WVC</li>
+			<!-- <li>DryadMotherCustom_MaxDryads0_WVC</li> -->
+			<!-- Dryad_Basic -->
+		</parameters>
+		<apply>
+			<Operation Class="PatchOperationReplace">
+				<xpath>/Defs/{DefType}{ThingDefName}/comps/li[@Class="CompProperties_TreeConnection"]</xpath>
+				<value>
+					<li Class="CompProperties_TreeConnection">
+						<pawnKind>Dryad_Basic</pawnKind>
+						<spawnDays>{GauranlenTreeCustom_spawnDays_WVC}</spawnDays>
+						<initialConnectionStrengthRange>{GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC}~{GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC}</initialConnectionStrengthRange>
+						<connectionStrengthLossPerDryadDeath>{GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC}</connectionStrengthLossPerDryadDeath>
+						<connectionStrengthGainPerHourPruningBase>{GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC}</connectionStrengthGainPerHourPruningBase>
+						<spawningPodOffset>(-0.15, 0, -0.55)</spawningPodOffset>
+						<spawningPodSizeRange>{GauranlenTreeCustom_spawningPodSizeRange_WVC}</spawningPodSizeRange>
+						<maxDryadsWild>{GauranlenTreeCustom_maxDryadsWild_WVC}</maxDryadsWild>
+						<maxDryadsPerConnectionStrengthCurve>
+						  <points>
+							<li>(0, {GauranlenTreeCustom_MaxDryads0_WVC})</li>
+							<li>(0.05, {GauranlenTreeCustom_MaxDryads05_WVC})</li>
+							<li>(0.20, {GauranlenTreeCustom_MaxDryads25_WVC})</li>
+							<li>(0.40, {GauranlenTreeCustom_MaxDryads50_WVC})</li>
+							<li>(0.60, {GauranlenTreeCustom_MaxDryads75_WVC})</li>
+							<li>(0.80, {GauranlenTreeCustom_MaxDryads90_WVC})</li>
+						  </points>
+						</maxDryadsPerConnectionStrengthCurve>
+						<connectionLossPerLevelCurve>
+						  <points>
+							<li>(0, 0</li>
+							<li>(0.001, {GauranlenTreeCustom_LossPerLevel001_WVC})</li>
+							<li>(0.33, {GauranlenTreeCustom_LossPerLevel33_WVC})</li>
+							<li>(0.66, {GauranlenTreeCustom_LossPerLevel66_WVC})</li>
+							<li>(0.90, {GauranlenTreeCustom_LossPerLevel90_WVC})</li>
+						  </points>
+						</connectionLossPerLevelCurve>
+						<connectionLossDailyPerBuildingDistanceCurve>
+						  <points>
+							<li>(0, {GauranlenTreeCustom_DailyPerBuilding0_WVC})</li>
+							<li>(7.9, {GauranlenTreeCustom_DailyPerBuilding1_WVC})</li>
+						  </points>
+						</connectionLossDailyPerBuildingDistanceCurve>
+						<connectionStrengthGainPerPlantSkill>
+						  <points>
+							<li>(0, {GauranlenTreeCustom_GainPerPlantSkill0_WVC})</li>
+							<li>(8, {GauranlenTreeCustom_GainPerPlantSkill8_WVC})</li>
+							<li>(20, {GauranlenTreeCustom_GainPerPlantSkill20_WVC})</li>
+						  </points>
+						</connectionStrengthGainPerPlantSkill>
+					</li>
+				</value>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_GauranlenSettingsCocoon_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>GauranlenTreeCustom_Cocon_daysToComplete_WVC</li>
+			<li>GauranlenTreeCustom_Cocon_drawContents_WVC</li>
+		</parameters>
+		<apply>
+			<Operation Class="PatchOperationReplace">
+			  <xpath>/Defs/ThingDef[defName="DryadCocoon"]/comps/li[@Class="CompProperties_DryadCocoon"]</xpath>
+			  <value>
+				  <li Class="CompProperties_DryadCocoon">
+					<compClass>CompDryadCocoon</compClass>
+					<daysToComplete>{GauranlenTreeCustom_Cocon_daysToComplete_WVC}</daysToComplete>
+					<drawContents>{GauranlenTreeCustom_Cocon_drawContents_WVC}</drawContents>
+				  </li>
+			  </value>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!-- ================================================================= -->
+
+	<XmlExtensions.PatchDef Name="Autopatcher_AnimaSettingsTree_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>ThingDefName</li>
+			<!-- 1 -->
+			<li>TreeGrass_Level_1</li>
+			<li>TreeGrass_Level_2</li>
+			<li>TreeGrass_Level_3</li>
+			<li>TreeGrass_Level_4</li>
+			<li>TreeGrass_Level_5</li>
+			<li>TreeGrass_Level_6</li>
+			<!-- 2 -->
+			<li>ArtificialBuildings_Radius</li>
+			<li>ArtificialBuildings_Curve_2</li>
+			<li>ArtificialBuildings_Curve_3</li>
+			<li>ArtificialBuildings_Curve_4</li>
+			<!-- 3 -->
+			<li>FocusStrengthOffset_Radius</li>
+			<li>FocusStrengthOffset_maxBuildings</li>
+		</parameters>
+		<apply>
+			<Operation Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef{ThingDefName}/comps/li[@Class="CompProperties_Psylinkable"]/requiredSubplantCountPerPsylinkLevel</xpath>
+				<value>
+					<requiredSubplantCountPerPsylinkLevel>
+					  <li>{TreeGrass_Level_1}</li>
+					  <li>{TreeGrass_Level_2}</li>
+					  <li>{TreeGrass_Level_3}</li>
+					  <li>{TreeGrass_Level_4}</li>
+					  <li>{TreeGrass_Level_5}</li>
+					  <li>{TreeGrass_Level_6}</li>
+					</requiredSubplantCountPerPsylinkLevel>
+				</value>
+			</Operation>
+			<Operation Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef{ThingDefName}/comps/li[@Class="CompProperties_MeditationFocus"]/offsets</xpath>
+				<value>
+					<offsets>
+					  <li Class="FocusStrengthOffset_ArtificialBuildings">
+						<radius>{ArtificialBuildings_Radius}</radius>
+						<curve>
+						  <points>
+							<li>(0,   0)</li>
+							<li>(5,  -{ArtificialBuildings_Curve_2})</li>
+							<li>(10, -{ArtificialBuildings_Curve_3})</li>
+							<li>(50, -{ArtificialBuildings_Curve_4})</li>
+						  </points>
+						</curve>
+					  </li>
+					  <li Class="FocusStrengthOffset_BuildingDefs">
+						<defs>
+						  <AnimusStone>0.02</AnimusStone>
+						  <NatureShrine_Small>0.01</NatureShrine_Small>
+						  <NatureShrine_Large>0.01</NatureShrine_Large>
+						  <Plant_TreeGauranlen MayRequire="ludeon.rimworld.ideology">0.05</Plant_TreeGauranlen>
+						  <Plant_TreeAnima>0.05</Plant_TreeAnima>
+						</defs>
+						<radius>{FocusStrengthOffset_Radius}</radius>
+						<maxBuildings>{FocusStrengthOffset_maxBuildings}</maxBuildings>
+						<explanationKey>MeditationFocusPerAnimusStoneAndShrine</explanationKey>
+						<explanationKeyAbstract>MeditationFocusPerAnimusStoneAndShrineAbstract</explanationKeyAbstract>
+					  </li>
+					</offsets>
+				</value>
+			</Operation>
+			<Operation Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MeditationPlantGrowthOffset"]/parts/li[@Class="StatPart_ArtificialBuildingsNearbyOffset"]</xpath> 
+			  <value>
+				  <li Class="StatPart_ArtificialBuildingsNearbyOffset">
+					<radius>{ArtificialBuildings_Radius}</radius>
+					<curve>
+					  <points>
+						<li>(0,   0)</li>
+						<li>(5,  -{ArtificialBuildings_Curve_2})</li>
+						<li>(10, -{ArtificialBuildings_Curve_3})</li>
+						<li>(50, -{ArtificialBuildings_Curve_4})</li>
+					  </points>
+					</curve>
+				  </li>
+			  </value>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

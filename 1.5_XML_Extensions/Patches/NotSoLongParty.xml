@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+			<li>ludeon.rimworld.royalty</li>
+			<li>ludeon.rimworld.biotech</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>or</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_NotSoLongParty</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationMath">
+					  <xpath>/Defs/RitualBehaviorDef/durationTicks</xpath>
+					  <value>0.7</value>
+					  <operation>*</operation>
+					</Operation>
+
+					<Operation Class="XmlExtensions.FindMod">
+						<mods>
+							<li>ludeon.rimworld.biotech</li>
+						</mods>
+						<packageId>true</packageId>
+						<logic>or</logic>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+							  <xpath>/Defs/RitualBehaviorDef[defName="ChildBirth"]</xpath> 
+							  <value>
+								<durationTicks>-1</durationTicks>
+							  </value>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+					<Operation Class="XmlExtensions.FindMod">
+						<mods>
+							<li>ludeon.rimworld.royalty</li>
+						</mods>
+						<packageId>true</packageId>
+						<logic>or</logic>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+							  <xpath>/Defs/RitualBehaviorDef[defName="AnimaTreeLinking"]</xpath> 
+							  <value>
+								<durationTicks>5000</durationTicks>
+							  </value>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

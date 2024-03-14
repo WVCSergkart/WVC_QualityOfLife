@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>erdelf.humanoidalienraces</li>
+			<li>erdelf.humanoidalienraces.dev</li>
+		</mods>
+		<packageId>true</packageId>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>TechRestrictionsRemover_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/AlienRace.ThingDef_AlienRace/alienRace/raceRestriction/researchList</xpath>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+
+			<!--=====================================================================-->
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>Extra_QoLPatches_HaRSizesFix_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator</xpath>
+						<value>
+							<atlasScale>4</atlasScale>
+							<borderScale>1</borderScale>
+						</value>
+					</Operation>
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+						<xpath>/Defs/ThingDef/alienRace/generalSettings/alienPartGenerator</xpath>
+						<value>
+							<atlasScale>4</atlasScale>
+							<borderScale>1</borderScale>
+						</value>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>
