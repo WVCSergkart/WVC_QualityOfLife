@@ -78,7 +78,7 @@ namespace WVC_Tweaks
 												select tl)
 				{
 					ResearchProjectDef researchProjectDef = (from r in allDefsListForReading
-															 where !r.IsFinished && r.techLevel == techLevel
+															 where !r.IsFinished && r.techLevel == techLevel && r.tab.minMonolithLevelVisible < 0
 															 orderby r.baseCost
 															 select r).FirstOrDefault();
 					if (researchProjectDef != null)
