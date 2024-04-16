@@ -5,6 +5,7 @@
 		<modId>honkai.girls.sergkart</modId>
 		<!-- WVC is my tag for all my mods -->
 		<label>WVC - Tweaks and Patches</label>
+		<!-- <defaultSpacing>4</defaultSpacing> -->
 		<settings>
 			<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
 				<!-- <color>(54,57,61)</color> -->
@@ -51,6 +52,20 @@
 						<settings>
 							<li Class="XmlExtensions.Setting.EmbedMenu">
 								<menu>Settings_ExtraWVC</menu>
+							</li>
+							<li Class="XmlExtensions.Setting.GapLine" />
+							<li Class="XmlExtensions.Setting.Text">
+								<text>Gauranlen Tree Settings</text>
+							</li>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_DryadsTreeWVC</menu>
+							</li>
+							<li Class="XmlExtensions.Setting.GapLine" />
+							<li Class="XmlExtensions.Setting.Text">
+								<text>Anima Tree Settings</text>
+							</li>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_AnimaTree_WVC</menu>
 							</li>
 						</settings>
 					</li>
