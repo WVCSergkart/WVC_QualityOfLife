@@ -101,7 +101,7 @@ namespace WVC_Tweaks
 					bool stopCycle = false;
 					foreach (ThingDefCountClass thingCost in thingDef.costList)
 					{
-						if (thingCost.thingDef.stuffProps == null || thingCost.thingDef.stuffProps.categories.NullOrEmpty())
+						if (thingCost.thingDef.smallVolume == true || thingCost.thingDef.stuffProps == null || thingCost.thingDef.stuffProps.categories.NullOrEmpty())
 						{
 							stopCycle = true;
 							continue;
