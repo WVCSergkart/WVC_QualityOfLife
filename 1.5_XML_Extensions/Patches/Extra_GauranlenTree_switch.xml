@@ -247,7 +247,7 @@
 				<defaultValue>false</defaultValue>
 				<caseTrue>
 					<Operation Class="XmlExtensions.PatchOperationSafeRemove">
-						<xpath>/Defs/GauranlenTreeModeDef[defName="AA_Spitter" or defName="AA_Unstable" or defName="AA_Tumorous"]/requiredMemes</xpath>
+						<xpath>/Defs/GauranlenTreeModeDef[defName="AA_Spitter" or defName="AA_Unstable" or defName="AA_Tumorous" or defName="AM_Spitter" or defName="AM_Unstable" or defName="AM_Tumorous"]/requiredMemes</xpath>
 					</Operation>
 				</caseTrue>
 				<caseFalse>
