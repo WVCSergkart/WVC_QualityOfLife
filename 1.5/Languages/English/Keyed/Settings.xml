@@ -27,6 +27,11 @@ Requires restart. After launch, a list of all patched buildings will appear in t
 
 Requires restart. After launch, a list of all patched precepts will appear in the log.</WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts>
 
+	<WVC_Label_TweaksSettings_enableVanillaMemesForFactions>Factions use vanilla memes</WVC_Label_TweaksSettings_enableVanillaMemesForFactions>
+	<WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions>Patches all non-vanilla memes by reducing their randomization weight to zero. This way, when generating, factions will not use memes from mods. This can be useful in cases where the mechanics of mod memes have too destructive an effect.
+
+Requires restart. After launch, a list of all patched memes will appear in the log.</WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions>
+
 	<!-- ===================================== -->
 
 	<WVC_Label_TweaksSettings_enableAutoFeatures>Enable auto features</WVC_Label_TweaksSettings_enableAutoFeatures>

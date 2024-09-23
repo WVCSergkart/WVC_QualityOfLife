@@ -6,47 +6,27 @@ using Verse;
 namespace WVC_Tweaks
 {
 
-    [StaticConstructorOnStartup]
+	[StaticConstructorOnStartup]
 	public static class PostInitializationMain
 	{
 		static PostInitializationMain()
 		{
 			// Precepts
-			if (WVC_Tweaks.settings.enableJunkEmptyPrecepts)
-			{
-				List<PreceptDef> pathcedPrecepts = new();
-				foreach (PreceptDef preceptDef in DefDatabase<PreceptDef>.AllDefsListForReading)
-				{
-					if (preceptDef.comps.NullOrEmpty())
-					{
-						if (preceptDef.modContentPack.IsOfficialMod)
-						{
-							continue;
-						}
-						if (preceptDef.defaultSelectionWeight > 0f)
-						{
-							preceptDef.defaultSelectionWeight = 0f;
-							// Log.Error(preceptDef.defName + " junked.");
-							pathcedPrecepts.Add(preceptDef);
-						}
-					}
-				}
-				if (!pathcedPrecepts.NullOrEmpty())
-				{
-					Log.Warning("WVC - Tweaks JunkPreceptPatch | All pathced precepts:" + "\n" + pathcedPrecepts.Select((PreceptDef x) => x.defName).ToLineList(" - "));
-				}
-				else
-				{
-					Log.Warning("WVC - Tweaks JunkPreceptPatch | precepts list is null");
-				}
-			}
+			Precepts();
+			// Memes
+			Memes();
 			// Things
+			BuildingsStuff();
+		}
+
+		private static void BuildingsStuff()
+		{
 			if (!WVC_Tweaks.settings.enableBuildingsStuffPatch)
 			{
 				return;
 			}
-			List<StuffCategoryDef> allowedStuff = new() 
-			{ 
+			List<StuffCategoryDef> allowedStuff = new()
+			{
 				StuffCategoryDefOf.Stony,
 				StuffCategoryDefOf.Metallic,
 				StuffCategoryDefOf.Woody
@@ -144,5 +124,65 @@ namespace WVC_Tweaks
 				Log.Warning("WVC - Tweaks Patch | buildings list is null");
 			}
 		}
+
+		private static void Precepts()
+		{
+			if (!WVC_Tweaks.settings.enableJunkEmptyPrecepts)
+			{
+				return;
+			}
+			List<PreceptDef> pathcedPrecepts = new();
+			foreach (PreceptDef preceptDef in DefDatabase<PreceptDef>.AllDefsListForReading)
+			{
+				if (preceptDef.comps.NullOrEmpty())
+				{
+					if (preceptDef.modContentPack.IsOfficialMod)
+					{
+						continue;
+					}
+					if (preceptDef.defaultSelectionWeight > 0f)
+					{
+						preceptDef.defaultSelectionWeight = 0f;
+						// Log.Error(preceptDef.defName + " junked.");
+						pathcedPrecepts.Add(preceptDef);
+					}
+				}
+			}
+			if (!pathcedPrecepts.NullOrEmpty())
+			{
+				Log.Warning("WVC - Tweaks JunkPreceptPatch | All pathced precepts:" + "\n" + pathcedPrecepts.Select((PreceptDef x) => x.defName).ToLineList(" - "));
+			}
+			else
+			{
+				Log.Warning("WVC - Tweaks JunkPreceptPatch | precepts list is null");
+			}
+		}
+
+		private static void Memes()
+		{
+			if (!WVC_Tweaks.settings.enableVanillaMemesForFactions)
+			{
+				return;
+			}
+			List<MemeDef> pathcedPrecepts = new();
+			foreach (MemeDef memeDef in DefDatabase<MemeDef>.AllDefsListForReading)
+			{
+				if (memeDef.modContentPack == null || !memeDef.modContentPack.IsOfficialMod && !memeDef.modContentPack.IsCoreMod)
+				{
+					memeDef.randomizationSelectionWeightFactor = 0f;
+					pathcedPrecepts.Add(memeDef);
+				}
+			}
+			if (!pathcedPrecepts.NullOrEmpty())
+			{
+				Log.Warning("WVC - Tweaks FactionMemesPatch | All pathced memes:" + "\n" + pathcedPrecepts.Select((MemeDef x) => x.defName).ToLineList(" - "));
+			}
+			else
+			{
+				Log.Warning("WVC - Tweaks FactionMemesPatch | memes list is null");
+			}
+		}
+
 	}
+
 }
