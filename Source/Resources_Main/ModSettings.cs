@@ -15,6 +15,7 @@ namespace WVC_Tweaks
 		public bool enableJunkEmptyPrecepts = false;
 		public bool enableVanillaMemesForFactions = false;
 		public bool enableAutoFeatures = false;
+		public bool enableAutoCastResourcePermits = false;
 		// Auto
 		public bool enableAutoClosingLetters = false;
 		public bool enableAutoCleaning = false;
@@ -34,6 +35,7 @@ namespace WVC_Tweaks
 			Scribe_Values.Look(ref enableJunkEmptyPrecepts, "enableJunkEmptyPrecepts", defaultValue: false);
 			Scribe_Values.Look(ref enableVanillaMemesForFactions, "enableVanillaMemesForFactions", defaultValue: false);
 			Scribe_Values.Look(ref enableAutoFeatures, "enableAutoFeatures", defaultValue: false);
+			Scribe_Values.Look(ref enableAutoCastResourcePermits, "enableAutoCastResourcePermits", defaultValue: false);
 			// Auto
 			Scribe_Values.Look(ref enableAutoClosingLetters, "enableAutoClosingLetters", defaultValue: false);
 			Scribe_Values.Look(ref enableAutoCleaning, "enableAutoCleaning", defaultValue: false);
@@ -109,6 +111,7 @@ namespace WVC_Tweaks
 			// ===============
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoFeatures".Translate() , ref settings.enableAutoFeatures, "WVC_Tooltip_TweaksSettings_enableAutoFeatures".Translate());
 			// ===============
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoCastResourcePermits".Translate(), ref settings.enableAutoCastResourcePermits, "WVC_Tooltip_TweaksSettings_enableAutoCastResourcePermits".Translate());
 			// listingStandard.Gap();
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableAutoClosingLetters".Translate() , ref settings.enableAutoClosingLetters, "WVC_Tooltip_TweaksSettings_enableAutoClosingLetters".Translate());
 			if (settings.enableAutoClosingLetters)

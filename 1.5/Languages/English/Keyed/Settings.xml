@@ -32,6 +32,9 @@ Requires restart. After launch, a list of all patched precepts will appear in th
 
 Requires restart. After launch, a list of all patched memes will appear in the log.</WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions>
 
+	<WVC_Label_TweaksSettings_enableAutoCastResourcePermits>Auto cast resource permits</WVC_Label_TweaksSettings_enableAutoCastResourcePermits>
+	<WVC_Tooltip_TweaksSettings_enableAutoCastResourcePermits>If enabled, royalty permits that summon resources will be automatically cast at intervals of once per day, if possible (free). A random item that is not under the roof and reachable by pawns will be chosen as a target.</WVC_Tooltip_TweaksSettings_enableAutoCastResourcePermits>
+
 	<!-- ===================================== -->
 
 	<WVC_Label_TweaksSettings_enableAutoFeatures>Enable auto features</WVC_Label_TweaksSettings_enableAutoFeatures>

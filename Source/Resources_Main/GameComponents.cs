@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI;
 
 namespace WVC_Tweaks
 {
@@ -34,12 +35,51 @@ namespace WVC_Tweaks
 			Scribe_Values.Look(ref nextLetterClose, "autoFeatures_nextLetterClose", 0);
 		}
 
+		private int royaltyAutoCast = 1500;
+
+		public void Royalty()
+		{
+			royaltyAutoCast--;
+			if (royaltyAutoCast > 0 || !WVC_Tweaks.settings.enableAutoCastResourcePermits)
+			{
+				return;
+			}
+			royaltyAutoCast = 60000;
+			if (Faction.OfEmpire.HostileTo(Faction.OfPlayer))
+			{
+				return;
+			}
+			foreach (Pawn noble in PawnsFinder.AllMaps_FreeColonists.ToList())
+            {
+                if (noble?.Map == null || noble.Map.generatorDef?.isUnderground == true || noble?.royalty == null)
+                {
+                    continue;
+                }
+				//Log.Error("Noble " + noble.Name);
+				List<FactionPermit> permits = noble.royalty.PermitsFromFaction(Faction.OfEmpire);
+				foreach (FactionPermit permit in permits)
+				{
+					//Log.Error(permit.Permit.label);
+					if (permit.OnCooldown)
+					{
+						continue;
+					}
+					RoyalTitlePermitDef royalTitlePermitDef = permit.Permit;
+					if (royalTitlePermitDef.Worker is RoyalTitlePermitWorker_DropResources dropResources && noble.royalty.HasPermit(royalTitlePermitDef, Faction.OfEmpire) && noble.Map.AllCells.Where((IntVec3 cell) => !cell.IsForbidden(noble) && !cell.Roofed(noble.Map) && noble.CanReach(cell, PathEndMode.OnCell, Danger.Deadly)).TryRandomElement(out IntVec3 target))
+					{
+						MiscUtility.CallResources(target, permit.Permit, Faction.OfEmpire, noble, !permit.OnCooldown);
+					}
+				}
+            }
+        }
+
 		public void Tweaks()
 		{
 			if (!WVC_Tweaks.settings.enableAutoFeatures)
 			{
 				return;
 			}
+			Royalty();
 			if (Find.TickManager.TicksGame >= nextLetterClose)
 			{
 				if (WVC_Tweaks.settings.enableAutoClosingLetters)

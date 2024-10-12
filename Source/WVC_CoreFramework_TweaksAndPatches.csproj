@@ -72,6 +72,7 @@
     <Compile Include="Resources_Main\PostInitializationMain.cs" />
     <Compile Include="Resources_Main\TweaksDefOf.cs" />
     <Compile Include="Resources_StatPart\StatPart_NotInHomeArea.cs" />
+    <Compile Include="Resources_Utility\MiscUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,7 +81,6 @@
     <Folder Include="Resources_Defs\" />
     <Folder Include="Resources_Harmony\" />
     <Folder Include="Resources_JobDriver\" />
-    <Folder Include="Resources_Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
