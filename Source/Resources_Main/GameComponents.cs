@@ -78,9 +78,9 @@ namespace WVC_Tweaks
 						continue;
 					}
 					RoyalTitlePermitDef royalTitlePermitDef = permit.Permit;
-                    if (royalTitlePermitDef.Worker is RoyalTitlePermitWorker_DropResources && noble.royalty.HasPermit(royalTitlePermitDef, Faction.OfEmpire))
+                    if (royalTitlePermitDef.Worker is RoyalTitlePermitWorker_DropResources)
 					{
-						MiscUtility.CallResources(targetCell, royalTitlePermitDef, Faction.OfEmpire, noble, !permit.OnCooldown);
+						MiscUtility.CallResources(targetCell, royalTitlePermitDef, permit.Faction, noble, !permit.OnCooldown);
 					}
 				}
             }
