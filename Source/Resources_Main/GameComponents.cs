@@ -39,16 +39,20 @@ namespace WVC_Tweaks
 
 		public void Royalty()
 		{
+			if (!WVC_Tweaks.settings.enableAutoCastResourcePermits)
+			{
+				return;
+			}
 			royaltyAutoCast--;
-			if (royaltyAutoCast > 0 || !WVC_Tweaks.settings.enableAutoCastResourcePermits)
+			if (royaltyAutoCast > 0)
 			{
 				return;
 			}
 			royaltyAutoCast = 60000;
-			if (Faction.OfEmpire.HostileTo(Faction.OfPlayer))
-			{
-				return;
-			}
+			//if (Faction.OfEmpire.HostileTo(Faction.OfPlayer))
+			//{
+			//	return;
+			//}
 			foreach (Pawn noble in PawnsFinder.AllMaps_FreeColonists.ToList())
             {
                 if (noble?.Map == null || noble.Map.generatorDef?.isUnderground == true || noble?.royalty == null)
@@ -56,7 +60,11 @@ namespace WVC_Tweaks
                     continue;
                 }
 				//Log.Error("Noble " + noble.Name);
-				List<FactionPermit> permits = noble.royalty.PermitsFromFaction(Faction.OfEmpire);
+				List<FactionPermit> permits = noble.royalty?.AllFactionPermits;
+				if (permits == null)
+				{
+					continue;
+				}
 				foreach (FactionPermit permit in permits)
 				{
 					//Log.Error(permit.Permit.label);
@@ -64,10 +72,15 @@ namespace WVC_Tweaks
 					{
 						continue;
 					}
-					RoyalTitlePermitDef royalTitlePermitDef = permit.Permit;
-					if (royalTitlePermitDef.Worker is RoyalTitlePermitWorker_DropResources dropResources && noble.royalty.HasPermit(royalTitlePermitDef, Faction.OfEmpire) && noble.Map.AllCells.Where((IntVec3 cell) => !cell.IsForbidden(noble) && !cell.Roofed(noble.Map) && noble.CanReach(cell, PathEndMode.OnCell, Danger.Deadly)).TryRandomElement(out IntVec3 target))
+					IntVec3 targetCell = DropCellFinder.TradeDropSpot(noble.Map);
+					if (targetCell == null)
 					{
-						MiscUtility.CallResources(target, permit.Permit, Faction.OfEmpire, noble, !permit.OnCooldown);
+						continue;
+					}
+					RoyalTitlePermitDef royalTitlePermitDef = permit.Permit;
+                    if (royalTitlePermitDef.Worker is RoyalTitlePermitWorker_DropResources && noble.royalty.HasPermit(royalTitlePermitDef, Faction.OfEmpire))
+					{
+						MiscUtility.CallResources(targetCell, royalTitlePermitDef, Faction.OfEmpire, noble, !permit.OnCooldown);
 					}
 				}
             }
