@@ -12,6 +12,7 @@ namespace WVC_Tweaks
 	{
 		// Misc
 		public bool enableBuildingsStuffPatch = false;
+		public bool enableBuildingsMetalStuffPatch = false;
 		public bool enableJunkEmptyPrecepts = false;
 		public bool enableVanillaMemesForFactions = false;
 		public bool enableAutoFeatures = false;
@@ -32,6 +33,7 @@ namespace WVC_Tweaks
 		{
 			// Misc
 			Scribe_Values.Look(ref enableBuildingsStuffPatch, "enableBuildingsStuffPatch", defaultValue: false);
+			Scribe_Values.Look(ref enableBuildingsMetalStuffPatch, "enableBuildingsMetalStuffPatch", defaultValue: false);
 			Scribe_Values.Look(ref enableJunkEmptyPrecepts, "enableJunkEmptyPrecepts", defaultValue: false);
 			Scribe_Values.Look(ref enableVanillaMemesForFactions, "enableVanillaMemesForFactions", defaultValue: false);
 			Scribe_Values.Look(ref enableAutoFeatures, "enableAutoFeatures", defaultValue: false);
@@ -105,6 +107,7 @@ namespace WVC_Tweaks
 			// ===============
 			listingStandard.Label("WVC_TweaksSettings_Label_Misc".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableBuildingsStuffPatch".Translate() , ref settings.enableBuildingsStuffPatch, "WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableBuildingsMetalStuffPatch".Translate(), ref settings.enableBuildingsMetalStuffPatch, "WVC_Tooltip_TweaksSettings_enableBuildingsMetalStuffPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableJunkEmptyPrecepts".Translate() , ref settings.enableJunkEmptyPrecepts, "WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_TweaksSettings_enableVanillaMemesForFactions".Translate() , ref settings.enableVanillaMemesForFactions, "WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions".Translate());
 			listingStandard.GapLine();

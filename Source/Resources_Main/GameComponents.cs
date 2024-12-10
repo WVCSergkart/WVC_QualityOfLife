@@ -122,28 +122,64 @@ namespace WVC_Tweaks
 		}
 
 		public static void StartResearch()
+        {
+            if (Find.ResearchManager.GetProject() == null)
+            {
+                List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
+                foreach (TechLevel techLevel in from TechLevel tl in Enum.GetValues(typeof(TechLevel))
+                                                orderby tl
+                                                select tl)
+                {
+                    ResearchProjectDef researchProjectDef = (from r in allDefsListForReading
+                                                             where r.CanStartNow && r.techLevel == techLevel && r.tab.minMonolithLevelVisible < 0
+                                                             orderby r.baseCost
+                                                             select r).FirstOrDefault();
+                    if (researchProjectDef != null)
+                    {
+                        Find.ResearchManager.SetCurrentProject(researchProjectDef);
+                        break;
+                    }
+                }
+            }
+            //Log.Error("0");
+            if (ModsConfig.AnomalyActive && ShouldStartAnomalyProject())
+            {
+                //Log.Error("1");
+                List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading.Where((r) => r.CanStartNow).ToList();
+                foreach (KnowledgeCategoryDef knowledgeCategoryDef in DefDatabase<KnowledgeCategoryDef>.AllDefsListForReading)
+                {
+                    //Log.Error("2");
+                    ResearchProjectDef researchProjectDef = allDefsListForReading.Where((r) => r.knowledgeCategory == knowledgeCategoryDef).FirstOrDefault();
+                    if (researchProjectDef != null)
+                    {
+                        Find.ResearchManager.SetCurrentProject(researchProjectDef);
+                    }
+                }
+                //ResearchProjectDef advanced = allDefsListForReading.Where((r) => r.CanStartNow && r.knowledgeCategory == KnowledgeCategoryDefOf.Advanced).FirstOrDefault();
+                //if (advanced != null)
+                //{
+                //	Find.ResearchManager.SetCurrentProject(advanced);
+                //}
+            }
+        }
+
+        private static bool ShouldStartAnomalyProject()
 		{
-			if (Find.ResearchManager.GetProject() == null)
+			if (Find.ResearchManager.CurrentAnomalyKnowledgeProjects.NullOrEmpty())
 			{
-				List<ResearchProjectDef> allDefsListForReading = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
-				foreach (TechLevel techLevel in from TechLevel tl in Enum.GetValues(typeof(TechLevel))
-												orderby tl
-												select tl)
+				return true;
+			}
+			foreach (ResearchManager.KnowledgeCategoryProject knowledgeCategoryProject in Find.ResearchManager.CurrentAnomalyKnowledgeProjects)
+			{
+				if (knowledgeCategoryProject.project != null)
 				{
-					ResearchProjectDef researchProjectDef = (from r in allDefsListForReading
-															 where r.CanStartNow && r.techLevel == techLevel && r.tab.minMonolithLevelVisible < 0
-															 orderby r.baseCost
-															 select r).FirstOrDefault();
-					if (researchProjectDef != null)
-					{
-						Find.ResearchManager.SetCurrentProject(researchProjectDef);
-						break;
-					}
+					return false;
 				}
 			}
-		}
+			return true;
+        }
 
-		public static void CleanQuestHistory()
+        public static void CleanQuestHistory()
 		{
 			List<Quest> quests = Find.QuestManager.QuestsListForReading;
 			if (quests.Count > 0)

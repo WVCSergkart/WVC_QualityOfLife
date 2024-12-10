@@ -15,6 +15,11 @@
 
 <!-- Requires restart.</WVC_Tooltip_TweaksSettings_enableThingCategoryFilter> -->
 
+	<WVC_Label_TweaksSettings_enableBuildingsMetalStuffPatch>Steel Buildings Stuff Patch (TEST)</WVC_Label_TweaksSettings_enableBuildingsMetalStuffPatch>
+	<WVC_Tooltip_TweaksSettings_enableBuildingsMetalStuffPatch>Patches all non-stuffable steel buildings, adding materials that logically could be used.
+
+Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsMetalStuffPatch>
+
 	<WVC_Label_TweaksSettings_enableBuildingsStuffPatch>Buildings Stuff Patch</WVC_Label_TweaksSettings_enableBuildingsStuffPatch>
 	<WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>Patches all stuffable buildings, adding materials that logically could be used. It also replaces some mandatory requirements for materials.
 
