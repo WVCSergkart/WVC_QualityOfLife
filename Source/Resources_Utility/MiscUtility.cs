@@ -19,7 +19,7 @@ namespace WVC_Tweaks
 			}
 			if (list.Any())
 			{
-				ActiveDropPodInfo activeDropPodInfo = new();
+				ActiveTransporterInfo activeDropPodInfo = new();
 				activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
 				DropPodUtility.MakeDropPodAt(cell, caller.Map, activeDropPodInfo);
 				Messages.Message("MessagePermitTransportDrop".Translate(faction.Named("FACTION")), new LookTargets(cell, caller.Map), MessageTypeDefOf.NeutralEvent);

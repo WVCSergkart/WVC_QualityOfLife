@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<WVC_TweaksSettings>Tweaks and Patches</WVC_TweaksSettings>
+
+	<WVC_TweaksSettings_Tab_General>General C#</WVC_TweaksSettings_Tab_General>
+	<!-- <WVC_TweaksSettings_Tab_Trees_Gauranlen>Gauranlen Tree</WVC_TweaksSettings_Tab_Trees_Gauranlen> -->
+
+	<WVC_TweaksSettings_Label_Misc>Misc</WVC_TweaksSettings_Label_Misc>
+
+	<!-- <WVC_Label_TweaksSettings_enableThingCategoryFilter>Thing Category Filter</WVC_Label_TweaksSettings_enableThingCategoryFilter> -->
+	<!-- <WVC_Tooltip_TweaksSettings_enableThingCategoryFilter>Adds several additional categories for filtering. Such as metals, wood, components, belt shields, etc. -->
+
+<!-- Does not overwrite existing categories. -->
+
+<!-- Requires restart.</WVC_Tooltip_TweaksSettings_enableThingCategoryFilter> -->
+
+	<WVC_Label_TweaksSettings_enableBuildingsMetalStuffPatch>Steel Buildings Stuff Patch (TEST)</WVC_Label_TweaksSettings_enableBuildingsMetalStuffPatch>
+	<WVC_Tooltip_TweaksSettings_enableBuildingsMetalStuffPatch>Patches all non-stuffable steel buildings, adding materials that logically could be used.
+
+Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsMetalStuffPatch>
+
+	<WVC_Label_TweaksSettings_enableBuildingsStuffPatch>Buildings Stuff Patch</WVC_Label_TweaksSettings_enableBuildingsStuffPatch>
+	<WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>Patches all stuffable buildings, adding materials that logically could be used. It also replaces some mandatory requirements for materials.
+
+For example, if this setting is enabled, then the butcher table can be built from any material, without the mandatory requirement for wood.
+
+Requires restart. After launch, a list of all patched buildings will appear in the log.</WVC_Tooltip_TweaksSettings_enableBuildingsStuffPatch>
+
+	<WVC_Label_TweaksSettings_enableJunkEmptyPrecepts>Remove junk precepts</WVC_Label_TweaksSettings_enableJunkEmptyPrecepts>
+	<WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts>Removes junk (empty) precepts from ideo genearation. Should improve performance slightly in some situations. And most importantly, there is less visual garbage in the ideology ui. Ignores all vanilla precepts.
+
+Requires restart. After launch, a list of all patched precepts will appear in the log.</WVC_Tooltip_TweaksSettings_enableJunkEmptyPrecepts>
+
+	<WVC_Label_TweaksSettings_enableVanillaMemesForFactions>Factions use vanilla memes</WVC_Label_TweaksSettings_enableVanillaMemesForFactions>
+	<WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions>Patches all non-vanilla memes by reducing their randomization weight to zero. This way, when generating, factions will not use memes from mods. This can be useful in cases where the mechanics of mod memes have too destructive an effect.
+
+Requires restart. After launch, a list of all patched memes will appear in the log.</WVC_Tooltip_TweaksSettings_enableVanillaMemesForFactions>
+
+	<WVC_Label_TweaksSettings_enableAutoCastResourcePermits>Auto cast resource permits</WVC_Label_TweaksSettings_enableAutoCastResourcePermits>
+	<WVC_Tooltip_TweaksSettings_enableAutoCastResourcePermits>If enabled, royalty permits that summon resources will be automatically cast at intervals of once per day, if possible (free). A random item that is not under the roof and reachable by pawns will be chosen as a target.</WVC_Tooltip_TweaksSettings_enableAutoCastResourcePermits>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoFeatures>Enable auto features</WVC_Label_TweaksSettings_enableAutoFeatures>
+	<WVC_Tooltip_TweaksSettings_enableAutoFeatures>Main switch for auto features.</WVC_Tooltip_TweaksSettings_enableAutoFeatures>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoClosingLetters>Auto letter close</WVC_Label_TweaksSettings_enableAutoClosingLetters>
+	<WVC_Tooltip_TweaksSettings_enableAutoClosingLetters>If enabled, it will automatically close pop-up letters.</WVC_Tooltip_TweaksSettings_enableAutoClosingLetters>
+	<WVC_Label_TweaksSettings_frequencyAutoClosingLetters>Closing frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoClosingLetters>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoCleaning>Auto cleaning</WVC_Label_TweaksSettings_enableAutoCleaning>
+	<WVC_Tooltip_TweaksSettings_enableAutoCleaning>If enabled, it will delete old letters and quests from the archives at certain intervals. It will also automatically close pop-up letters.</WVC_Tooltip_TweaksSettings_enableAutoCleaning>
+	<WVC_Label_TweaksSettings_frequencyAutoCleaning>Cleaning frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoCleaning>
+
+	<!-- ===================================== -->
+
+	<WVC_Label_TweaksSettings_enableAutoResearch>Auto research</WVC_Label_TweaksSettings_enableAutoResearch>
+	<WVC_Tooltip_TweaksSettings_enableAutoResearch>If enabled, it will automatically select the cheapest and lowest-level technology available with some frequency.</WVC_Tooltip_TweaksSettings_enableAutoResearch>
+	<WVC_Label_TweaksSettings_frequencyAutoResearch>New research frequency: {0}</WVC_Label_TweaksSettings_frequencyAutoResearch>
+
+</LanguageData>

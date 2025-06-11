@@ -73,7 +73,7 @@ namespace WVC_Tweaks
 						continue;
 					}
 					IntVec3 targetCell = DropCellFinder.TradeDropSpot(noble.Map);
-					if (targetCell == null)
+					if (!targetCell.IsValid)
 					{
 						continue;
 					}

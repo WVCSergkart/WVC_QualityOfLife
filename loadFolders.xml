@@ -7,6 +7,9 @@
 		<li>1.5</li>
 		<li IfModActive="imranfish.xmlextensions">1.5_XML_Extensions</li>
 	</v1.5>
+	<v1.6>
+		<li>1.6</li>
+	</v1.6>
 </loadFolders>
 
 
