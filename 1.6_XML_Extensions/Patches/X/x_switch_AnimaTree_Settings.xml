@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>AnimaTreeSettings_Custom_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.UseSettings">
+						<modId>honkai.girls.sergkart</modId>
+						<keys>
+							<li>AnimaTreeSettings_TreeGrass_Level_1_WVC</li>
+							<li>AnimaTreeSettings_TreeGrass_Level_2_WVC</li>
+							<li>AnimaTreeSettings_TreeGrass_Level_3_WVC</li>
+							<li>AnimaTreeSettings_TreeGrass_Level_4_WVC</li>
+							<li>AnimaTreeSettings_TreeGrass_Level_5_WVC</li>
+							<li>AnimaTreeSettings_TreeGrass_Level_6_WVC</li>
+							<!-- 2 -->
+							<li>AnimaTreeSettings_ArtificialBuildings_Radius_WVC</li>
+							<li>AnimaTreeSettings_ArtificialBuildings_Curve_2_WVC</li>
+							<li>AnimaTreeSettings_ArtificialBuildings_Curve_3_WVC</li>
+							<li>AnimaTreeSettings_ArtificialBuildings_Curve_4_WVC</li>
+							<!-- 3 -->
+							<li>AnimaTreeSettings_FocusStrengthOffset_Radius_WVC</li>
+							<li>AnimaTreeSettings_FocusStrengthOffset_maxBuildings_WVC</li>
+						</keys>
+						<defaultValues>
+							<li>20</li>
+							<li>20</li>
+							<li>20</li>
+							<li>20</li>
+							<li>20</li>
+							<li>20</li>
+							<!-- 2 -->
+							<li>34</li>
+							<li>0.2</li>
+							<li>0.3</li>
+							<li>0.4</li>
+							<!-- 3 -->
+							<li>9</li>
+							<li>4</li>
+						</defaultValues>
+						<apply>
+							<Operation Class="XmlExtensions.ApplyPatch">
+								<patchName>Autopatcher_AnimaSettingsTree_Patch_WVC</patchName>
+								<arguments>
+									<li>[defName="Plant_TreeAnima"]</li>
+									<!-- 1 -->
+									<li>{AnimaTreeSettings_TreeGrass_Level_1_WVC}</li>
+									<li>{AnimaTreeSettings_TreeGrass_Level_2_WVC}</li>
+									<li>{AnimaTreeSettings_TreeGrass_Level_3_WVC}</li>
+									<li>{AnimaTreeSettings_TreeGrass_Level_4_WVC}</li>
+									<li>{AnimaTreeSettings_TreeGrass_Level_5_WVC}</li>
+									<li>{AnimaTreeSettings_TreeGrass_Level_6_WVC}</li>
+									<!-- 2 -->
+									<li>{AnimaTreeSettings_ArtificialBuildings_Radius_WVC}</li>
+									<li>{AnimaTreeSettings_ArtificialBuildings_Curve_2_WVC}</li>
+									<li>{AnimaTreeSettings_ArtificialBuildings_Curve_3_WVC}</li>
+									<li>{AnimaTreeSettings_ArtificialBuildings_Curve_4_WVC}</li>
+									<!-- 3 -->
+									<li>{AnimaTreeSettings_FocusStrengthOffset_Radius_WVC}</li>
+									<li>{AnimaTreeSettings_FocusStrengthOffset_maxBuildings_WVC}</li>
+								</arguments>
+							</Operation>
+						</apply>
+					</Operation>
+				</caseTrue>
+			</Operation>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>AnimaTreeSettings_Custom_DisableAnimaScream_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+					  <xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]/comps/li[@Class="CompProperties_GiveThoughtToAllMapPawnsOnDestroy"]</xpath>
+					</Operation>
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+</Patch>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_NoMoreStrangers</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+			  <xpath>/Defs/StorytellerDef/comps/li[incident[contains(text(),'StrangerInBlackJoin')]]</xpath> 
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_QoL_ThingNotInHomeAreaMarketValue</key> -->
+		<!-- <defaultValue>false</defaultValue> -->
+		<!-- <caseTrue> -->
+
+			<!-- <Operation Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath> -->
+			  <!-- <value> -->
+				  <!-- <li Class="WVC_Tweaks.StatPart_NotInHomeArea"/> -->
+			  <!-- </value> -->
+			<!-- </Operation> -->
+
+		<!-- </caseTrue> -->
+		<!-- <caseFalse> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+</Patch>

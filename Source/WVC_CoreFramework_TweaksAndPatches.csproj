@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources_CompThing\CompProperties_PawnFoggedCheck.cs" />
+    <Compile Include="Resources_Main\Filters.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />

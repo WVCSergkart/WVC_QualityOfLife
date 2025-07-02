@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>ExtraSetting_FreeAnimaTreeMeditation_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/MeditationFocusDef[defName="Natural"]/requiredBackstoriesAny</xpath> 
+					  <value>
+						<incompatibleBackstoriesAny/>
+					  </value>
+					</Operation>
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_FilthDisappearsInDays</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+			  <xpath>/Defs/ThingDef/filth</xpath> 
+			  <value>
+				<disappearsInDays>2~5</disappearsInDays>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

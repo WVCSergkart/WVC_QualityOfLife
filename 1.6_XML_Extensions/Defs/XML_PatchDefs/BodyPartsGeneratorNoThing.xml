@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartsGenerator_NoThing" Abstract="True">
+		<parameters>
+			<!-- WVC_Hediff_BodyPart_Ancient -->
+			<li>BdoyPartType</li>
+			<!-- WVC_BodyPartAncientBase -->
+			<!-- <li>BodyPartParentName</li> -->
+			<!-- <li>BodyPartGenerator_CreateThingAndRecipe</li> -->
+			<li>ThingDefName</li>
+			<li>ThingCount</li>
+			<li>TechnologyDefName</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/HediffDef[@Name="{BdoyPartType}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>BodyPart_DEF</storeIn>
+				<apply>
+
+			<Operation Class="XmlExtensions.AggregateValues">
+				<valueOperations>
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/label</value>
+						<storeIn>label_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/tags/li</value>
+						<storeIn>Tag_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<!-- <Operation Class="XmlExtensions.CreateVariable"> -->
+						<!-- <value>{BodyPart_DEF}/description</value> -->
+						<!-- <storeIn>description_DEF</storeIn> -->
+						<!-- <fromXml>true</fromXml> -->
+					<!-- </Operation> -->
+
+				</valueOperations>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<!-- <Operation Class="XmlExtensions.ApplyPatch"> -->
+						<!-- <patchName>WVC_BodyPartGenerator_CreateThingAndRecipe_Base</patchName> -->
+						<!-- <arguments> -->
+							<!-- <li>{defName_DEF}</li> -->
+							<!-- <li>{label_DEF}</li> -->
+							<!-- <li>{Tag_DEF}</li> -->
+							<!-- <li>{BodyPartParentName}</li> -->
+						<!-- </arguments> -->
+					<!-- </Operation> -->
+
+					<Operation Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+
+						  <!-- <ThingDef ParentName="{BodyPartParentName}"> -->
+							<!-- <defName>{defName_DEF}</defName> -->
+							<!-- <label>{label_DEF}</label> -->
+							<!-- <descriptionHyperlinks> -->
+								<!-- <RecipeDef>Install_{defName_DEF}</RecipeDef> -->
+							<!-- </descriptionHyperlinks> -->
+							<!-- <statBases> -->
+							<!-- </statBases> -->
+							<!-- <costList> -->
+							  <!-- <Plasteel>25</Plasteel> -->
+							  <!-- <ComponentSpacer>5</ComponentSpacer> -->
+							<!-- </costList> -->
+						  <!-- </ThingDef> -->
+
+						  <RecipeDef ParentName="SurgeryInstallImplantBase">
+							<defName>Install_{defName_DEF}</defName>
+							<label>install {label_DEF}</label>
+							<description>Install an {label_DEF}.</description>
+							<descriptionHyperlinks>
+							  <!-- <ThingDef>{defName_DEF}</ThingDef> -->
+							  <HediffDef>{defName_DEF}</HediffDef>
+							</descriptionHyperlinks>
+							<jobString>Installing {label_DEF}.</jobString>
+							<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+							<ingredients>
+							  <li>
+								<filter>
+								  <thingDefs>
+									<!-- <li>GauranlenSeed</li> -->
+									<li>{ThingDefName}</li>
+								  </thingDefs>
+								</filter>
+								<count>{ThingCount}</count>
+							  </li>
+							</ingredients>
+							<fixedIngredientFilter>
+							  <thingDefs>
+								<li>{ThingDefName}</li>
+							  </thingDefs>
+							</fixedIngredientFilter>
+							<appliedOnFixedBodyParts>
+							  <li>{Tag_DEF}</li>
+							</appliedOnFixedBodyParts>
+							<addsHediff>{defName_DEF}</addsHediff>
+							<researchPrerequisites>
+							  <li>{TechnologyDefName}</li>
+							</researchPrerequisites>
+						  </RecipeDef>
+
+						</value>
+					</Operation>
+
+					<!--=====================================================================-->
+
+					<!-- <Operation Class="PatchOperationAdd"> -->
+						<!-- <xpath>/Defs/HediffDef[defName="{defName_DEF}"]</xpath> -->
+						<!-- <value> -->
+							<!-- <descriptionHyperlinks><ThingDef>{defName_DEF}</ThingDef></descriptionHyperlinks> -->
+							<!-- <spawnThingOnRemoved>{defName_DEF}</spawnThingOnRemoved> -->
+						<!-- </value> -->
+					<!-- </Operation> -->
+					
+					<!-- <Operation Class="XmlExtensions.PatchOperationCopy"> -->
+						<!-- <xpath>/Defs/ThingDef[@Name="{BodyPartParentName}"]/costList/*</xpath> -->
+						<!-- <paste>/Defs/ThingDef[defName="{defName_DEF}"]/costList</paste> -->
+					<!-- </Operation> -->
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>WVC_BodyPartGenerator_PatchByCase_NoThing</patchName>
+						<arguments>
+							<li>{Tag_DEF}</li>
+							<li>{defName_DEF}</li>
+						</arguments>
+					</Operation>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+						<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+						<safetyDepth>1</safetyDepth>
+						<value>
+							<recipes>
+								<li>Install_{defName_DEF}</li>
+							</recipes>
+						</value>
+					</Operation>
+
+					<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+						<!-- <xpath>/Defs/ThingDef[@Name="BaseMechanoid"]</xpath> -->
+						<!-- <safetyDepth>1</safetyDepth> -->
+						<!-- <value> -->
+							<!-- <recipes> -->
+								<!-- <li>Install_{defName_DEF}</li> -->
+							<!-- </recipes> -->
+						<!-- </value> -->
+					<!-- </Operation> -->
+
+					<!--=====================================================================-->
+
+				</apply>
+			</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

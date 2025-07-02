@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_MutationsBirthday_Settings_WVC" Abstract="True">
+		<parameters>
+			<li>Name</li>
+			<li>defName</li>
+			<li>Description</li>
+			<li>MutationType</li>
+		</parameters>
+		<apply>
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Valkyries_Mutations_WVC"]/settings/li[@Class="XmlExtensions.Setting.SplitColumns"]/settings/li[@WVC_MutationType="{MutationType}"]</xpath>
+				<value>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>{defName}_MutationGiver</key>
+						<label>{Name}</label>
+						<defaultValue>true</defaultValue>
+						<tooltip>{Description}</tooltip>
+						<tKey>{defName}_Label_HGS</tKey>
+						<tKeyTip>{defName}_Desc_HGS</tKeyTip>
+					</li>
+				</value>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!--=====================================================================-->
+
+	<!-- <XmlExtensions.PatchDef Name="Autopatcher_MutationsBirthday_Patch_WVC" Abstract="True"> -->
+		<!-- <parameters> -->
+			<!-- <li>Name</li> -->
+			<!-- <li>defName</li> -->
+			<!-- <li>BodyPartName</li> -->
+			<!-- <li>Description</li> -->
+			<!-- <li>MutationType</li> -->
+			<!-- <li>MutationTarget</li> -->
+		<!-- </parameters> -->
+		<!-- <apply> -->
+
+			<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+				<!-- <modId>honkai.girls.sergkart</modId> -->
+				<!-- <key>{defName}_MutationGiver</key> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <caseTrue> -->
+					<!-- <Operation Class="PatchOperationAdd"> -->
+						<!-- <xpath>/Defs/HediffGiverSetDef[defName="HediffGiverSet_Mutations{MutationTarget}_WVC"]/hediffGivers</xpath> -->
+						<!-- <value> -->
+							<!-- <li Class="HediffGiver_Birthday"> -->
+								<!-- <hediff>{defName}</hediff> -->
+								<!-- <partsToAffect> -->
+								  <!-- <li>{BodyPartName}</li> -->
+								<!-- </partsToAffect> -->
+								<!-- <ageFractionChanceCurve> -->
+								  <!-- <points> -->
+									<!-- <li>(0, 0.1)</li> -->
+									<!-- <li>(0.05, 0.0)</li> -->
+									<!-- <li>(1, 0.0)</li> -->
+								  <!-- </points> -->
+								<!-- </ageFractionChanceCurve> -->
+							<!-- </li> -->
+						<!-- </value> -->
+					<!-- </Operation> -->
+				<!-- </caseTrue> -->
+			<!-- </Operation> -->
+
+			<!-- <Operation Class="XmlExtensions.ApplyPatch"> -->
+				<!-- <patchName>Autopatcher_MutationsBirthday_Settings_WVC</patchName> -->
+				<!-- <arguments> -->
+					<!-- <li>{Name}</li> -->
+					<!-- <li>{defName}</li> -->
+					<!-- <li>{Description}</li> -->
+					<!-- <li>{MutationType}</li> -->
+				<!-- </arguments> -->
+			<!-- </Operation> -->
+			
+		<!-- </apply> -->
+	<!-- </XmlExtensions.PatchDef> -->
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_MutationsGiver_AutoInitial" Abstract="True">
+		<parameters>
+			<!-- WVC_HediffMutation_Good -->
+			<li>MutationType</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/HediffDef[@Name="{MutationType}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>Mutation</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.AggregateValues">
+						<valueOperations>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/label</value>
+								<storeIn>label_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/defName</value>
+								<storeIn>defName_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/extraTooltip</value>
+								<storeIn>extraTooltip_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/tags/li[1]</value>
+								<storeIn>BodyPartName_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/tags/li[2]</value>
+								<storeIn>MutationTarget_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Mutation}/tags/li[3]</value>
+								<storeIn>ImplantType_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+
+						</valueOperations>
+						<apply>
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>SettingKL_BodyPartMutations_Enable_WVC</key>
+								<defaultValue>true</defaultValue>
+								<caseTrue>
+
+									<!--=====================================================================-->
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs</xpath>
+										<value>
+
+										  <ThingDef ParentName="WVC_BodyPartValksBase">
+											<defName>{defName_DEF}</defName>
+											<label>{label_DEF}</label>
+											<description>A mutated organ that was most likely harvested from someone.\n\n&lt;color=#FFE66F&gt;Gameplay effect:&lt;/color&gt; {extraTooltip_DEF}</description>
+											<descriptionHyperlinks>
+												<RecipeDef>Install_{defName_DEF}</RecipeDef>
+											</descriptionHyperlinks>
+											<statBases>
+											</statBases>
+										  </ThingDef>
+
+										  <RecipeDef ParentName="WVC_SurgeryInstall_BodyPartBase">
+											<workerClass>Recipe_Install{ImplantType_DEF}</workerClass>
+											<defName>Install_{defName_DEF}</defName>
+											<label>install {label_DEF}</label>
+											<description>Install an {label_DEF}.</description>
+											<descriptionHyperlinks>
+											  <ThingDef>{defName_DEF}</ThingDef>
+											  <HediffDef>{defName_DEF}</HediffDef>
+											</descriptionHyperlinks>
+											<jobString>Installing {label_DEF}.</jobString>
+											<ingredients>
+											  <li>
+												<filter>
+												  <thingDefs>
+													<li>{defName_DEF}</li>
+												  </thingDefs>
+												</filter>
+												<count>1</count>
+											  </li>
+											</ingredients>
+											<fixedIngredientFilter>
+											  <thingDefs>
+												<li>{defName_DEF}</li>
+											  </thingDefs>
+											</fixedIngredientFilter>
+											<appliedOnFixedBodyParts>
+											  <li>{BodyPartName_DEF}</li>
+											</appliedOnFixedBodyParts>
+											<addsHediff>{defName_DEF}</addsHediff>
+										  </RecipeDef>
+
+										</value>
+									</Operation>
+
+									<!--=====================================================================-->
+
+									<Operation Class="XmlExtensions.FindMod">
+										<mods>
+											<li>oskarpotocki.vfe.insectoid</li>
+										</mods>
+										<packageId>true</packageId>
+										<logic>or</logic>
+										<caseTrue>
+
+											<Operation Class="PatchOperationAdd">
+												<xpath>/Defs/HediffDef[defName="VFEI_ValkyrieGenome_WVC"]/comps/li[@Class="VFEI.Comps.ItemComps.Properties.CompProperties_RandomHediffGiver"]/allowedRecipeDefs</xpath>
+												<value>
+													<li>Install_{defName_DEF}</li>
+												</value>
+											</Operation>
+
+										</caseTrue>
+									</Operation>
+
+									<!--=====================================================================-->
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/HediffDef[defName="{defName_DEF}"]</xpath>
+										<value>
+											<descriptionHyperlinks><ThingDef>{defName_DEF}</ThingDef></descriptionHyperlinks>
+											<spawnThingOnRemoved>{defName_DEF}</spawnThingOnRemoved>
+										</value>
+									</Operation>
+
+									<!--=====================================================================-->
+
+									<Operation Class="XmlExtensions.PatchByCase">
+										<value>{BodyPartName_DEF}</value>
+										<cases>
+
+											<li>
+												<value>Shoulder</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li MayRequire="vanillaexpanded.vaecaves">VAE_InsectArm</li>
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+											<li>
+												<value>Eye</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li MayRequire="sarg.alphaanimals">AA_BoatEye</li>
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+											<li>
+												<value>Leg</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li>InsectLeg</li>
+															<li MayRequire="sarg.alphaanimals">AA_SmallInsectLeg</li>
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+											<li>
+												<value>Jaw</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li>AnimalJaw</li>
+															<li>Beak</li>
+															<!-- <li MayRequire="sarg.alphaanimals">AA_CrocodileJaw</li> -->
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+											<li>
+												<value>Heart</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li MayRequire="nemonian.my">MoyoHeart</li>
+															<li>InsectHeart</li>
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+											<li>
+												<value>Tail</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/RecipeDef[defName="Install_{defName_DEF}"]/appliedOnFixedBodyParts</xpath>
+														<value>
+															<li MayRequire="nemonian.my">Moyo_Tail</li>
+															<li MayRequire="vamv.maruracemod">MR_BigTail</li>
+															<li MayRequire="sarg.alphaanimals">AA_InsectTail</li>
+															<li MayRequire="vanillaexpanded.vaecaves">VAE_ScorpionTail</li>
+														</value>
+													</Operation>
+
+												</apply>
+											</li>
+
+										</cases>
+									</Operation>
+
+									<!--=====================================================================-->
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<recipes>
+												<li>Install_{defName_DEF}</li>
+											</recipes>
+										</value>
+									</Operation>
+
+									<!--=====================================================================-->
+
+									<!-- TEST -->
+									<Operation Class="XmlExtensions.FindMod">
+										<mods>
+											<li>honkai.girls.sergkart</li>
+											<li>wvc.sergkart.unstable</li>
+										</mods>
+										<packageId>true</packageId>
+										<logic>and</logic>
+										<caseTrue>
+
+											<Operation Class="XmlExtensions.OptionalPatch">
+												<modId>honkai.girls.sergkart</modId>
+												<key>Extra_TestScenario_AllWeapon_WVC</key>
+												<defaultValue>false</defaultValue>
+												<caseTrue>
+
+													<Operation Class="PatchOperationAdd">
+													  <xpath>/Defs/ScenarioDef[@Name="TEST_Scenario_WVC"]/scenario/parts</xpath>
+													  <value>
+														<li Class="ScenPart_StartingThing_Defined">
+															<def>StartingThing_Defined</def>
+															<thingDef>{defName_DEF}</thingDef>
+														</li>
+													  </value>
+													</Operation>
+
+												</caseTrue>
+											</Operation>
+
+										</caseTrue>
+									</Operation>
+									<!-- TEST -->
+
+								</caseTrue>
+							</Operation>
+
+							<!--=====================================================================-->
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>{defName_DEF}_MutationGiver</key>
+								<defaultValue>true</defaultValue>
+								<caseTrue>
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/HediffGiverSetDef[defName="HediffGiverSet_MutationsBase_WVC"]/hediffGivers</xpath>
+										<value>
+											<li Class="HediffGiver_Birthday">
+												<hediff>{defName_DEF}</hediff>
+												<partsToAffect>
+												  <li>{BodyPartName_DEF}</li>
+												</partsToAffect>
+												<ageFractionChanceCurve>
+												  <points>
+													<li>(0, 0.06)</li>
+													<li>(0.05, 0.0)</li>
+													<li>(1, 0.0)</li>
+												  </points>
+												</ageFractionChanceCurve>
+											</li>
+										</value>
+									</Operation>
+								</caseTrue>
+							</Operation>
+
+							<Operation Class="XmlExtensions.ApplyPatch">
+								<patchName>Autopatcher_MutationsBirthday_Settings_WVC</patchName>
+								<arguments>
+									<li>{label_DEF}</li>
+									<li>{defName_DEF}</li>
+									<li>{extraTooltip_DEF}</li>
+									<li>{MutationType}</li>
+								</arguments>
+							</Operation>
+
+						</apply>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- <XmlExtensions.PatchDef Name="WVC_Patch_SemiAutoWeaponCE" Abstract="True"> -->
+		<!-- <parameters> -->
+			<!-- <li>MarkerName</li> -->
+			<!-- <li>DefsType</li> -->
+		<!-- </parameters> -->
+		<!-- <apply> -->
+
+			<!-- <Operation Class="XmlExtensions.ForEachDescendant"> -->
+				<!-- <xpathParent>/Defs/{DefsType}[@Name="{MarkerName}"]</xpathParent> -->
+				<!-- <concreteOnly>true</concreteOnly> -->
+				<!-- <storeIn>DEF</storeIn> -->
+				<!-- <apply>  -->
+					<!-- <Operation Class="XmlExtensions.CreateVariable"> -->
+						<!-- <value>{DEF}/devNote</value> -->
+						<!-- <storeIn>devNote_DEF</storeIn> -->
+						<!-- <fromXml>true</fromXml> -->
+						<!-- <apply> -->
+
+					<!-- <Operation Class="XmlExtensions.CreateVariable"> -->
+						<!-- <value>{DEF}/defName</value> -->
+						<!-- <storeIn>defName_DEF</storeIn> -->
+						<!-- <fromXml>true</fromXml> -->
+						<!-- <apply> -->
+
+							<!-- <Operation Class="PatchOperationAttributeSet"> -->
+								<!-- <xpath>Defs/{DefsType}[defName="{defName_DEF}"]</xpath> -->
+								<!-- <attribute>ParentName</attribute> -->
+								<!-- <value>CE_{devNote_DEF}</value> -->
+							<!-- </Operation> -->
+
+						<!-- </apply> -->
+					<!-- </Operation> -->
+
+						<!-- </apply> -->
+					<!-- </Operation> -->
+				<!-- </apply> -->
+			<!-- </Operation> -->
+
+		<!-- </apply> -->
+	<!-- </XmlExtensions.PatchDef> -->
+
+	<XmlExtensions.PatchDef Name="WVC_Patch_TestScenarioAllWeapons" Abstract="True">
+		<parameters/>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="MeleeBladelink_WVC"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DEF</storeIn>
+				<apply> 
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+							<Operation Class="PatchOperationAdd">
+							  <xpath>/Defs/ScenarioDef[@Name="TEST_Scenario_WVC"]/scenario/parts</xpath>
+							  <value>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>{defName_DEF}</thingDef>
+								</li>
+							  </value>
+							</Operation>
+						</apply>
+					</Operation>
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!-- <XmlExtensions.PatchDef Name="WVC_Patch_TestScenarioAllAnimals" Abstract="True"> -->
+		<!-- <parameters/> -->
+		<!-- <apply> -->
+
+			<!-- <Operation Class="XmlExtensions.ForEachDescendant"> -->
+				<!-- <xpathParent>/Defs/ThingDef[@Name="HonkaiThingWVC"]</xpathParent> -->
+				<!-- <concreteOnly>true</concreteOnly> -->
+				<!-- <storeIn>DEF</storeIn> -->
+				<!-- <apply>  -->
+					<!-- <Operation Class="XmlExtensions.CreateVariable"> -->
+						<!-- <value>{DEF}/defName</value> -->
+						<!-- <storeIn>defName_DEF</storeIn> -->
+						<!-- <fromXml>true</fromXml> -->
+						<!-- <apply> -->
+							<!-- <Operation Class="PatchOperationAdd"> -->
+							  <!-- <xpath>/Defs/ScenarioDef[@Name="TEST_Scenario_WVC"]/scenario/parts</xpath> -->
+							  <!-- <value> -->
+								<!-- <li Class="ScenPart_StartingAnimal"> -->
+									<!-- <def>StartingAnimal</def> -->
+									<!-- <animalKind>{defName_DEF}</animalKind> -->
+									<!-- <count>1</count> -->
+								<!-- </li> -->
+							  <!-- </value> -->
+							<!-- </Operation> -->
+						<!-- </apply> -->
+					<!-- </Operation> -->
+				<!-- </apply> -->
+			<!-- </Operation> -->
+
+		<!-- </apply> -->
+	<!-- </XmlExtensions.PatchDef> -->
+
+</Defs>

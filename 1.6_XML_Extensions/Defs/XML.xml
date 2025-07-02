@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>MainSettings_WVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<!-- WVC is my tag for all my mods -->
+		<label>WVC - Tweaks and Patches</label>
+		<!-- <defaultSpacing>4</defaultSpacing> -->
+		<settings>
+			<!-- <li Class="XmlExtensions.Setting.SetColor"> -->
+				<!-- <color>(54,57,61)</color> -->
+			<!-- </li> -->
+			<!-- <li Class="XmlExtensions.Setting.SplitColumns"> -->
+				<!-- <gapSize>4</gapSize> -->
+				<!-- <drawLine>true</drawLine> -->
+				<!-- <splits> -->
+					<!-- <li>0.13</li> -->
+					<!-- <li>0.13</li> -->
+					<!-- <li>0.13</li> -->
+					<!-- <li>0.13</li> -->
+					<!-- <li>0.13</li> -->
+				<!-- </splits> -->
+				<!-- <settings> -->
+					<!-- <li> -->
+						<!-- <li Class="XmlExtensions.Setting.EmbedMenu"> -->
+							<!-- <menu>VersionInfo_Core_WVC</menu> -->
+						<!-- </li> -->
+					<!-- </li> -->
+					<!-- <li MayRequire="wvc.sergkart.races.biotech"> -->
+						<!-- <li Class="XmlExtensions.Setting.EmbedMenu"> -->
+							<!-- <menu>VersionInfo_RaceBiotech_WVC</menu> -->
+						<!-- </li> -->
+					<!-- </li> -->
+					<!-- <li MayRequire="wvc.sergkart.itt.techtreepatch"> -->
+						<!-- <li Class="XmlExtensions.Setting.EmbedMenu"> -->
+							<!-- <menu>VersionInfo_ImmersiveTechnologyTree_WVC</menu> -->
+						<!-- </li> -->
+					<!-- </li> -->
+				<!-- </settings> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.SetColor">
+				<color>(255,255,255)</color>
+			</li>
+			<li Class="XmlExtensions.Setting.TabView">
+				<rows>1</rows>
+				<tabs>
+
+					<!-- ===================================================================== -->
+
+					<li>
+						<label>General</label>
+						<settings>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_ExtraWVC</menu>
+							</li>
+							<!-- <li Class="XmlExtensions.Setting.GapLine" /> -->
+							<!-- <li Class="XmlExtensions.Setting.Text"> -->
+								<!-- <text>Gauranlen Tree Settings</text> -->
+							<!-- </li> -->
+							<!-- <li Class="XmlExtensions.Setting.EmbedMenu"> -->
+								<!-- <menu>Settings_DryadsTreeWVC</menu> -->
+							<!-- </li> -->
+							<!-- <li Class="XmlExtensions.Setting.GapLine" /> -->
+							<!-- <li Class="XmlExtensions.Setting.Text"> -->
+								<!-- <text>Anima Tree Settings</text> -->
+							<!-- </li> -->
+							<!-- <li Class="XmlExtensions.Setting.EmbedMenu"> -->
+								<!-- <menu>Settings_AnimaTree_WVC</menu> -->
+							<!-- </li> -->
+						</settings>
+					</li>
+
+					<!-- ===================================================================== -->
+
+					<li>
+						<label>&lt;color=#ffce65&gt;Trees&lt;/color&gt;</label>
+						<settings>
+							<li Class="XmlExtensions.Setting.Gap" />
+							<li Class="XmlExtensions.Setting.TabView">
+								<tabs>
+									<li MayRequire="ludeon.rimworld.ideology">
+										<label>&lt;color=#ffce65&gt;Gauranlen&lt;/color&gt;</label>
+										<settings>
+											<li Class="XmlExtensions.Setting.EmbedMenu">
+												<menu>Settings_DryadsTreeWVC</menu>
+											</li>
+										</settings>
+									</li>
+									<li MayRequire="ludeon.rimworld.royalty">
+										<label>&lt;color=#a2ffdd&gt;Anima&lt;/color&gt;</label>
+										<settings>
+											<li Class="XmlExtensions.Setting.EmbedMenu">
+												<menu>Settings_AnimaTree_WVC</menu>
+											</li>
+										</settings>
+									</li>
+								</tabs>
+							</li>
+						</settings>
+					</li>
+
+					<!-- ===================================================================== -->
+
+				</tabs>
+			</li>
+
+			<!-- ===================================================================== -->
+
+			<li Class="XmlExtensions.Setting.SetColor">
+				<color>(255,255,255)</color>
+			</li>
+			<li Class="XmlExtensions.Setting.GapLine" />
+			<li Class="XmlExtensions.Setting.ResetSettings">
+				<label>Reset All Settings</label>
+				<tKey>HGS_Global_ResetAllSettings_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.GapLine" />
+			<li Class="XmlExtensions.Setting.SetColor">
+				<color>(255,0,0)</color>
+			</li>
+			<li Class="XmlExtensions.Setting.Text">
+				<text>Restarting game is required to apply any changes.</text>
+				<tKey>HGS_Global_InfoTextAboutRestart_WVC</tKey>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

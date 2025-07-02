@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_EyelessImplants</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/HediffDef/eyeGraphicSouth</xpath>
+			</Operation>
+			<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+				<xpath>/Defs/HediffDef/eyeGraphicEast</xpath>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>
