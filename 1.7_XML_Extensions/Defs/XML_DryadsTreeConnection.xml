@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>Settings_Tree_Connection_WVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.SplitColumn">
+				<leftCol>
+					<!-- 14 -->
+					<!-- death -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC</key>
+						<label>Connection loss per dryad death: {GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC}</label>
+						<defaultValue>0.1</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>1</decimals>
+						<tKey>HGS_GauranlenTreeCustom_StrengthLossPerDryadDeath_WVC</tKey>
+					</li>
+					<!-- pruning -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC</key>
+						<label>Connection gain per hour pruning: {GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC}</label>
+						<defaultValue>0.01</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_StrengthGainPerHourPruningBase_WVC</tKey>
+					</li>
+					<!-- level from start -->
+					<li Class="XmlExtensions.Setting.Text">
+						<text>Initial connection range:</text>
+						<tKey>HGS_GauranlenTreeCustom_ConnectionStrengthRange_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Range">
+						<key>GauranlenTreeCustom_ConnectionStrengthRangeMin_WVC</key>
+						<key2>GauranlenTreeCustom_ConnectionStrengthRangeMax_WVC</key2>
+						<defaultValue>0.25~0.5</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+					</li>
+					<!-- connection lose -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_LossPerLevel001_WVC</key>
+						<label>Connection loss per hour 1%: {GauranlenTreeCustom_LossPerLevel001_WVC}</label>
+						<defaultValue>0.02</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_LossPerLevel001_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_LossPerLevel33_WVC</key>
+						<label>Connection loss per hour 33%: {GauranlenTreeCustom_LossPerLevel33_WVC}</label>
+						<defaultValue>0.04</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_LossPerLevel33_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_LossPerLevel66_WVC</key>
+						<label>Connection loss per hour 66%: {GauranlenTreeCustom_LossPerLevel66_WVC}</label>
+						<defaultValue>0.06</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_LossPerLevel66_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_LossPerLevel90_WVC</key>
+						<label>Connection loss per hour 90%: {GauranlenTreeCustom_LossPerLevel90_WVC}</label>
+						<defaultValue>0.08</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_LossPerLevel90_WVC</tKey>
+					</li>
+					<!-- buildings -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_DailyPerBuilding0_WVC</key>
+						<label>Connection loss for buildings (close): {GauranlenTreeCustom_DailyPerBuilding0_WVC}</label>
+						<defaultValue>0.07</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_DailyPerBuilding0_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_DailyPerBuilding1_WVC</key>
+						<label>Connection loss for buildings (far): {GauranlenTreeCustom_DailyPerBuilding1_WVC}</label>
+						<defaultValue>0.01</defaultValue>
+						<min>0</min>
+						<max>1</max>
+						<decimals>2</decimals>
+						<tKey>HGS_GauranlenTreeCustom_DailyPerBuilding1_WVC</tKey>
+					</li>
+					<!-- skill -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_GainPerPlantSkill0_WVC</key>
+						<label>Skill bonus (level 0): {GauranlenTreeCustom_GainPerPlantSkill0_WVC}</label>
+						<defaultValue>0.8</defaultValue>
+						<min>0</min>
+						<max>10</max>
+						<decimals>1</decimals>
+						<tKey>HGS_GauranlenTreeCustom_GainPerPlantSkill0_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_GainPerPlantSkill8_WVC</key>
+						<label>Skill bonus (level 8): {GauranlenTreeCustom_GainPerPlantSkill8_WVC}</label>
+						<defaultValue>1</defaultValue>
+						<min>0</min>
+						<max>10</max>
+						<decimals>1</decimals>
+						<tKey>HGS_GauranlenTreeCustom_GainPerPlantSkill8_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_GainPerPlantSkill20_WVC</key>
+						<label>Skill bonus (level 20): {GauranlenTreeCustom_GainPerPlantSkill20_WVC}</label>
+						<defaultValue>1.2</defaultValue>
+						<min>0</min>
+						<max>10</max>
+						<decimals>1</decimals>
+						<tKey>HGS_GauranlenTreeCustom_GainPerPlantSkill20_WVC</tKey>
+					</li>
+				</leftCol>
+				<rightCol>
+					<!-- 9 -->
+					<!-- spawn -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_spawnDays_WVC</key>
+						<label>Dryad spawn days: {GauranlenTreeCustom_spawnDays_WVC}</label>
+						<defaultValue>8</defaultValue>
+						<min>1</min>
+						<max>60</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_spawnDays_WVC</tKey>
+					</li>
+					<!-- wild -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_maxDryadsWild_WVC</key>
+						<label>Max dryads wild: {GauranlenTreeCustom_maxDryadsWild_WVC}</label>
+						<defaultValue>2</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_maxDryadsWild_WVC</tKey>
+					</li>
+					<!-- dryads -->
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads0_WVC</key>
+						<label>Max dryads at 0%: {GauranlenTreeCustom_MaxDryads0_WVC}</label>
+						<defaultValue>0</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads0_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads05_WVC</key>
+						<label>Max dryads at 5%: {GauranlenTreeCustom_MaxDryads05_WVC}</label>
+						<defaultValue>1</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads05_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads25_WVC</key>
+						<label>Max dryads at 20%: {GauranlenTreeCustom_MaxDryads25_WVC}</label>
+						<defaultValue>2</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads25_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads50_WVC</key>
+						<label>Max dryads at 40%: {GauranlenTreeCustom_MaxDryads50_WVC}</label>
+						<defaultValue>3</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads50_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads75_WVC</key>
+						<label>Max dryads at 60%: {GauranlenTreeCustom_MaxDryads75_WVC}</label>
+						<defaultValue>4</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads75_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_MaxDryads90_WVC</key>
+						<label>Max dryads at 80%: {GauranlenTreeCustom_MaxDryads90_WVC}</label>
+						<defaultValue>5</defaultValue>
+						<min>0</min>
+						<max>24</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_MaxDryads90_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Slider">
+						<key>GauranlenTreeCustom_Cocon_daysToComplete_WVC</key>
+						<label>Dryad evolution days: {GauranlenTreeCustom_Cocon_daysToComplete_WVC}</label>
+						<defaultValue>5</defaultValue>
+						<min>1</min>
+						<max>60</max>
+						<decimals>0</decimals>
+						<tKey>HGS_GauranlenTreeCustom_Cocon_daysToComplete_WVC</tKey>
+					</li>
+					<li Class="XmlExtensions.Setting.Checkbox">
+						<key>GauranlenTreeCustom_Cocon_drawContents_WVC</key>
+						<label>Display a dryad in a cocoon?</label>
+						<defaultValue>true</defaultValue>
+						<tKey>HGS_Dryads_Extra_GauranlenTreeCustom_Cocon_drawContents_WVC</tKey>
+					</li>
+				</rightCol>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

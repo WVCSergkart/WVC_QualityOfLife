@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="WVC_Biotech_SkinSelector_KL_ByCase" Abstract="True">
+		<parameters>
+			<li>DummyName</li>
+			<li>Settings_defName</li>
+			<li>texPath_DEF</li>
+			<li>PathRace</li>
+			<li>DLC_Name</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.CreateVariable">
+				<value>Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</value>
+				<fromXml>true</fromXml>
+				<storeIn>column</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.PatchByCase">
+						<value>{column}</value>
+						<cases>
+							<li>
+								<value>SkinSelector_1</value>
+								<apply>
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{Settings_defName}"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_1"]</xpath>
+										<value>
+											<li Class="XmlExtensions.Setting.DrawImage">
+												<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}_south</texPath>
+												<scale>0.5</scale>
+											</li>
+											<li Class="XmlExtensions.Setting.Checkbox">
+												<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyName}</key>
+												<label>Enable</label>
+												<defaultValue>true</defaultValue>
+											</li>
+											<li Class="XmlExtensions.Setting.GapLine"/>
+										</value>
+									</Operation>
+
+									<Operation Class="PatchOperationReplace">
+										<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+										<value>
+											<column>SkinSelector_2</column>
+										</value>
+									</Operation>
+
+								</apply>
+							</li>
+							<li>
+								<value>SkinSelector_2</value>
+								<apply>
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{Settings_defName}"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_2"]</xpath>
+										<value>
+											<li Class="XmlExtensions.Setting.DrawImage">
+												<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}_south</texPath>
+												<scale>0.5</scale>
+											</li>
+											<li Class="XmlExtensions.Setting.Checkbox">
+												<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyName}</key>
+												<label>Enable</label>
+												<defaultValue>true</defaultValue>
+											</li>
+											<li Class="XmlExtensions.Setting.GapLine"/>
+										</value>
+									</Operation>
+
+									<Operation Class="PatchOperationReplace">
+										<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+										<value>
+											<column>SkinSelector_3</column>
+										</value>
+									</Operation>
+
+								</apply>
+							</li>
+							<li>
+								<value>SkinSelector_3</value>
+								<apply>
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{Settings_defName}"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_3"]</xpath>
+										<value>
+											<li Class="XmlExtensions.Setting.DrawImage">
+												<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}_south</texPath>
+												<scale>0.5</scale>
+											</li>
+											<li Class="XmlExtensions.Setting.Checkbox">
+												<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyName}</key>
+												<label>Enable</label>
+												<defaultValue>true</defaultValue>
+											</li>
+											<li Class="XmlExtensions.Setting.GapLine"/>
+										</value>
+									</Operation>
+
+									<Operation Class="PatchOperationReplace">
+										<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+										<value>
+											<column>SkinSelector_4</column>
+										</value>
+									</Operation>
+
+								</apply>
+							</li>
+							<li>
+								<value>SkinSelector_4</value>
+								<apply>
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{Settings_defName}"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_4"]</xpath>
+										<value>
+											<li Class="XmlExtensions.Setting.DrawImage">
+												<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}_south</texPath>
+												<scale>0.5</scale>
+											</li>
+											<li Class="XmlExtensions.Setting.Checkbox">
+												<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyName}</key>
+												<label>Enable</label>
+												<defaultValue>true</defaultValue>
+											</li>
+											<li Class="XmlExtensions.Setting.GapLine"/>
+										</value>
+									</Operation>
+
+									<Operation Class="PatchOperationReplace">
+										<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+										<value>
+											<column>SkinSelector_5</column>
+										</value>
+									</Operation>
+
+								</apply>
+							</li>
+							<li>
+								<value>SkinSelector_5</value>
+								<apply>
+
+									<Operation Class="PatchOperationAdd">
+										<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{Settings_defName}"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_5"]</xpath>
+										<value>
+											<li Class="XmlExtensions.Setting.DrawImage">
+												<texPath>WVC/KL_Races/{PathRace}/{texPath_DEF}_south</texPath>
+												<scale>0.5</scale>
+											</li>
+											<li Class="XmlExtensions.Setting.Checkbox">
+												<key>{DLC_Name}SkinSelector_{texPath_DEF}_{DummyName}</key>
+												<label>Enable</label>
+												<defaultValue>true</defaultValue>
+											</li>
+											<li Class="XmlExtensions.Setting.GapLine"/>
+										</value>
+									</Operation>
+
+									<Operation Class="PatchOperationReplace">
+										<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+										<value>
+											<column>SkinSelector_1</column>
+										</value>
+									</Operation>
+
+								</apply>
+							</li>
+						</cases>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

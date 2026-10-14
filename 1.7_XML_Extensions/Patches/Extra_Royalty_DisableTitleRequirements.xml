@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="PatchOperationFindMod">
+				<mods>
+					<li>Royalty</li>
+				</mods>
+				<match Class="XmlExtensions.OptionalPatch">
+					<modId>honkai.girls.sergkart</modId>
+					<key>Extra_DisableTitleRequirements_WVC</key>
+					<defaultValue>false</defaultValue>
+					<caseTrue>
+
+						<!-- <Operation Class="XmlExtensions.PatchOperationSafeRemove"> -->
+							<!-- <xpath>/Defs/RoyalTitleDef/disabledWorkTags</xpath> -->
+						<!-- </Operation> -->
+						<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+							<xpath>/Defs/RoyalTitleDef/requiredApparel</xpath>
+						</Operation>
+						<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+							<xpath>/Defs/RoyalTitleDef/throneRoomRequirements</xpath>
+						</Operation>
+						<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+							<xpath>/Defs/RoyalTitleDef/bedroomRequirements</xpath>
+						</Operation>
+						<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+							<xpath>/Defs/RoyalTitleDef/foodRequirement</xpath>
+						</Operation>
+
+					</caseTrue>
+				</match>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

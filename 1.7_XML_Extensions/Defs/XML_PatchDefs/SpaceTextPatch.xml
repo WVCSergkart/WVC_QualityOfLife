@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_AnyTextInAnySettings_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>xPath</li>
+			<li>AnyText</li>
+			<li>SettingsDefName</li>
+			<li>Tag</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="{SettingsDefName}"]/{xPath}</xpath>
+				<value>
+					<li Class="XmlExtensions.Setting.Text">
+						<text>{AnyText}</text>
+						<tKey>HGS_{SettingsDefName}_{Tag}_AutoAnyText_WVC</tKey>
+					</li>
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

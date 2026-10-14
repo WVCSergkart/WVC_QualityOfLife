@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartGenerator" Abstract="True">
+		<parameters>
+			<!-- WVC_Hediff_BodyPart_Ancient -->
+			<li>BdoyPartType</li>
+			<!-- WVC_BodyPartAncientBase -->
+			<li>BodyPartParentName</li>
+			<li>ShouldAnesthetize</li>
+			<li>SurgerySuccessChance</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/HediffDef[@Name="{BdoyPartType}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>BodyPart_DEF</storeIn>
+				<apply>
+
+			<Operation Class="XmlExtensions.AggregateValues">
+				<valueOperations>
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/label</value>
+						<storeIn>label_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{BodyPart_DEF}/tags/li</value>
+						<storeIn>Tag_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+					<!-- <Operation Class="XmlExtensions.CreateVariable"> -->
+						<!-- <value>{BodyPart_DEF}/description</value> -->
+						<!-- <storeIn>description_DEF</storeIn> -->
+						<!-- <fromXml>true</fromXml> -->
+					<!-- </Operation> -->
+
+				</valueOperations>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<!-- <patchName>{BodyPartGenerator_CreateThingAndRecipe}</patchName> -->
+						<patchName>WVC_BodyPartGenerator_CreateThingAndRecipe_Base</patchName>
+						<arguments>
+							<li>{defName_DEF}</li>
+							<li>{label_DEF}</li>
+							<li>{Tag_DEF}</li>
+							<li>{BodyPartParentName}</li>
+							<li>{ShouldAnesthetize}</li>
+							<li>{SurgerySuccessChance}</li>
+						</arguments>
+					</Operation>
+
+					<!--=====================================================================-->
+
+					<Operation Class="PatchOperationAdd">
+						<xpath>/Defs/HediffDef[defName="{defName_DEF}"]</xpath>
+						<value>
+							<descriptionHyperlinks><ThingDef>{defName_DEF}</ThingDef></descriptionHyperlinks>
+							<spawnThingOnRemoved>{defName_DEF}</spawnThingOnRemoved>
+						</value>
+					</Operation>
+					
+					<!-- <Operation Class="XmlExtensions.PatchOperationCopy"> -->
+						<!-- <xpath>/Defs/ThingDef[@Name="{BodyPartParentName}"]/costList/*</xpath> -->
+						<!-- <paste>/Defs/ThingDef[defName="{defName_DEF}"]/costList</paste> -->
+					<!-- </Operation> -->
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>WVC_BodyPartGenerator_PatchByCase</patchName>
+						<arguments>
+							<li>{Tag_DEF}</li>
+							<li>{defName_DEF}</li>
+						</arguments>
+					</Operation>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+						<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+						<safetyDepth>1</safetyDepth>
+						<value>
+							<recipes>
+								<li>Install_{defName_DEF}</li>
+							</recipes>
+						</value>
+					</Operation>
+
+					<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+						<!-- <xpath>/Defs/ThingDef[@Name="BaseMechanoid"]</xpath> -->
+						<!-- <safetyDepth>1</safetyDepth> -->
+						<!-- <value> -->
+							<!-- <recipes> -->
+								<!-- <li>Install_{defName_DEF}</li> -->
+							<!-- </recipes> -->
+						<!-- </value> -->
+					<!-- </Operation> -->
+
+					<!--=====================================================================-->
+
+					<!-- TEST -->
+					<Operation Class="XmlExtensions.FindMod">
+						<mods>
+							<li>honkai.girls.sergkart</li>
+							<li>wvc.sergkart.unstable</li>
+						</mods>
+						<packageId>true</packageId>
+						<logic>and</logic>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>Extra_TestScenario_AllWeapon_WVC</key>
+								<defaultValue>false</defaultValue>
+								<caseTrue>
+
+									<Operation Class="PatchOperationAdd">
+									  <xpath>/Defs/ScenarioDef[@Name="TEST_Scenario_WVC"]/scenario/parts</xpath>
+									  <value>
+										<li Class="ScenPart_StartingThing_Defined">
+											<def>StartingThing_Defined</def>
+											<thingDef>{defName_DEF}</thingDef>
+										</li>
+									  </value>
+									</Operation>
+
+								</caseTrue>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+					<!-- TEST -->
+
+				</apply>
+			</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

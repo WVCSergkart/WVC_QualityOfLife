@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--=====================================================================-->
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_EnableImplants_TortureBodyParts</key> -->
+		<!-- <defaultValue>true</defaultValue> -->
+		<!-- <caseFalse> -->
+
+			<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+				<!-- <xpath>/Defs[@DeleteTag="DeleteImplant_WVC_TortureBionic"]</xpath> -->
+			<!-- </li> -->
+
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_EnableImplants_CyberneticBodyParts</key> -->
+		<!-- <defaultValue>true</defaultValue> -->
+		<!-- <caseFalse> -->
+
+			<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+				<!-- <xpath>/Defs[@DeleteTag="DeleteImplant_WVC_CybertechBionic" or @DeleteTag="DeleteImplant_WVC_SpecializedCybertechBionic"]</xpath> -->
+			<!-- </li> -->
+
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!--=====================================================================-->
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_EnableImplants_AncientBodyParts</key> -->
+		<!-- <defaultValue>true</defaultValue> -->
+		<!-- <caseFalse> -->
+
+			<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+				<!-- <xpath>/Defs[@DeleteTag="DeleteImplant_WVC_UltratechBionic"]</xpath> -->
+			<!-- </li> -->
+
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_EnableImplants_MechanoidBodyParts</key> -->
+		<!-- <defaultValue>true</defaultValue> -->
+		<!-- <caseFalse> -->
+
+			<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+				<!-- <xpath>/Defs[@DeleteTag="DeleteImplant_WVC_MechtechBionic"]</xpath> -->
+			<!-- </li> -->
+
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!--=====================================================================-->
+
+	<!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+		<!-- <modId>honkai.girls.sergkart</modId> -->
+		<!-- <key>WVC_EnableImplants_NodeBodyParts</key> -->
+		<!-- <defaultValue>true</defaultValue> -->
+		<!-- <caseFalse> -->
+
+			<!-- <li Class="XmlExtensions.PatchOperationSafeRemove"> -->
+				<!-- <xpath>/Defs[@DeleteTag="DeleteImplant_WVC_ArchotechBionic" or @DeleteTag="DeleteImplant_WVC_OverclockedMechtechBionic" or @DeleteTag="DeleteImplant_WVC_PsychicMechtechBionic" or @DeleteTag="DeleteImplant_WVC_ToughMechtechBionic" or @DeleteTag="DeleteImplant_WVC_ArmoredMechtechBionic"]</xpath> -->
+			<!-- </li> -->
+
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+</Patch>

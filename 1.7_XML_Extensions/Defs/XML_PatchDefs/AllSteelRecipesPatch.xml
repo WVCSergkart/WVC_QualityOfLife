@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="WVC_PatchDef_AllSteelRecipes_Into_MetalRecipes" Abstract="True">
+		<parameters>
+			<li>AbstractName</li> <!-- BaseWeapon -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="{AbstractName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>Name</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{Name}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{Name}</xpathDef>
+						<xpathLocal>stuffCategories</xpathLocal>
+						<caseFalse>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{Name}</xpathDef>
+						<xpathLocal>costStuffCount</xpathLocal>
+						<caseTrue>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{Name}</xpathDef>
+						<xpathLocal>costList/Steel</xpathLocal>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Name}/costList/Steel</value>
+								<storeIn>SteelCostStuffCount</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+									<Operation Class="XmlExtensions.CreateVariable">
+										<value>{Name}/defName</value>
+										<storeIn>NameDEF</storeIn>
+										<fromXml>true</fromXml>
+										<apply>
+
+											<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+												<xpath>/Defs/ThingDef[defName="{NameDEF}"]/costList/Steel</xpath>
+											</Operation>
+											<Operation Class="XmlExtensions.PatchOperationMath">
+												<xpath>Defs/ThingDef[defName="{NameDEF}"]/costStuffCount</xpath>
+												<value>{SteelCostStuffCount}</value>
+												<operation>+</operation>
+											</Operation>
+
+											<!-- <Operation Class="XmlExtensions.ConditionalInherited"> -->
+												<!-- <xpathDef>{Name}</xpathDef> -->
+												<!-- <xpathLocal>recipeMaker</xpathLocal> -->
+												<!-- <caseTrue> -->
+
+													<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+														<!-- <xpath>Defs/ThingDef[defName="{NameDEF}"]/recipeMaker</xpath> -->
+														<!-- <value> -->
+															<!-- <useIngredientsForColor>false</useIngredientsForColor> -->
+														<!-- </value> -->
+													<!-- </Operation> -->
+
+												<!-- </caseTrue> -->
+											<!-- </Operation> -->
+
+											<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+												<!-- <xpath>Defs/ThingDef[defName="{NameDEF}"]/recipeMaker</xpath> -->
+												<!-- <value> -->
+													<!-- <useIngredientsForColor>false</useIngredientsForColor> -->
+												<!-- </value> -->
+											<!-- </Operation> -->
+
+										</apply>
+									</Operation>
+								</apply>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+						</caseTrue>
+						<caseFalse>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{Name}</xpathDef>
+						<xpathLocal>costList/Steel</xpathLocal>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{Name}/costList/Steel</value>
+								<storeIn>SteelCostCount</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+									<Operation Class="XmlExtensions.CreateVariable">
+										<value>{Name}/defName</value>
+										<storeIn>NameDEF</storeIn>
+										<fromXml>true</fromXml>
+										<apply>
+
+											<Operation Class="XmlExtensions.PatchOperationSafeRemove">
+												<xpath>/Defs/ThingDef[defName="{NameDEF}"]/costList/Steel</xpath>
+											</Operation>
+											<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+												<xpath>/Defs/ThingDef[defName="{NameDEF}"]</xpath>
+												<safetyDepth>1</safetyDepth>
+												<value>
+													<costStuffCount>{SteelCostCount}</costStuffCount>
+													<stuffCategories>
+													  <li>Metallic</li>
+													</stuffCategories>
+													<graphicData>
+													  <shaderType>CutoutComplex</shaderType>
+													</graphicData>
+												</value>
+											</Operation>
+
+											<!-- <Operation Class="XmlExtensions.ConditionalInherited"> -->
+												<!-- <xpathDef>{Name}</xpathDef> -->
+												<!-- <xpathLocal>recipeMaker</xpathLocal> -->
+												<!-- <caseTrue> -->
+
+												<!-- </caseTrue> -->
+											<!-- </Operation> -->
+
+											<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+												<!-- <xpath>Defs/ThingDef[defName="{NameDEF}"]/recipeMaker</xpath> -->
+												<!-- <value> -->
+													<!-- <useIngredientsForColor>false</useIngredientsForColor> -->
+												<!-- </value> -->
+											<!-- </Operation> -->
+
+										</apply>
+									</Operation>
+								</apply>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+						</caseFalse>
+					</Operation>
+
+						</caseFalse>
+					</Operation>
+
+						</caseTrue>
+					</Operation>
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

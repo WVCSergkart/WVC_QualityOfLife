@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.biotech</li>
+			<li>ludeon.rimworld.ideology</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_SanguphageMeetingTorch</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+					  <xpath>/Defs/MemeDef[defName="Bloodfeeding"]</xpath>
+					  <safetyDepth>1</safetyDepth>
+					  <value>
+						<addDesignators>
+						  <li>SanguphageMeetingTorch</li>
+						</addDesignators>
+					  </value>
+					</Operation>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/ThingDef[defName="SanguphageMeetingTorch"]</xpath> 
+					  <value>
+						<designationCategory>Furniture</designationCategory>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

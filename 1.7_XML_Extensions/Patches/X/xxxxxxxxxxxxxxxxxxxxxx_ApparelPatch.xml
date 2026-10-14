@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>ExtraSetting_ApparelWhiteListPatch_ValksOrAll_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseFalse>
+		</caseFalse>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.FindMod">
+				<mods>
+					<li>erdelf.humanoidalienraces</li>
+					<li>erdelf.humanoidalienraces.dev</li>
+				</mods>
+				<packageId>true</packageId>
+				<caseTrue>
+
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_ApparelPatchChooseRace_WVC</patchName>
+						<arguments>
+							<li>ApparelBase</li>
+							<!-- <li>[@Name="BaseValkyrie_WVC"]</li> -->
+						</arguments>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <SpecialThingFilterDef> -->
+	<!-- <defName>WVC_AllowNonDeadmansApparel</defName> -->
+	<!-- <label>allow thrall apparel</label> -->
+	<!-- <description>Allow clothing that was never worn by a corpse. Most humans find corpse-tainted clothing to be disturbing, and traders will not accept it.</description> -->
+	<!-- <parentCategory>Apparel</parentCategory> -->
+	<!-- <allowedByDefault>true</allowedByDefault> -->
+	<!-- <saveKey>wvc_allowNonDeadmansApparel</saveKey> -->
+	<!-- <workerClass>SpecialThingFilterWorker_NonDeadmansApparel</workerClass> -->
+  <!-- </SpecialThingFilterDef> -->
+
+  <SpecialThingFilterDef>
+	<defName>WVC_AllowPowerArmor</defName>
+	<label>allow power armor</label>
+	<description>Allow power armor.</description>
+	<parentCategory>Apparel</parentCategory>
+	<allowedByDefault>true</allowedByDefault>
+	<saveKey>wvc_AllowPowerArmor</saveKey>
+	<workerClass>WVC_Tweaks.SpecialThingFilterWorker_PowerArmor</workerClass>
+  </SpecialThingFilterDef>
+
+  <!-- <SpecialThingFilterDef> -->
+	<!-- <defName>WVC_AllowNonPowerArmor</defName> -->
+	<!-- <label>allow non power armor</label> -->
+	<!-- <description>Allow any non power armor apparels.</description> -->
+	<!-- <parentCategory>Apparel</parentCategory> -->
+	<!-- <allowedByDefault>false</allowedByDefault> -->
+	<!-- <saveKey>wvc_AllowNonPowerArmor</saveKey> -->
+	<!-- <workerClass>WVC_Tweaks.SpecialThingFilterWorker_NonPowerArmor</workerClass> -->
+  <!-- </SpecialThingFilterDef> -->
+
+  <SpecialThingFilterDef>
+	<defName>WVC_AllowShieldBelts</defName>
+	<label>allow shield belts</label>
+	<description>Allow shield belts.</description>
+	<parentCategory>Apparel</parentCategory>
+	<allowedByDefault>true</allowedByDefault>
+	<saveKey>wvc_AllowShieldBelts</saveKey>
+	<workerClass>WVC_Tweaks.SpecialThingFilterWorker_ShieldBelts</workerClass>
+  </SpecialThingFilterDef>
+
+  <!-- <SpecialThingFilterDef> -->
+	<!-- <defName>WVC_AllowNonPowerArmor</defName> -->
+	<!-- <label>allow non power armor</label> -->
+	<!-- <description>Allow any non power armor apparels.</description> -->
+	<!-- <parentCategory>Apparel</parentCategory> -->
+	<!-- <allowedByDefault>false</allowedByDefault> -->
+	<!-- <saveKey>wvc_AllowNonPowerArmor</saveKey> -->
+	<!-- <workerClass>WVC_Tweaks.SpecialThingFilterWorker_NonPowerArmor</workerClass> -->
+  <!-- </SpecialThingFilterDef> -->
+
+</Defs>

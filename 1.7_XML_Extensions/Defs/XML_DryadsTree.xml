@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>Settings_DryadsTreeWVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.GapLine" />
+			<!-- ====================GauranlenTree==================== -->
+			<!-- ====================GauranlenTree==================== -->
+			<!-- ====================GauranlenTree==================== -->
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTreeCustom_WVC</key>
+				<label>Enable custom settings of Gauranlen Tree</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_GauranlenTreeCustom_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>GauranlenTreeCustom_Gurler_WVC</key>
+				<label>|- Affect Gaurler</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_GauranlenTreeCustom_Gurler_WVC</tKey>
+			</li>
+			<!-- <li Class="XmlExtensions.Setting.Checkbox"> -->
+				<!-- <key>GauranlenTreeCustom_Mother_WVC</key> -->
+				<!-- <label>|- Affect Mothers</label> -->
+				<!-- <defaultValue>false</defaultValue> -->
+				<!-- <tKey>HGS_GauranlenTreeCustom_Mother_WVC</tKey> -->
+			<!-- </li> -->
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AnimaTree_DryadsConnection_wvc</key>
+				<label>|- Affect Anima tree</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_Dryads_Extra_AnimaTree_DryadsConnection_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.EmbedMenu">
+				<menu>Settings_Tree_Connection_WVC</menu>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

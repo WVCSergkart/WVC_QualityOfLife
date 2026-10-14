@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- <Operation Class="XmlExtensions.FindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>wvc.sergkart.unstable</li> -->
+		<!-- </mods> -->
+		<!-- <packageId>true</packageId> -->
+		<!-- <caseFalse> -->
+		<!-- </caseFalse> -->
+		<!-- <caseTrue> -->
+
+			<!-- <Operation Class="XmlExtensions.ApplyPatch"> -->
+				<!-- <patchName>WVC_BodyPartGeneratorII</patchName> -->
+				<!-- <arguments> -->
+					<!-- <li>TEST</li> -->
+					<!-- <li>WVC_BodyPartTortureBase</li> -->
+				<!-- </arguments> -->
+			<!-- </Operation> -->
+
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+</Patch>

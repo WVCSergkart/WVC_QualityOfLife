@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_ApparelPatch_Utility_WVC" Abstract="True">
+		<parameters>
+			<!-- <li>RaceDefName</li> -->
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="ApparelBase"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>PackDefName</storeIn>
+				<apply>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{PackDefName}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{PackDefName}</xpathDef>
+						<xpathLocal>thingCategories[li="ApparelUtility"]</xpathLocal>
+						<caseTrue>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{PackDefName}/defName</value>
+								<storeIn>ApparelPackDefName</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/AlienRace.ThingDef_AlienRace[@WVC_AutoPatchTag="OpinionPatcherTarget"]</xpath>
+										<safetyDepth>3</safetyDepth>
+										<value>
+											<alienRace>
+												<raceRestriction>
+													<whiteApparelList>
+														<li>{ApparelPackDefName}</li>
+													</whiteApparelList>
+												</raceRestriction>
+											</alienRace>
+										</value>
+									</Operation>
+
+								</apply>
+							</Operation>
+						</caseTrue>
+					</Operation>
+						</caseTrue>
+					</Operation>
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

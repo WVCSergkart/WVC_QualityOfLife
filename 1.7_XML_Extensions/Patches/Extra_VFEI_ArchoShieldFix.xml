@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>ExtraSetting_VFEI_ArchoShieldFix_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+			<Operation Class="XmlExtensions.FindMod">
+				<mods>
+					<li>oskarpotocki.vfe.insectoid</li>
+				</mods>
+				<packageId>true</packageId>
+				<caseTrue>
+
+					<!-- <Operation Class="XmlExtensions.FindMod"> -->
+						<!-- <mods> -->
+							<!-- <li>vanillaexpanded.vaeaccessories</li> -->
+						<!-- </mods> -->
+						<!-- <packageId>true</packageId> -->
+						<!-- <caseTrue> -->
+
+							<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+								  <!-- <xpath>Defs/ThingDef[defName="VFEI_Apparel_ArchotechShieldBelt"]</xpath> -->
+								  <!-- <value> -->
+									<!-- <thingClass>VAE_Accessories.RangedShieldBelt</thingClass> -->
+								  <!-- </value> -->
+							<!-- </Operation> -->
+
+						<!-- </caseTrue> -->
+						<!-- <caseFalse> -->
+					<Operation Class="PatchOperationReplace">
+					  <xpath>Defs/ThingDef[defName="VFEI_Apparel_ArchotechShieldBelt"]/comps</xpath>
+					  <!-- <safetyDepth>1</safetyDepth> -->
+					  <value>
+						<comps>
+						  <!-- <li Class="CompProperties_Shield" /> -->
+						  <li Class="CompProperties_Shield">
+							<blocksRangedWeapons>false</blocksRangedWeapons>
+						  </li>
+						</comps>
+					  </value>
+					</Operation>
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+						  <xpath>Defs/ThingDef[defName="VFEI_Apparel_ArchotechShieldBelt"]</xpath>
+						  <value>
+							<thingClass>Apparel</thingClass>
+							<useHitPoints>false</useHitPoints>
+						  </value>
+					</Operation>
+
+						<!-- </caseFalse> -->
+					<!-- </Operation> -->
+
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/ThingDef[defName="VFEI_Apparel_ArchotechShieldBelt"]</xpath>
+					  <value>
+						<description>A single-person psychic shield device made by a superior AI, that covers the user with an impenetrable shield bubble. It will attempt to stop any rapidly-moving projectile or energy attack. It does nothing against melee attacks or shots from point-blank range. This advanced version has a larger capacity. The incomparable shield strength makes it a valuable good for any type of soldier.</description>
+						<costList>
+						  <ComponentSpacer>17</ComponentSpacer>
+						  <Plasteel>90</Plasteel>
+						  <Uranium>50</Uranium>
+						</costList>
+						<thingCategories Inherit="False">
+						  <li>Artifacts</li>
+						  <li>ApparelUtility</li>
+						</thingCategories>
+					  </value>
+					</Operation>
+					<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+					  <xpath>/Defs/ThingDef[defName="VFEI_Apparel_ArchotechShieldBelt"]/statBases</xpath>
+					  <value>
+						<MarketValue>4270</MarketValue>
+						<EnergyShieldRechargeRate>0.15</EnergyShieldRechargeRate>
+						<Flammability>0</Flammability>
+						<DeteriorationRate>0</DeteriorationRate>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

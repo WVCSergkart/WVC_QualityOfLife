@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>Valkyries_RemoveDodgeLimit_WVC</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MeleeDodgeChance"]/postProcessCurve</xpath>
+			  <value>
+				<postProcessCurve>
+				  <points>
+					<li>(5, 0)</li>
+					<li>(20, 0.30)</li>
+					<li>(60, 0.50)</li>
+					<li>(70, 0.60)</li>
+					<li>(85, 0.70)</li>
+					<li>(100, 0.80)</li>
+					<li>(200, 1.00)</li>
+				  </points>
+				</postProcessCurve>
+			  </value>
+			</Operation>
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

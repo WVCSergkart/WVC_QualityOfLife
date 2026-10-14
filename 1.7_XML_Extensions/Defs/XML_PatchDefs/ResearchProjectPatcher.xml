@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_GlobalTechPrint_Patch_WVC" Abstract="True">
+		<parameters>
+			<!-- [techLevel="Neolithic"] -->
+			<li>techLevel</li>
+			<li>techprintCount</li>
+			<li>techprintCommonality</li>
+			<li>techprintMarketValue</li>
+		</parameters>
+		<apply>
+			<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+				<!-- <xpath>/Defs/ResearchProjectDef{techLevel}</xpath> -->
+				<!-- <value> -->
+					<!-- <techprintCount>{techprintCount}</techprintCount> -->
+					<!-- <techprintCommonality>{techprintCommonality}</techprintCommonality> -->
+					<!-- <techprintMarketValue>{techprintMarketValue}</techprintMarketValue> -->
+					<!-- <heldByFactionCategoryTags> -->
+						<!-- <li>Empire</li> -->
+						<!-- <li>Outlander</li> -->
+						<!-- <li>Tribal</li> -->
+					<!-- </heldByFactionCategoryTags> -->
+				<!-- </value> -->
+			<!-- </Operation> -->
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>Defs/ResearchProjectDef{techLevel}</xpath>
+				<storeIn>DEF</storeIn>
+				<apply>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{DEF}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{DEF}</xpathDef>
+						<xpathLocal>techprintCount</xpathLocal>
+						<caseFalse>
+							
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{DEF}/defName</value>
+								<storeIn>defName_DEF</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+									<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+										<xpath>/Defs/ResearchProjectDef[defName="{defName_DEF}"]</xpath>
+										<value>
+											<techprintCount>{techprintCount}</techprintCount>
+											<techprintCommonality>{techprintCommonality}</techprintCommonality>
+											<techprintMarketValue>{techprintMarketValue}</techprintMarketValue>
+											<heldByFactionCategoryTags>
+												<li>Empire</li>
+												<li>Outlander</li>
+												<li>Tribal</li>
+											</heldByFactionCategoryTags>
+										</value>
+									</Operation>
+								</apply>
+							</Operation>
+					
+						</caseFalse>
+					</Operation>
+
+						</caseTrue>
+					</Operation>
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

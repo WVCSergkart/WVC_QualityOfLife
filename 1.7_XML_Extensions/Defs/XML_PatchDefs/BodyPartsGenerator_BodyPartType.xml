@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartGenerator_CreateThingAndRecipe_Base" Abstract="True">
+		<parameters>
+			<li>defName_DEF</li>
+			<li>label_DEF</li>
+			<li>Tag_DEF</li>
+			<li>BodyPartParentName</li>
+			<li>ShouldAnesthetize</li>
+			<li>SurgerySuccessChance</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+
+				  <ThingDef ParentName="{BodyPartParentName}">
+					<defName>{defName_DEF}</defName>
+					<label>{label_DEF}</label>
+					<descriptionHyperlinks>
+						<RecipeDef>Install_{defName_DEF}</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+					</statBases>
+					<costList>
+					  <Plasteel>25</Plasteel>
+					  <ComponentSpacer>5</ComponentSpacer>
+					</costList>
+				  </ThingDef>
+
+				  <RecipeDef ParentName="WVC_SurgeryInstall_BodyPartBase">
+					<defName>Install_{defName_DEF}</defName>
+					<label>install {label_DEF}</label>
+					<description>Install an {label_DEF}.</description>
+					<descriptionHyperlinks>
+					  <ThingDef>{defName_DEF}</ThingDef>
+					  <HediffDef>{defName_DEF}</HediffDef>
+					</descriptionHyperlinks>
+					<jobString>Installing {label_DEF}.</jobString>
+					<anesthetize>{ShouldAnesthetize}</anesthetize>
+					<!-- <surgeryIgnoreEnvironment>{ShouldAnesthetize}</surgeryIgnoreEnvironment> -->
+					<surgerySuccessChanceFactor>{SurgerySuccessChance}</surgerySuccessChanceFactor>
+					<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>{defName_DEF}</li>
+						  </thingDefs>
+						</filter>
+						<count>1</count>
+					  </li>
+					</ingredients>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>{defName_DEF}</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+					  <li>{Tag_DEF}</li>
+					</appliedOnFixedBodyParts>
+					<addsHediff>{defName_DEF}</addsHediff>
+				  </RecipeDef>
+
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartGenerator_CreateThingAndRecipe_Ultra" Abstract="True">
+		<parameters>
+			<li>defName_DEF</li>
+			<li>label_DEF</li>
+			<li>Tag_DEF</li>
+			<li>BodyPartParentName</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+
+				  <ThingDef ParentName="{BodyPartParentName}">
+					<defName>{defName_DEF}</defName>
+					<label>{label_DEF}</label>
+					<descriptionHyperlinks>
+						<RecipeDef>Install_{defName_DEF}</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+					</statBases>
+					<costList>
+					  <Plasteel>25</Plasteel>
+					  <ComponentSpacer>5</ComponentSpacer>
+					</costList>
+					<comps>
+					  <li MayRequire="ludeon.rimworld.biotech" Class="CompProperties_UseEffectDestroySelf" />
+					  <li MayRequire="ludeon.rimworld.biotech" Class="CompProperties_Usable">
+						<compClass>CompUsableImplant</compClass>
+						<useJob>UseItem</useJob>
+						<useLabel>Use {0_label}</useLabel>
+						<useDuration>600</useDuration>
+					  </li>
+					  <li MayRequire="ludeon.rimworld.biotech" Class="CompProperties_UseEffectInstallImplant">
+						<compClass>CompUseEffect_InstallImplantMechlink</compClass>
+						<hediffDef>{defName_DEF}</hediffDef>
+						<bodyPart>{Tag_DEF}</bodyPart>
+						<requiresPsychicallySensitive>false</requiresPsychicallySensitive>
+					  </li>
+					  <li MayRequire="ludeon.rimworld.biotech" Class="CompProperties_UseEffectPlaySound">
+						<soundOnUsed>MechSerumUsed</soundOnUsed>
+					  </li>
+					</comps>
+				  </ThingDef>
+
+				  <RecipeDef ParentName="WVC_SurgeryInstall_BodyPartBase">
+					<defName>Install_{defName_DEF}</defName>
+					<label>install {label_DEF}</label>
+					<description>Install an {label_DEF}.</description>
+					<descriptionHyperlinks>
+					  <ThingDef>{defName_DEF}</ThingDef>
+					  <HediffDef>{defName_DEF}</HediffDef>
+					</descriptionHyperlinks>
+					<jobString>Installing {label_DEF}.</jobString>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>{defName_DEF}</li>
+						  </thingDefs>
+						</filter>
+						<count>1</count>
+					  </li>
+					</ingredients>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>{defName_DEF}</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+					  <li>{Tag_DEF}</li>
+					</appliedOnFixedBodyParts>
+					<addsHediff>{defName_DEF}</addsHediff>
+				  </RecipeDef>
+
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

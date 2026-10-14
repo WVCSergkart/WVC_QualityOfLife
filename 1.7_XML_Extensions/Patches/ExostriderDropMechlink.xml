@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.biotech</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>WVC_QoL_ExostriderDropMechlink</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/ThingDef[defName="AncientExostriderRemains"]/comps/li/leavingsFilter/thingDefs</xpath> 
+					  <value>
+						  <thingDefs>
+							<li>Mechlink</li>
+						  </thingDefs>
+					  </value>
+					</Operation>
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/ThingDef[defName="AncientExostriderRemains"]/killedLeavings</xpath> 
+					  <value>
+						<killedLeavings>
+						  <ChunkSlagSteel>6</ChunkSlagSteel>
+						  <Mechlink>1</Mechlink>
+						</killedLeavings>
+					  </value>
+					</Operation>
+					<Operation Class="PatchOperationReplace">
+					  <xpath>/Defs/ThingDef[defName="AncientExostriderRemains"]/comps/li/startWickHitPointsPercent</xpath> 
+					  <value>
+						  <startWickHitPointsPercent>0.9</startWickHitPointsPercent>
+					  </value>
+					</Operation>
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

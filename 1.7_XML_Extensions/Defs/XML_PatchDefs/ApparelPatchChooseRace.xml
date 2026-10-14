@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_ApparelPatchChooseRace_WVC" Abstract="True">
+		<parameters>
+			<li>ApparelsAbstractName</li> <!-- ApparelNoQualityBase -->
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace/defName</xpath>
+				<storeIn>AlienDefs</storeIn>
+				<apply>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{AlienDefs}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{AlienDefs}/defName</value>
+								<storeIn>AlienDefName</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+
+									<Operation Class="XmlExtensions.PatchByCase">
+										<value>{AlienDefName}</value>
+										<!-- <defaultCase>DefNameDefaultCase</defaultCase> -->
+										<cases>
+											<li><value>WVC_AlienRace_BlueFormer</value><apply></apply></li>
+											<li><value>WVC_AlienRace_RedFormer</value><apply></apply></li>
+											<li><value>WVC_AlienRace_GreenFormer</value><apply></apply></li>
+											<li><value>WVC_AlienRace_YellowFormer</value><apply></apply></li>
+											<li><value>WVC_AlienRace_VioletFormer</value><apply></apply></li>
+											<li><value>WVC_AlienRace_Reshaper</value><apply></apply></li>
+											<!-- ======================== -->
+											<li>
+												<value>{AlienDefName}</value>
+												<apply>
+
+													<Operation Class="PatchOperationAdd">
+														<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_ExtraWVC"]/settings/li[@WVC_Tag="ApparelPatchMenu"]/settings</xpath>
+														<value>
+															<li Class="XmlExtensions.Setting.Checkbox">
+																<key>ApparelPatchChooseRace_{AlienDefName}_WVC</key>
+																<label>{AlienDefName}</label>
+																<defaultValue>true</defaultValue>
+																<tKey>HGS_ApparelPatchChooseRace_{AlienDefName}_Checker_WVC</tKey>
+															</li>
+														</value>
+													</Operation>
+
+													<Operation Class="XmlExtensions.OptionalPatch">
+														<modId>honkai.girls.sergkart</modId>
+														<key>ApparelPatchChooseRace_{AlienDefName}_WVC</key>
+														<defaultValue>true</defaultValue>
+														<caseTrue>
+
+															<Operation Class="XmlExtensions.ApplyPatch">
+																<patchName>Autopatcher_whiteApparelListPatch_Patch_WVC</patchName>
+																<arguments>
+																	<li>{ApparelsAbstractName}</li>
+																	<li>[defName="{AlienDefName}"]</li>
+																</arguments>
+															</Operation>
+
+														</caseTrue>
+													</Operation>
+
+												</apply>
+											</li>
+										</cases>
+									</Operation>
+
+								</apply>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

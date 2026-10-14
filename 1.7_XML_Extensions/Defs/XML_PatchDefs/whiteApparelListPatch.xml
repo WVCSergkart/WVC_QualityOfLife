@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_whiteApparelListPatch_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>ApparelsAbstractName</li> <!-- ApparelNoQualityBase -->
+			<li>NameRacePath</li> <!-- [@Name="BaseValkyrie_WVC"] -->
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="ApparelBase"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>AllApparels</storeIn>
+				<apply>
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{AllApparels}</xpathDef>
+						<xpathLocal>apparel/wornGraphicPath</xpathLocal>
+						<caseFalse>
+							<Operation Class="XmlExtensions.ConditionalInherited">
+								<xpathDef>{AllApparels}</xpathDef>
+								<xpathLocal>apparel/wornGraphicPaths</xpathLocal>
+								<caseFalse>
+									<Operation Class="XmlExtensions.CreateVariable">
+										<value>{AllApparels}/defName</value>
+										<storeIn>ApparelName</storeIn>
+										<fromXml>true</fromXml>
+										<apply>
+											<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+												<xpath>/Defs/AlienRace.ThingDef_AlienRace{NameRacePath}</xpath>
+												<safetyDepth>3</safetyDepth>
+												<value>
+													<alienRace>
+														<raceRestriction>
+															<whiteApparelList>
+																<li>{ApparelName}</li>
+															</whiteApparelList>
+														</raceRestriction>
+													</alienRace>
+												</value>
+											</Operation>
+										</apply>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseFalse>
+					</Operation>
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="Autopatcher_whiteApparelListPatch_CE_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>ApparelsAbstractName</li> <!-- ApparelNoQualityBase -->
+			<li>NameRacePath</li> <!-- [@Name="BaseValkyrie_WVC"] -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="{ApparelsAbstractName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>AllApparels</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{AllApparels}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+							<Operation Class="XmlExtensions.ConditionalInherited">
+								<xpathDef>{AllApparels}</xpathDef>
+								<xpathLocal>apparel/wornGraphicPath</xpathLocal>
+								<caseFalse>
+									<Operation Class="XmlExtensions.ConditionalInherited">
+										<xpathDef>{AllApparels}</xpathDef>
+										<xpathLocal>apparel/wornGraphicPaths</xpathLocal>
+										<caseFalse>
+											<Operation Class="XmlExtensions.CreateVariable">
+												<value>{AllApparels}/defName</value>
+												<storeIn>ApparelName</storeIn>
+												<fromXml>true</fromXml>
+												<apply>
+													<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+														<xpath>/Defs/AlienRace.ThingDef_AlienRace{NameRacePath}/alienRace/raceRestriction</xpath>
+														<safetyDepth>1</safetyDepth>
+														<value>
+															<whiteApparelList>
+																<li>{ApparelName}</li>
+															</whiteApparelList>
+														</value>
+													</Operation>
+												</apply>
+											</Operation>
+										</caseFalse>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_WhiteApparelPatch_AllHats" Abstract="True">
+		<parameters>
+			<li>ApparelsAbstractName</li> <!-- ApparelNoQualityBase -->
+			<li>NameRacePath</li> <!-- [@Name="BaseValkyrie_WVC"] -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="{ApparelsAbstractName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>AllApparels</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{AllApparels}/defName</value>
+						<storeIn>ApparelName</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+							<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+								<xpath>/Defs/AlienRace.ThingDef_AlienRace{NameRacePath}/alienRace/raceRestriction</xpath>
+								<safetyDepth>1</safetyDepth>
+								<value>
+									<whiteApparelList>
+										<li>{ApparelName}</li>
+									</whiteApparelList>
+								</value>
+							</Operation>
+						</apply>
+					</Operation>
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="WVC_WhiteApparelPatch_CE_AllHats" Abstract="True">
+		<parameters>
+			<li>ApparelsAbstractName</li> <!-- ApparelNoQualityBase -->
+			<li>NameRacePath</li> <!-- [@Name="BaseValkyrie_WVC"] -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="{ApparelsAbstractName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>AllApparels</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.ConditionalInherited">
+						<xpathDef>{AllApparels}</xpathDef>
+						<xpathLocal>defName</xpathLocal>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{AllApparels}/defName</value>
+								<storeIn>ApparelName</storeIn>
+								<fromXml>true</fromXml>
+								<apply>
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/AlienRace.ThingDef_AlienRace{NameRacePath}/alienRace/raceRestriction</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<whiteApparelList>
+												<li>{ApparelName}</li>
+											</whiteApparelList>
+										</value>
+									</Operation>
+								</apply>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

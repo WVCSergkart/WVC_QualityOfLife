@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- =============================FROZEN============================= -->
+	<!-- =============================FROZEN============================= -->
+	<!-- =============================FROZEN============================= -->
+
+	<XmlExtensions.SlateDef Name="WVC_BodyPartGeneratorII_PartsList" Abstract="True">
+		<bodyPart>
+			<li>Eye</li>
+			<li>Ear</li>
+			<li>Jaw</li>
+			<li>Nose</li>
+			<li>Tongue</li>
+			<!-- = -->
+			<li>Stomach</li>
+			<li>Spine</li>
+			<li>Heart</li>
+			<li>Kidney</li>
+			<li>Liver</li>
+			<li>Lung</li>
+			<!-- = -->
+			<li>Shoulder</li>
+			<li>Leg</li>
+			<li>Tail</li>
+			<!-- = -->
+			<!-- <li>WVC_FormerPilon</li> -->
+			<!-- <li>WVC_Automaton_Triangle</li> -->
+			<!-- <li>WVC_FormerCore</li> -->
+			<!-- <li>WVC_Automaton_Spike</li> -->
+			<!-- <li>WVC_FormerVeil</li> -->
+		</bodyPart>
+		<bodyPartName>
+			<li>eye</li>
+			<li>ear</li>
+			<li>jaw</li>
+			<li>nose</li>
+			<li>tongue</li>
+			<!-- = -->
+			<li>stomach</li>
+			<li>spine</li>
+			<li>heart</li>
+			<li>kidney</li>
+			<li>liver</li>
+			<li>lung</li>
+			<!-- = -->
+			<li>arm</li>
+			<li>leg</li>
+			<li>tail</li>
+			<!-- = -->
+			<!-- <li>pilon</li> -->
+			<!-- <li>triangle</li> -->
+			<!-- <li>core</li> -->
+			<!-- <li>spike</li> -->
+			<!-- <li>veil</li> -->
+		</bodyPartName>
+	</XmlExtensions.SlateDef>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_BodyPartGeneratorII" Abstract="True">
+		<parameters>
+			<!-- WVC_Hediff_BodyPart_Ancient -->
+			<li>BodyPartNamingValue</li>
+			<!-- WVC_BodyPartAncientBase -->
+			<li>BodyPartParentName</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_BodyPartGeneratorII_PartsList"]/bodyPart</xpath>
+				<storeIn>DEF</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.Log">
+						<xpath>{DEF}/bodyPart/li</xpath>
+					</Operation>
+
+					<Operation Class="XmlExtensions.AggregateValues">
+						<valueOperations>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{DEF}/bodyPart/li</value>
+								<storeIn>DefName_bodyPart</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{DEF}/bodyPart/bodyPartName/li</value>
+								<storeIn>Label_bodyPart</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+
+						</valueOperations>
+						<apply>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs</xpath>
+								<value>
+
+								  <ThingDef ParentName="WVC_BodyPartAdvancedBionicBase">
+									<defName>WVC_{BodyPartNamingValue}{DefName_bodyPart}</defName>
+									<label>{Label_bodyPart}</label>
+									<descriptionHyperlinks>
+										<!-- <RecipeDef>Install_{defName_DEF}</RecipeDef> -->
+									</descriptionHyperlinks>
+									<statBases>
+									</statBases>
+									<costList>
+										<!-- <Plasteel>25</Plasteel> -->
+										<!-- <ComponentSpacer>5</ComponentSpacer> -->
+									</costList>
+								  </ThingDef>
+
+								</value>
+							</Operation>
+
+						</apply>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+			<!--=====================================================================-->
+
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

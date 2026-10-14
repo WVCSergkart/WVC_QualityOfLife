@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>Settings_AnimaTree_WVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.GapLine" />
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AnimaTreeSettings_Custom_WVC</key>
+				<label>Enable custom settings of Anima Tree</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_AnimaTreeSettings_Custom_WVC</tKey>
+			</li>
+
+			<!--=====================================================================-->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Checkbox">
+				<key>AnimaTreeSettings_Custom_DisableAnimaScream_WVC</key>
+				<label>Disable Anima Scream</label>
+				<defaultValue>false</defaultValue>
+				<tKey>HGS_AnimaTreeSettings_Custom_DisableAnimaScream_WVC</tKey>
+			</li>
+
+			<!--=====================================================================-->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_1_WVC</key>
+				<label>Tree grass needed level 1: {AnimaTreeSettings_TreeGrass_Level_1_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_1_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_2_WVC</key>
+				<label>Tree grass needed level 2: {AnimaTreeSettings_TreeGrass_Level_2_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_2_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_3_WVC</key>
+				<label>Tree grass needed level 3: {AnimaTreeSettings_TreeGrass_Level_3_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_3_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_4_WVC</key>
+				<label>Tree grass needed level 4: {AnimaTreeSettings_TreeGrass_Level_4_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_4_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_5_WVC</key>
+				<label>Tree grass needed level 5: {AnimaTreeSettings_TreeGrass_Level_5_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_5_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_TreeGrass_Level_6_WVC</key>
+				<label>Tree grass needed level 6: {AnimaTreeSettings_TreeGrass_Level_6_WVC}</label>
+				<defaultValue>20</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_TreeGrass_Level_6_WVC</tKey>
+			</li>
+
+			<!--=====================================================================-->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_ArtificialBuildings_Radius_WVC</key>
+				<label>Artificial buildings radius: {AnimaTreeSettings_ArtificialBuildings_Radius_WVC}</label>
+				<defaultValue>34</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>1</decimals>
+				<tKey>HGS_AnimaTreeSettings_ArtificialBuildings_Radius_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_ArtificialBuildings_Curve_2_WVC</key>
+				<label>5 artificial buildings debuff: {AnimaTreeSettings_ArtificialBuildings_Curve_2_WVC}</label>
+				<defaultValue>0.1</defaultValue>
+				<min>0</min>
+				<max>1</max>
+				<decimals>2</decimals>
+				<tKey>HGS_AnimaTreeSettings_ArtificialBuildings_Curve_2_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_ArtificialBuildings_Curve_3_WVC</key>
+				<label>10 artificial buildings debuff: {AnimaTreeSettings_ArtificialBuildings_Curve_3_WVC}</label>
+				<defaultValue>0.1</defaultValue>
+				<min>0</min>
+				<max>1</max>
+				<decimals>2</decimals>
+				<tKey>HGS_AnimaTreeSettings_ArtificialBuildings_Curve_3_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_ArtificialBuildings_Curve_4_WVC</key>
+				<label>50 artificial buildings debuff: {AnimaTreeSettings_ArtificialBuildings_Curve_4_WVC}</label>
+				<defaultValue>0.1</defaultValue>
+				<min>0</min>
+				<max>1</max>
+				<decimals>2</decimals>
+				<tKey>HGS_AnimaTreeSettings_ArtificialBuildings_Curve_4_WVC</tKey>
+			</li>
+
+			<!--=====================================================================-->
+
+			<li Class="XmlExtensions.Setting.Gap"/>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_FocusStrengthOffset_Radius_WVC</key>
+				<label>Natural buildings radius: {AnimaTreeSettings_FocusStrengthOffset_Radius_WVC}</label>
+				<defaultValue>9</defaultValue>
+				<min>0</min>
+				<max>60</max>
+				<decimals>1</decimals>
+				<tKey>HGS_AnimaTreeSettings_FocusStrengthOffset_Radius_WVC</tKey>
+			</li>
+			<li Class="XmlExtensions.Setting.Slider">
+				<key>AnimaTreeSettings_FocusStrengthOffset_maxBuildings_WVC</key>
+				<label>Natural buildings max: {AnimaTreeSettings_FocusStrengthOffset_maxBuildings_WVC}</label>
+				<defaultValue>4</defaultValue>
+				<min>1</min>
+				<max>100</max>
+				<decimals>0</decimals>
+				<tKey>HGS_AnimaTreeSettings_FocusStrengthOffset_maxBuildings_WVC</tKey>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

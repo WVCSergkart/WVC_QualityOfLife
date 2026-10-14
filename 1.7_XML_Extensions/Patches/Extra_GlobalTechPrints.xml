@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+			<li>ludeon.rimworld.royalty</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>honkai.girls.sergkart</modId>
+				<key>AutoPatcher_Global_Researching_OnlyTechPrints_WVC</key>
+				<defaultValue>false</defaultValue>
+				<caseTrue>
+					<!-- <li Class="PatchOperationRemove"> -->
+						<!-- <xpath>/Defs/ResearchProjectDef/techprintCount</xpath> -->
+					<!-- </li> -->
+					<!-- <li Class="PatchOperationRemove"> -->
+						<!-- <xpath>/Defs/ResearchProjectDef/techprintCommonality</xpath> -->
+					<!-- </li> -->
+					<!-- <li Class="PatchOperationRemove"> -->
+						<!-- <xpath>/Defs/ResearchProjectDef/techprintMarketValue</xpath> -->
+					<!-- </li> -->
+					<!-- <li Class="PatchOperationRemove"> -->
+						<!-- <xpath>/Defs/ResearchProjectDef/heldByFactionCategoryTags</xpath> -->
+					<!-- </li> -->
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/ResearchProjectDef/requiredResearchBuilding</xpath>
+					</li>
+					<li Class="PatchOperationReplace">
+						<xpath>/Defs/ResearchProjectDef/requiredResearchFacilities</xpath>
+						<value>
+							<requiredResearchFacilities/>
+						</value>
+					</li>
+					<li Class="XmlExtensions.PatchOperationSafeRemove">
+						<xpath>/Defs/TraderKindDef/stockGenerators/li[@Class="StockGenerator_Techprints"]</xpath>
+					</li>
+					<li Class="PatchOperationAdd">
+					  <xpath>/Defs/TraderKindDef/stockGenerators</xpath>
+					  <value>
+						  <li Class="StockGenerator_Techprints">
+							<countChances>
+							  <li>
+								<count>5</count>
+								<chance>1</chance>
+							  </li>
+							</countChances>
+						  </li>
+					  </value>
+					</li>
+					<!-- <li Class="PatchOperationReplace"> -->
+						<!-- <xpath>/Defs/ResearchProjectDef/heldByFactionCategoryTags</xpath> -->
+						<!-- <value> -->
+							<!-- <heldByFactionCategoryTags/> -->
+						<!-- </value> -->
+					<!-- </li> -->
+					<!--=====================================================================-->
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Neolithic"]</li>
+							<li>1</li>
+							<li>1</li>
+							<li>200</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Medieval"]</li>
+							<li>1</li>
+							<li>1</li>
+							<li>300</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Industrial"]</li>
+							<li>2</li>
+							<li>1</li>
+							<li>400</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Spacer"]</li>
+							<li>2</li>
+							<li>1</li>
+							<li>500</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Ultra"]</li>
+							<li>3</li>
+							<li>0.5</li>
+							<li>600</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li>[techLevel="Archotech"]</li>
+							<li>3</li>
+							<li>0.5</li>
+							<li>700</li>
+						</arguments>
+					</Operation>
+					<Operation Class="XmlExtensions.ApplyPatch">
+						<patchName>Autopatcher_GlobalTechPrint_Patch_WVC</patchName>
+						<arguments>
+							<li></li>
+							<li>1</li>
+							<li>0.5</li>
+							<li>200</li>
+						</arguments>
+					</Operation>
+					<!--=====================================================================-->
+
+				</caseTrue>
+				<caseFalse>
+				</caseFalse>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+</Patch>

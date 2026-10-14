@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<Operation Class="XmlExtensions.OptionalPatch">
+		<modId>honkai.girls.sergkart</modId>
+		<key>WVC_QoL_WaterIsBeauty</key>
+		<defaultValue>false</defaultValue>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/TerrainDef[@Name="WaterBase"]</xpath> 
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<statBases>
+				  <BeautyOutdoors>1</BeautyOutdoors>
+				  <Beauty>0</Beauty>
+				</statBases>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+		<caseFalse>
+		</caseFalse>
+	</Operation>
+
+</Patch>

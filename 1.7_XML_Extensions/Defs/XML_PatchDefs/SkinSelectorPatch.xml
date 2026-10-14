@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XmlExtensions.SlateDef Name="WVC_Slate_Column_SkinSelector_Image" Abstract="True">
+		<column>SkinSelector_1</column>
+	</XmlExtensions.SlateDef>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_SkinSelector_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>MarkerName</li>
+			<li>SpeciesType_defOrName</li> <!-- defName or @Name -->
+			<li>SpeciesType</li> <!-- Alien_Valkyrie_WVC -->
+			<li>MayRequireId</li> <!-- ( MayRequire="psyche.kemomimihouse") -->
+			<li>ColumnField</li> <!-- Number 1,2,3 -->
+			<li>defaultValue</li> <!-- True or False -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/BodyTypeDef[@Name="{MarkerName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DEF</storeIn>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/label</value>
+						<storeIn>label_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+
+							<!--=====================================================================-->
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_Skins_WVC"]/settings/li[tag="ChooseSkinColumns_WVC"]/settings/li[@WVC_Tag="SettingsTagName_{SpeciesType}"]/li[tag="{ColumnField}"]/settings</xpath>
+								<value>
+									<li Class="XmlExtensions.Setting.Checkbox">
+										<key>{SpeciesType}_SkinSelector_{defName_DEF}_WVC</key>
+										<label>{label_DEF} | {defName_DEF}</label>
+										<defaultValue>{defaultValue}</defaultValue>
+										<tKey>HGS_Humanoids_SkinSelector_{defName_DEF}_Checker_WVC</tKey>
+									</li>
+								</value>
+							</Operation>
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>{SpeciesType}_SkinSelector_{defName_DEF}_WVC</key>
+								<defaultValue>{defaultValue}</defaultValue>
+								<caseTrue>
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/AlienRace.ThingDef_AlienRace[{SpeciesType_defOrName}="{SpeciesType}"]/alienRace/generalSettings/alienPartGenerator</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<bodyTypes>
+												<li MayRequire="{MayRequireId}">{defName_DEF}</li>
+											</bodyTypes>
+										</value>
+									</Operation>
+
+								</caseTrue>
+							</Operation>
+
+							<!--=====================================================================-->
+
+						</apply>
+					</Operation>
+
+					<!--=====================================================================-->
+
+						</apply>
+					</Operation>
+
+					<!--=====================================================================-->
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="WVC_SkinSelectorPatch_ImageVersion" Abstract="True">
+		<parameters>
+			<li>MarkerName</li>
+			<li>defaultValue</li> <!-- True or False -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/BodyTypeDef[@Name="{MarkerName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DEF</storeIn>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+
+						<!--=====================================================================-->
+
+						<Operation Class="XmlExtensions.CreateVariable">
+							<value>Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</value>
+							<fromXml>true</fromXml>
+							<storeIn>column</storeIn>
+							<apply>
+
+						<Operation Class="XmlExtensions.PatchByCase">
+							<value>{column}</value>
+							<cases>
+								<li>
+									<value>SkinSelector_1</value>
+									<apply>
+
+										<Operation Class="PatchOperationAdd">
+											<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_SkinsWithImage_WVC"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_1"]</xpath>
+											<value>
+												<li Class="XmlExtensions.Setting.DrawImage">
+													<texPath>WVC/Pawns/Bodies/Naked_{defName_DEF}_south</texPath>
+													<scale>0.5</scale>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_Valkyrie_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Valkyrie</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_Valkyrie_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_DryadMother_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Mother</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_DryadMother_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.GapLine"/>
+											</value>
+										</Operation>
+
+										<Operation Class="PatchOperationReplace">
+											<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+											<value>
+												<column>SkinSelector_2</column>
+											</value>
+										</Operation>
+
+									</apply>
+								</li>
+								<li>
+									<value>SkinSelector_2</value>
+									<apply>
+
+										<Operation Class="PatchOperationAdd">
+											<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_SkinsWithImage_WVC"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_2"]</xpath>
+											<value>
+												<li Class="XmlExtensions.Setting.DrawImage">
+													<texPath>WVC/Pawns/Bodies/Naked_{defName_DEF}_south</texPath>
+													<scale>0.5</scale>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_Valkyrie_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Valkyrie</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_Valkyrie_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_DryadMother_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Mother</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_DryadMother_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.GapLine"/>
+											</value>
+										</Operation>
+
+										<Operation Class="PatchOperationReplace">
+											<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+											<value>
+												<column>SkinSelector_3</column>
+											</value>
+										</Operation>
+
+									</apply>
+								</li>
+								<li>
+									<value>SkinSelector_3</value>
+									<apply>
+
+										<Operation Class="PatchOperationAdd">
+											<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_SkinsWithImage_WVC"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_3"]</xpath>
+											<value>
+												<li Class="XmlExtensions.Setting.DrawImage">
+													<texPath>WVC/Pawns/Bodies/Naked_{defName_DEF}_south</texPath>
+													<scale>0.5</scale>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_Valkyrie_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Valkyrie</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_Valkyrie_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_DryadMother_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Mother</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_DryadMother_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.GapLine"/>
+											</value>
+										</Operation>
+
+										<Operation Class="PatchOperationReplace">
+											<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+											<value>
+												<column>SkinSelector_4</column>
+											</value>
+										</Operation>
+
+									</apply>
+								</li>
+								<li>
+									<value>SkinSelector_4</value>
+									<apply>
+
+										<Operation Class="PatchOperationAdd">
+											<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_SkinsWithImage_WVC"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_4"]</xpath>
+											<value>
+												<li Class="XmlExtensions.Setting.DrawImage">
+													<texPath>WVC/Pawns/Bodies/Naked_{defName_DEF}_south</texPath>
+													<scale>0.5</scale>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_Valkyrie_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Valkyrie</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_Valkyrie_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_DryadMother_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Mother</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_DryadMother_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.GapLine"/>
+											</value>
+										</Operation>
+
+										<Operation Class="PatchOperationReplace">
+											<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+											<value>
+												<column>SkinSelector_5</column>
+											</value>
+										</Operation>
+
+									</apply>
+								</li>
+								<li>
+									<value>SkinSelector_5</value>
+									<apply>
+
+										<Operation Class="PatchOperationAdd">
+											<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_SkinsWithImage_WVC"]/settings/li[tag="SkinSelector_WithImage"]/settings/li[@WVC_Tag="SkinSelector_5"]</xpath>
+											<value>
+												<li Class="XmlExtensions.Setting.DrawImage">
+													<texPath>WVC/Pawns/Bodies/Naked_{defName_DEF}_south</texPath>
+													<scale>0.5</scale>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_Valkyrie_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Valkyrie</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_Valkyrie_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.Checkbox">
+													<key>Alien_DryadMother_WVC_SkinSelector_{defName_DEF}_WVC</key>
+													<label>Mother</label>
+													<defaultValue>{defaultValue}</defaultValue>
+													<tKey>HGS_Alien_DryadMother_Global_SingleWordEnable_WVC</tKey>
+												</li>
+												<li Class="XmlExtensions.Setting.GapLine"/>
+											</value>
+										</Operation>
+
+										<Operation Class="PatchOperationReplace">
+											<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_Slate_Column_SkinSelector_Image"]/column</xpath>
+											<value>
+												<column>SkinSelector_1</column>
+											</value>
+										</Operation>
+
+									</apply>
+								</li>
+							</cases>
+						</Operation>
+
+							</apply>
+						</Operation>
+
+						<!--=====================================================================-->
+
+					<!--=====================================================================-->
+
+						</apply>
+					</Operation>
+
+					<!--=====================================================================-->
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<XmlExtensions.PatchDef Name="Autopatcher_SkinSelector_Second_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>MarkerName</li>
+			<li>SpeciesType_defOrName</li>
+			<li>SpeciesType_First</li>
+			<li>SpeciesType_Second</li>
+			<!-- <li>SpeciesType_Third</li> -->
+			<li>MayRequireId</li>
+			<li>ColumnField</li>
+			<li>defaultValue</li>
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ApplyPatch">
+				<patchName>Autopatcher_SkinSelector_Patch_WVC</patchName>
+				<arguments>
+					<li>{MarkerName}</li>
+					<li>{SpeciesType_defOrName}</li>
+					<li>{SpeciesType_First}</li>
+					<li>{MayRequireId}</li>
+					<li>{ColumnField}</li>
+					<li>{defaultValue}</li>
+				</arguments>
+			</Operation>
+			<Operation Class="XmlExtensions.ApplyPatch">
+				<patchName>Autopatcher_SkinSelector_Patch_WVC</patchName>
+				<arguments>
+					<li>{MarkerName}</li>
+					<li>{SpeciesType_defOrName}</li>
+					<li>{SpeciesType_Second}</li>
+					<li>{MayRequireId}</li>
+					<li>{ColumnField}</li>
+					<li>{defaultValue}</li>
+				</arguments>
+			</Operation>
+			<!-- <Operation Class="XmlExtensions.ApplyPatch"> -->
+				<!-- <patchName>Autopatcher_SkinSelector_Patch_WVC</patchName> -->
+				<!-- <arguments> -->
+					<!-- <li>{MarkerName}</li> -->
+					<!-- <li>{SpeciesType_defOrName}</li> -->
+					<!-- <li>{SpeciesType_Third}</li> -->
+					<!-- <li>{MayRequireId}</li> -->
+					<!-- <li>{ColumnField}</li> -->
+					<!-- <li>{defaultValue}</li> -->
+				<!-- </arguments> -->
+			<!-- </Operation> -->
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="Autopatcher_SkinSelectorELF_Patch_WVC" Abstract="True">
+		<parameters>
+			<li>MarkerName</li>
+			<!-- <li>DefsType</li> -->
+			<!-- <li>Main_DogName</li> -->
+		</parameters>
+		<apply>
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/BodyTypeDef[@Name="{MarkerName}"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DEF</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{DEF}/defName</value>
+						<storeIn>defName_DEF</storeIn>
+						<fromXml>true</fromXml>
+						<apply>
+
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_ELFsSkins_WVC"]/settings/li[tag="ELF_SkinSelector"]/settings/li[@WVC_Tag="ELF_SkinSelector_1"]</xpath>
+								<value>
+									<li Class="XmlExtensions.Setting.DrawImage">
+										<texPath>WVC/Pawns/ELFs/Naked_{defName_DEF}_south</texPath>
+										<scale>0.5</scale>
+									</li>
+									<li Class="XmlExtensions.Setting.Checkbox">
+										<key>SkinSelector_{defName_DEF}</key>
+										<label>Enable</label>
+										<defaultValue>true</defaultValue>
+										<tKey>HGS_Global_SingleWordEnable_WVC</tKey>
+									</li>
+									<li Class="XmlExtensions.Setting.GapLine"/>
+								</value>
+							</Operation>
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_ELFsSkins_WVC"]/settings/li[tag="ELF_SkinSelector"]/settings/li[@WVC_Tag="ELF_SkinSelector_2"]</xpath>
+								<value>
+									<li Class="XmlExtensions.Setting.DrawImage">
+										<texPath>WVC/Pawns/ELFs/Naked_{defName_DEF}_east</texPath>
+										<scale>0.5</scale>
+									</li>
+									<li Class="XmlExtensions.Setting.Gap"/>
+									<li Class="XmlExtensions.Setting.GapLine"/>
+								</value>
+							</Operation>
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs/XmlExtensions.SettingsMenuDef[defName="Settings_Humanoids_ELFsSkins_WVC"]/settings/li[tag="ELF_SkinSelector"]/settings/li[@WVC_Tag="ELF_SkinSelector_3"]</xpath>
+								<value>
+									<li Class="XmlExtensions.Setting.DrawImage">
+										<texPath>WVC/Pawns/ELFs/Naked_{defName_DEF}_north</texPath>
+										<scale>0.5</scale>
+									</li>
+									<li Class="XmlExtensions.Setting.Gap"/>
+									<li Class="XmlExtensions.Setting.GapLine"/>
+								</value>
+							</Operation>
+
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>honkai.girls.sergkart</modId>
+								<key>SkinSelector_{defName_DEF}</key>
+								<defaultValue>true</defaultValue>
+								<caseTrue>
+
+									<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+										<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Alien_ELF_WVC"]/alienRace/generalSettings/alienPartGenerator</xpath>
+										<safetyDepth>1</safetyDepth>
+										<value>
+											<bodyTypes>
+												<li>{defName_DEF}</li>
+											</bodyTypes>
+										</value>
+									</Operation>
+
+								</caseTrue>
+							</Operation>
+
+						</apply>
+					</Operation>
+
+				</apply>
+			</Operation>
+		</apply>
+	</XmlExtensions.PatchDef>
+
+</Defs>

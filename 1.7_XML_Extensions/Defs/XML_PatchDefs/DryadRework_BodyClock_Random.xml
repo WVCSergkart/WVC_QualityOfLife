@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.SlateDef Name="WVC_DryadRework_BodyClock_Random_SlateDef" Abstract="True">
+		<bodyClock>Diurnal</bodyClock>
+	</XmlExtensions.SlateDef>
+
+	<XmlExtensions.PatchDef Name="WVC_DryadRework_BodyClock_Random" Abstract="True">
+		<parameters>
+			<!-- <li>BodyPartParentName</li> -->
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEachDescendant">
+				<xpathParent>/Defs/ThingDef[@Name="DryadBase"]</xpathParent>
+				<concreteOnly>true</concreteOnly>
+				<storeIn>DryadDef</storeIn>
+				<apply>
+
+					<!--=====================================================================-->
+
+					<Operation Class="XmlExtensions.AggregateValues">
+						<valueOperations>
+
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>{DryadDef}/defName</value>
+								<storeIn>DryadDefName_DEF</storeIn>
+								<fromXml>true</fromXml>
+							</Operation>
+							<Operation Class="XmlExtensions.CreateVariable">
+								<value>Defs/XmlExtensions.SlateDef[@Name="WVC_DryadRework_BodyClock_Random_SlateDef"]/bodyClock</value>
+								<fromXml>true</fromXml>
+								<storeIn>bodyClock</storeIn>
+							</Operation>
+
+						</valueOperations>
+						<apply>
+
+							<Operation Class="XmlExtensions.PatchByCase">
+								<value>{bodyClock}</value>
+								<cases>
+									<li>
+										<value>Diurnal</value>
+										<apply>
+
+											<Operation Class="PatchOperationAddModExtension">
+												<xpath>/Defs/ThingDef[defName="{DryadDefName_DEF}"]</xpath>
+												<value>
+												  <li Class="NocturnalAnimals.ExtendedRaceProperties">
+													<bodyClock>Diurnal</bodyClock>
+												  </li>
+												</value>
+											</Operation>
+											<Operation Class="PatchOperationAdd">
+											  <xpath>/Defs/ThinkTreeDef[defName="Dryad"]/thinkRoot/subNodes/li/subNodes/li/subNodes/li/subNodes/li/subNodes[@WVC_Tag="JobGivers_RandomDryadDoRandomJob_AutoPatcherHook"]</xpath> 
+											  <value>
+												<li Class="ThinkNode_ConditionalPawnKind">
+												  <pawnKind>{DryadDefName_DEF}</pawnKind>
+												  <subNodes>
+													<li Class="JobGiver_Haul" />
+													<!-- <li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Clean"/> -->
+													<!-- <li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Mine"/> -->
+												  </subNodes>
+												</li>
+											  </value>
+											</Operation>
+
+											<Operation Class="PatchOperationReplace">
+												<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_DryadRework_BodyClock_Random_SlateDef"]/bodyClock</xpath>
+												<value>
+													<bodyClock>Nocturnal</bodyClock>
+												</value>
+											</Operation>
+
+										</apply>
+									</li>
+									<li>
+										<value>Nocturnal</value>
+										<apply>
+
+											<Operation Class="PatchOperationAddModExtension">
+												<xpath>/Defs/ThingDef[defName="{DryadDefName_DEF}"]</xpath>
+												<value>
+												  <li Class="NocturnalAnimals.ExtendedRaceProperties">
+													<bodyClock>Nocturnal</bodyClock>
+												  </li>
+												</value>
+											</Operation>
+											<Operation Class="PatchOperationAdd">
+											  <xpath>/Defs/ThinkTreeDef[defName="Dryad"]/thinkRoot/subNodes/li/subNodes/li/subNodes/li/subNodes/li/subNodes[@WVC_Tag="JobGivers_RandomDryadDoRandomJob_AutoPatcherHook"]</xpath> 
+											  <value>
+												<li MayRequire="vanillaexpanded.vgeneticse" Class="ThinkNode_ConditionalPawnKind">
+												  <pawnKind>{DryadDefName_DEF}</pawnKind>
+												  <subNodes>
+													<!-- <li Class="JobGiver_Haul" /> -->
+													<li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Clean"/>
+													<!-- <li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Mine"/> -->
+												  </subNodes>
+												</li>
+											  </value>
+											</Operation>
+
+											<Operation Class="PatchOperationReplace">
+												<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_DryadRework_BodyClock_Random_SlateDef"]/bodyClock</xpath>
+												<value>
+													<bodyClock>Crepuscular</bodyClock>
+												</value>
+											</Operation>
+
+										</apply>
+									</li>
+									<li>
+										<value>Crepuscular</value>
+										<apply>
+
+											<Operation Class="PatchOperationAddModExtension">
+												<xpath>/Defs/ThingDef[defName="{DryadDefName_DEF}"]</xpath>
+												<value>
+												  <li Class="NocturnalAnimals.ExtendedRaceProperties">
+													<bodyClock>Crepuscular</bodyClock>
+												  </li>
+												</value>
+											</Operation>
+											<Operation Class="PatchOperationAdd">
+											  <xpath>/Defs/ThinkTreeDef[defName="Dryad"]/thinkRoot/subNodes/li/subNodes/li/subNodes/li/subNodes/li/subNodes[@WVC_Tag="JobGivers_RandomDryadDoRandomJob_AutoPatcherHook"]</xpath> 
+											  <value>
+												<li MayRequire="vanillaexpanded.vgeneticse" Class="ThinkNode_ConditionalPawnKind">
+												  <pawnKind>{DryadDefName_DEF}</pawnKind>
+												  <subNodes>
+													<!-- <li Class="JobGiver_Haul" /> -->
+													<!-- <li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Clean"/> -->
+													<li MayRequire="vanillaexpanded.vgeneticse" Class="GeneticRim.JobGiver_Mine"/>
+												  </subNodes>
+												</li>
+											  </value>
+											</Operation>
+
+											<Operation Class="PatchOperationReplace">
+												<xpath>/Defs/XmlExtensions.SlateDef[@Name="WVC_DryadRework_BodyClock_Random_SlateDef"]/bodyClock</xpath>
+												<value>
+													<bodyClock>Diurnal</bodyClock>
+												</value>
+											</Operation>
+
+										</apply>
+									</li>
+								</cases>
+							</Operation>
+
+						</apply>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>
